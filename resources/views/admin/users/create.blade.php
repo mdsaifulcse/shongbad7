@@ -34,16 +34,6 @@ Create New User
         <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
 
             <!--Begin::Row-->
-        
-            @if ($message = Session::get('success'))
-
-                <div class="alert alert-success">
-
-                    <p>{{ $message }}</p>
-
-                </div>
-
-            @endif
 
             <div class="row justify-content-md-center justify-content-lg-center">
                     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
@@ -64,7 +54,7 @@ Create New User
 											<div class="kt-portlet__body">
 												 
 												<div class="form-group row">
-													<label for="example-text-input" class="col-3 col-form-label">  Name</label>
+													<label for="example-text-input" class="col-3 col-form-label">Name <sup class="text-danger">*</sup></label>
 													<div class="col-9">
                                                     {!! Form::text('name', $value=old('name'), array('placeholder' => 'Name','class' => 'form-control','required'=>true)) !!}
                                                     
@@ -77,7 +67,7 @@ Create New User
 												</div>
 
 												<div class="form-group row">
-													<label for="example-text-input" class="col-3 col-form-label">Mobile</label>
+													<label for="example-text-input" class="col-3 col-form-label">Mobile <sup class="text-danger">*</sup></label>
 													<div class="col-9">
                                                    {!! Form::text('mobile', $value=old('mobile'), array('placeholder' => 'Mobile','class' => 'form-control','required'=>true)) !!}
                                                     
@@ -88,6 +78,7 @@ Create New User
                                                     @endif
 													</div>
 												</div>
+
 												<div class="form-group row">
 													<label for="example-text-input" class="col-3 col-form-label">Email</label>
 													<div class="col-9">
@@ -101,8 +92,62 @@ Create New User
 													</div>
 												</div>
 
+
 												<div class="form-group row">
-													<label for="example-text-input" class="col-3 col-form-label">Password</label>
+													<label for="example-text-input" class="col-3 col-form-label">Address</label>
+													<div class="col-9">
+														{!! Form::text('address', $value=old('address'), array('placeholder' => 'Address','class' => 'form-control','required'=>false)) !!}
+
+														@if ($errors->has('address'))
+															<span class="help-block">
+                                                            <strong class="text-danger">{{ $errors->first('address') }}</strong>
+                                                    </span>
+														@endif
+													</div>
+												</div>
+
+
+
+												<div class="form-group row">
+													<label for="example-text-input" class="col-3 col-form-label">Contact no.</label>
+													<div class="col-9">
+														{!! Form::text('contact', $value=old('contact'), array('placeholder' => 'Contact number','class' => 'form-control','required'=>false)) !!}
+
+														@if ($errors->has('contact'))
+															<span class="help-block">
+                                                            <strong class="text-danger">{{ $errors->first('contact') }}</strong>
+                                                    </span>
+														@endif
+													</div>
+												</div>
+
+												<div class="form-group row">
+													<label for="example-text-input" class="col-3 col-form-label">Designation</label>
+													<div class="col-9">
+                                                   {!! Form::text('designation', $value=old('designation'), array('placeholder' => 'User Designation Here','class' => 'form-control','required'=>false)) !!}
+
+                                                   @if ($errors->has('designation'))
+                                                    <span class="help-block">
+                                                            <strong class="text-danger">{{ $errors->first('designation') }}</strong>
+                                                    </span>
+                                                    @endif
+													</div>
+												</div>
+												<div class="form-group row">
+													<label for="example-text-input" class="col-3 col-form-label">Bio</label>
+													<div class="col-9">
+                                                   {!! Form::textArea('bio', $value=old('bio'), ['rows'=>4,'placeholder' => 'User Short Bio ','class' => 'form-control','required'=>false]) !!}
+
+                                                   @if ($errors->has('bio'))
+                                                    <span class="help-block">
+                                                            <strong class="text-danger">{{ $errors->first('bio') }}</strong>
+                                                    </span>
+                                                    @endif
+													</div>
+												</div>
+
+												<div class="form-group row">
+													<label for="example-text-input" class="col-3 col-form-label">Password  <sup class="text-danger">*</sup></label>
 													<div class="col-9">
                                                     {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control','required'=>true)) !!}
                                                     
@@ -115,7 +160,7 @@ Create New User
 												</div>
 
 												<div class="form-group row">
-													<label for="example-text-input" class="col-3 col-form-label">Confirm Password</label>
+													<label for="example-text-input" class="col-3 col-form-label">Confirm Password <sup class="text-danger">*</sup></label>
 													<div class="col-9">
                                                     {!! Form::password('confirm_password', array('placeholder' => 'Confirm Password','class' => 'form-control','required'=>true)) !!}
                                                     

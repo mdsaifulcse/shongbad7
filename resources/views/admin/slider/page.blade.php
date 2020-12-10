@@ -133,7 +133,9 @@
                         @forelse($allData as $data)
                             <tr>
                                 <td>{{$data->serial_num}}</td>
-                                <td> {{$data->title}}</td>
+                                <td>
+                                    {{$data->title}}
+                                </td>
 
                                 <td>
                                     @if(isset($data->pagePhoto) && file_exists($data->pagePhoto->photo))

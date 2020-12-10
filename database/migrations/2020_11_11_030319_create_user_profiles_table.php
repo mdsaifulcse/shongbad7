@@ -16,12 +16,17 @@ class CreateUserProfilesTable extends Migration
         Schema::create('user_profiles', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
             $table->string('avatar')->nullable();
-            $table->text('address')->nullable();
             $table->string('contact')->nullable();
+            $table->string('address')->nullable();
+            $table->text('designation')->nullable();
+            $table->text('bio')->nullable();
             $table->date('dob')->nullable();
             $table->string('nid')->nullable();
+            $table->string('nid_photo')->nullable();
+
+            $table->timestamp('joining_date')->nullable();
+            $table->integer('salary',false,8)->default(0);
             $table->softDeletes();
             $table->timestamps();
         });
@@ -34,6 +39,10 @@ class CreateUserProfilesTable extends Migration
      */
     public function down()
     {
+        Schema::table('news',function (Blueprint $table){
+            $table->dropForeign(['user_id']);
+        });
+
         Schema::dropIfExists('user_profiles');
     }
 }

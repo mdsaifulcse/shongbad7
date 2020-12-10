@@ -107,7 +107,7 @@ class UserController extends Controller
             $avatarPath='';
             if ($request->hasFile('avatar'))
             {
-                $avatarPath=\MyHelper::photoUpload($request->file('avatar'),'user-images',200);
+                $avatarPath=\MyHelper::photoUpload($request->file('avatar'),'images/user-images',150);
 
                 $input['avatar']=$avatarPath;
             }
@@ -235,7 +235,7 @@ class UserController extends Controller
             $avatarPath='';
             if ($request->hasFile('avatar'))
             {
-                $avatarPath=\MyHelper::photoUpload($request->file('avatar'),'user-images',200);
+                $avatarPath=\MyHelper::photoUpload($request->file('avatar'),'images/user-images',150);
 
                 if (!empty($userProfile) && file_exists($userProfile->avatar)){
                     unlink($userProfile->avatar);

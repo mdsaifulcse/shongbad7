@@ -32,17 +32,6 @@
         <!-- begin:: Content -->
         <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
 
-            <!--Begin::Row-->
-
-            @if ($message = Session::get('success'))
-
-                <div class="alert alert-success">
-
-                    <p>{{ $message }}</p>
-
-                </div>
-
-            @endif
             <div class="row justify-content-md-center justify-content-lg-center">
                     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
 
@@ -64,7 +53,7 @@
 													<label for="example-text-input" class="col-3 col-form-label">Name</label>
 													<div class="col-9">
 
-                                                    {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control','required'=>true)) !!}
+                                                    {!! Form::text('name', null, ['readonly'=>true,'placeholder' => 'Name','class' => 'form-control','required'=>true]) !!}
                                                     
                                                     @if ($errors->has('name'))
                                                     <span class="help-block">

@@ -140,7 +140,7 @@
 
                             <a class="btn btn-primary btn-sm" href="{{ route('roles.edit',$role->id) }}">Edit</a>
 
-                            <button type="button" class="btn btn-xs btn-danger btn-sm" onclick='return deleteConfirm("deleteForm{{$role->id}}")'><i class="fa fa-trash"></i></button>
+                            <button style="display:inline-block" type="button" class="btn btn-xs btn-danger btn-sm" onclick='return deleteConfirm("deleteForm{{$role->id}}")'><i class="fa fa-trash"></i></button>
                             {!! Form::close() !!}
 
 

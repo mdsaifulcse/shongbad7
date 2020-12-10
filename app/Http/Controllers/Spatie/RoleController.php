@@ -277,11 +277,16 @@ class RoleController extends Controller
 
     {
 
-        $result = DB::table('roles')->find($id);
+        $result = Role::find($id);
 
             if($result == NULL) //check if no record found
             {
                 return redirect()->back()->with('error','Something Error Found !, Please try again.');
+            }
+
+            if($result->id ==1 || $result->id ==2) //check if no record found
+            {
+                return redirect()->back()->with('error','This Role Can not be delete');
             }
            
 

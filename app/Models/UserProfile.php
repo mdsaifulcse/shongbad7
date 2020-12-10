@@ -12,6 +12,6 @@ class UserProfile extends Model
     protected $table='user_profiles';
     protected $softDelete = true;
     protected $fillable = [
-        'user_id','avatar','address','contact','dob','nid'
+        'user_id','avatar','address','contact','dob','nid','nid_photo','designation','bio','joining_date','salary'
     ];
 }

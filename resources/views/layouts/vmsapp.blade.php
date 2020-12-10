@@ -62,6 +62,11 @@
     <link href="{{asset('/')}}/assets/css/demo1/skins/brand/dark.css" rel="stylesheet" type="text/css" />
     <link href="{{asset('/')}}/assets/css/demo1/skins/aside/dark.css" rel="stylesheet" type="text/css" />
 
+
+
+    @yield('style')
+
+
     <link href="{{asset('/')}}/assets/vendors/custom.css" rel="stylesheet" type="text/css" />
 
     <!--end::Layout Skins -->

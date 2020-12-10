@@ -40,6 +40,8 @@ Route::group(['middleware' => ['auth'],'namespace'=>'Admin','prefix' => 'admin']
 
     Route::get('/home', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('home');
 
+    Route::resource('news','NewsController')->middleware('permission:client');
+
 
     Route::resource('client','OurClientController')->middleware('permission:client');
     Route::resource('faq','FaqController')->middleware('permission:faq');
