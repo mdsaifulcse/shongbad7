@@ -60,7 +60,7 @@ Create New News
 												 
 												<div class="row">
 													<div class="form-group col-md-7">
-														<label for="example-text-input" class="col-form-label">Name<sup class="text-danger">*</sup></label>
+														<label for="example-text-input" class="col-form-label">Title<sup class="text-danger">*</sup></label>
 														<div class="">
 															{!! Form::text('title', $value=old('title'), array('placeholder' => 'News Title Here *','class' => 'form-control','required'=>true)) !!}
 
@@ -140,7 +140,122 @@ Create New News
 
 												</div><!-- end row -->
 
-									
+
+
+												<div class="row">
+													<div class="form-group col-md-5">
+														<label for="example-text-input" class="col-form-label">Feature Image Caption</label>
+														<div class="">
+															{!! Form::text('photo_caption', $value=old('photo_caption'), array('placeholder' => 'Image Caption Here','class' => 'form-control','required'=>false)) !!}
+
+															@if ($errors->has('photo_caption'))
+																<span class="help-block">
+                                                            <strong class="text-danger">{{ $errors->first('photo_caption') }}</strong>
+                                                    </span>
+															@endif
+														</div>
+													</div>
+
+													<div class="form-group col-md-3">
+														<label for="example-text-input" class="col-form-label">Video Link</label>
+														<div class="">
+															{!! Form::text('video_url', $value=old('video_url'), ['id'=>'video_link','placeholder' => 'News Topic Here','class' => 'form-control','required'=>false,]) !!}
+
+															@if ($errors->has('video_url'))
+																<span class="help-block">
+                                                            <strong class="text-danger">{{ $errors->first('video_url') }}</strong>
+                                                    </span>
+															@endif
+														</div>
+													</div>
+
+													<div class="form-group col-md-2">
+														<label for="example-text-input" class="col-form-label">Show at Homepage?<sup class="text-danger">*</sup></label>
+														<div class="">
+															{!! Form::select('show_at_homepage', [\App\Models\News::YES=>\App\Models\News::YES,\App\Models\News::NO=>\App\Models\News::NO],[], ['placeholder' => 'Select One *','class' => 'form-control','required'=>true]) !!}
+
+															@if ($errors->has('show_at_homepage'))
+																<span class="help-block">
+                                                            <strong class="text-danger">{{ $errors->first('show_at_homepage') }}</strong>
+                                                    </span>
+															@endif
+														</div>
+													</div>
+
+													<div class="form-group col-md-2">
+														<label for="example-text-input" class="col-form-label">Is Cover News?<sup class="text-danger">*</sup></label>
+														<div class="">
+															{!! Form::select('is_cover_news', [\App\Models\News::YES=>\App\Models\News::YES,\App\Models\News::NO=>\App\Models\News::NO],[], ['placeholder' => 'Select One *','class' => 'form-control','required'=>true]) !!}
+
+															@if ($errors->has('is_cover_news'))
+																<span class="help-block">
+                                                            <strong class="text-danger">{{ $errors->first('is_cover_news') }}</strong>
+                                                    </span>
+															@endif
+														</div>
+													</div>
+
+												</div><!-- end row -->
+
+
+												<div class="row">
+
+													<div class="form-group col-md-3">
+														<label for="example-text-input" class="col-form-label">News Author<sup class="text-danger">*</sup></label>
+														<div class="">
+															{!! Form::select('news_author_id',$newsAuthors,[], ['placeholder' => 'Select Author *','class' => 'form-control','required'=>true]) !!}
+
+															@if ($errors->has('news_author_id'))
+																<span class="help-block">
+                                                            <strong class="text-danger">{{ $errors->first('news_author_id') }}</strong>
+                                                    </span>
+															@endif
+														</div>
+													</div>
+
+													<div class="form-group col-md-2">
+														<label for="example-text-input" class="col-form-label">Category<sup class="text-danger">*</sup></label>
+														<div class="">
+															{!! Form::select('category_id',$categories,[], ['id'=>'loadSubCategory','placeholder' => 'Select Category *','class' => 'form-control','required'=>true]) !!}
+
+															@if ($errors->has('category_id'))
+																<span class="help-block">
+																	<strong class="text-danger">{{ $errors->first('category_id') }}</strong>
+																</span>
+															@endif
+														</div>
+													</div>
+
+
+													<div class="form-group col-md-2">
+														<label for="example-text-input" class="col-form-label">Sub Category</label>
+														<div class="" id="subCategory">
+															{!! Form::select('sub_cat_id',[],[], ['placeholder' => 'First Select Category','class' => 'form-control','required'=>false]) !!}
+
+															@if ($errors->has('sub_cat_id'))
+																<span class="help-block">
+																	<strong class="text-danger">{{ $errors->first('sub_cat_id') }}</strong>
+																</span>
+															@endif
+														</div>
+													</div>
+
+
+													<div class="form-group col-md-2">
+														<label for="example-text-input" class="col-form-label">States<sup class="text-danger">*</sup></label>
+														<div class="">
+															{!! Form::select('division_id',$states,[], ['placeholder' => 'Select States *','class' => 'form-control','required'=>true]) !!}
+
+															@if ($errors->has('division_id'))
+																<span class="help-block">
+                                                            <strong class="text-danger">{{ $errors->first('division_id') }}</strong>
+                                                    </span>
+															@endif
+														</div>
+													</div>
+
+												</div><!-- end row -->
+
 											</div> <!--End kt-portlet__body -->
 
 
@@ -173,6 +288,7 @@ Create New News
 @endsection
 
 @section('script')
+
 	<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
 	<script>
         tinymce.init({
@@ -216,6 +332,17 @@ Create New News
         });
 	</script>
 
+
+	<script>
+		$('#loadSubCategory').on('change',function () {
+
+			var id=$(this).val()
+
+            $('#subCategory').html('<center><img src=" {{asset('images/default/loader.gif')}}"/></center>').load('{{URL::to("load-sub-cat-by-cat")}}/'+id);
+
+        })
+
+	</script>
 
 
 	<script type="text/javascript">

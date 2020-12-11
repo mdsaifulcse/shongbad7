@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\News;
 use Illuminate\Http\Request;
+use DB,Auth,Validator,MyHelper,DataLoad;
 
 class NewsController extends Controller
 {
@@ -15,7 +16,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+        News::get();
     }
 
     /**
@@ -25,7 +26,11 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('admin.news.create');
+        $newsAuthors=DataLoad::newsAuthor();
+        $categories=DataLoad::categoryList();
+        $states=DataLoad::divisionList();
+
+        return view('admin.news.create',compact('newsAuthors','categories','states'));
     }
 
     /**

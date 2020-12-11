@@ -44,7 +44,7 @@
                         <div class="kt-portlet__head form-header">
                             <div class="kt-portlet__head-label">
                                 <h3 class="kt-portlet__head-title">
-                                    Create new Sub-category
+                                    Create new Sub-category for ( {{$category->category_name}} )
                                 </h3>
                             </div>
                         </div>
@@ -135,6 +135,7 @@
                         <thead>
                         <tr class="bg-dark text-white">
                             <th>SL</th>
+                            <th>Category</th>
                             <th>Sub Category</th>
                             <th>URL</th>
                             <th>Status</th>
@@ -147,7 +148,10 @@
                         @forelse($allData as $data)
                             <tr>
                                 <td>{{$data->serial_num}}</td>
-                                <td><a href="{{route('categories.edit',$data->id)}}"><i class="{{$data->icon_class}}"></i> {{$data->category_name}}</a></td>
+                                <td><a href="#"><i class="{{$data->icon_class}}"></i> {{$data->category_name}}</a></td>
+
+                                <td> {{$data->sub_category_name}}</td>
+
                                 <td><a href="{{URL::to($data->link)}}" target="_blank">{{URL::to($data->link)}}</a></td>
 
 

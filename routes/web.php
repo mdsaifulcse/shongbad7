@@ -32,6 +32,10 @@ Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 
 
 
+
+Route::get('/load-sub-cat-by-cat/{categoryId}', '\App\CustomFacades\DataLoadController@loadSubCatsByCat');
+
+
 Route::group(['middleware' => ['auth'],'namespace'=>'Admin','prefix' => 'admin'], function() {
 
     Route::get('demo-route',function (){

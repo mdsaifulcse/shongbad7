@@ -18,15 +18,17 @@ class CreateNewsTable extends Migration
 
             $table->string('title');
             $table->string('feature_photo');
-            $table->string('feature_medial');
-            $table->string('feature_small');
-            $table->string('photo_caption');
+            $table->string('feature_medial')->nullable();
+            $table->string('feature_small')->nullable();
+            $table->string('photo_caption')->nullable();
             $table->string('description');
             $table->string('topic')->nullable();
+            $table->string('video_url')->nullable();
             $table->string('published_status')->default(\App\Models\News::UNPUBLISHED);
             $table->dateTime('published_date')->nullable();
 
             $table->string('is_cover_news')->default(\App\Models\News::NO);
+            $table->string('show_at_homepage')->default(\App\Models\News::NO);
 
             $table->unsignedBigInteger('category_id',false,20);
             $table->unsignedBigInteger('sub_cat_id',false,20)->nullable();
