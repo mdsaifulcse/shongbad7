@@ -11,7 +11,7 @@ use Yajra\Acl\Models\Role;
 
 class MyHelperProvider extends ServiceProvider
 {
-    static public function userRole($id=null){
+     public static function userRole($id=null){
 
         $user = Role::join('role_user','role_user.role_id','roles.id')
             ->select('roles.slug as role','roles.id as role_id');
@@ -23,7 +23,7 @@ class MyHelperProvider extends ServiceProvider
         }
         return $user->first();
     }
-    static public function bkash()
+    public static function bkash()
     {
         $config = [
             "tokenURL" => "https://checkout.pay.bka.sh/v1.2.0-beta/checkout/token/grant",
@@ -42,7 +42,7 @@ class MyHelperProvider extends ServiceProvider
     }
 
 
-    static public function slugify($text){
+     public static function slugify($text){
         // replace non letter or digits by -
         $text = preg_replace('~[^\pL\d]+~u', '-', $text);
         // transliterate
@@ -62,7 +62,7 @@ class MyHelperProvider extends ServiceProvider
     }
 
     /* Convert in word taka */
-    static public function taka($number)
+    public static function taka($number)
     {
         $decimal = round($number - ($no = floor($number)), 2) * 100;
         $hundred = null;
@@ -95,7 +95,7 @@ class MyHelperProvider extends ServiceProvider
         return ($Rupees ? $Rupees . ' Taka Only ' : '');
     }
 
-    static public function photoUpload($photoData,$folderName,$width=null,$height=null){
+     public static function photoUpload($photoData,$folderName,$width=null,$height=null){
 
         $photoOrgName=self::slugify($photoData->getClientOriginalName());
         $photoType=$photoData->getClientOriginalExtension();
@@ -146,7 +146,7 @@ class MyHelperProvider extends ServiceProvider
 
 
 
-    static public function postPhotoUpload($photoData){
+     public static function postPhotoUpload($photoData){
 
         $photoOrgName=self::slugify($photoData->getClientOriginalName());
         $photoType=$photoData->getClientOriginalExtension();
@@ -173,7 +173,7 @@ class MyHelperProvider extends ServiceProvider
 
 
 
-    static public function hrmConfig(){
+    public static function hrmConfig(){
         $data = [
             'in_time'=>'09:00 AM',
             'out_time'=>'06:00 PM',
@@ -182,7 +182,7 @@ class MyHelperProvider extends ServiceProvider
         return $config = (object) $data;
     }
 
-    static public function info(){
+     public static function info(){
         return PrimaryInfo::first();
     }
 }

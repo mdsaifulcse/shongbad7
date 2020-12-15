@@ -16,7 +16,7 @@ class DivisionController extends Controller
      */
     public function index(Request $request)
     {
-        $allData=Division::orderBy('serial_num','ASC')->paginate(10);
+        $allData=Division::orderBy('id','DESC')->paginate(20);
         $max_serial=Division::max('serial_num');
 
         return view('admin.divisions.index',compact('allData','max_serial'));

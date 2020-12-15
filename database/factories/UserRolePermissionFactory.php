@@ -25,13 +25,13 @@ class UserRolePermissionFactory extends Factory
     public function definition()
     { $user=User::create([
         'name'=>'Md.Saiful Islam',
-        'username'=>'adeptsaiful',
+        'username'=>'developer',
         'mobile'=>'01829655974',
         'password'=>bcrypt('12345678')
     ]);
 
         $role=Role::create([
-            'name'=>'systemadmin'
+            'name'=>'developer'
         ]);
 
         $permissions = Permission::pluck('id', 'id')->all();

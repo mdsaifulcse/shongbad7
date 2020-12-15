@@ -149,6 +149,15 @@ class MenuSeeder extends Seeder
                 'serial_num'=>'11',
                 'slug'=>'["setting"]',
             ],
+            [
+                'id'=>'12',
+                'menu_id'=>'2',
+                'name'=>'Users',
+                'url'=>'admin/users',
+                'icon_class'=>'fa fa-user',
+                'serial_num'=>'12',
+                'slug'=>'["setting"]',
+            ],
         ];
 
         SubMenu::insert($subMenus);

@@ -18,10 +18,10 @@ class CreateNewsTable extends Migration
 
             $table->string('title');
             $table->string('feature_photo');
-            $table->string('feature_medial')->nullable();
+            $table->string('feature_medium')->nullable();
             $table->string('feature_small')->nullable();
             $table->string('photo_caption')->nullable();
-            $table->string('description');
+            $table->longText('description');
             $table->string('topic')->nullable();
             $table->string('video_url')->nullable();
             $table->string('published_status')->default(\App\Models\News::UNPUBLISHED);

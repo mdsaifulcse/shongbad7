@@ -21,7 +21,7 @@ class CreateDistrictsTable extends Migration
 
             $table->string('district',100)->unique();
             $table->string('district_bn',100)->unique()->nullable();
-            $table->string('url');
+            $table->string('link');
             $table->string('icon_photo')->nullable();
             $table->string('icon_class')->nullable();
             $table->string('status')->default(\App\Models\District::ACTIVE);

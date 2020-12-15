@@ -22,7 +22,7 @@ class CategoryController extends Controller
     {
 
         $url=$request->path();
-        $allData=Category::orderBy('serial_num','ASC')->paginate(10);
+        $allData=Category::orderBy('serial_num','DESC')->paginate(20);
         $max_serial=Category::max('serial_num');
         return view('admin.categories.index',compact('allData','max_serial'));
     }
@@ -70,8 +70,8 @@ class CategoryController extends Controller
         if ($request->hasFile('icon_photo')) {
 
             $input['icon_photo']=\MyHelper::photoUpload($request->file('icon_photo'),'images/categories/',120);
-
         }
+
         Category::create($input);
         try{
             $bug=0;

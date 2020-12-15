@@ -18,7 +18,7 @@ class CreateDivisionsTable extends Migration
 
             $table->string('division',100)->unique();
             $table->string('division_bn',100)->unique()->nullable();
-            $table->string('url');
+            $table->string('link');
             $table->string('icon_photo')->nullable();
             $table->string('icon_class')->nullable();
             $table->integer('serial_num',false,4)->nullable();

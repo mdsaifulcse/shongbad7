@@ -75,15 +75,17 @@ Create New News
 													<div class="form-group col-md-3">
 														<label for="example-text-input" class="col-form-label">Topic<sup class="text-danger">*</sup></label>
 														<div class="">
-															{!! Form::text('topic[]', $value=old('topic'), ['id'=>'topicField','placeholder' => 'News Topic Here *','class' => 'form-control','required'=>true,'style'=>'display:none',]) !!}
+															{!! Form::text('topic[]', $value=old('topic'), ['id'=>'topicField','placeholder' => 'News Topic Here *','class' => 'form-control','required'=>false,'style'=>'display:none',]) !!}
 
 															<ul id="topicFieldUl"></ul>
 
 															@if ($errors->has('topic'))
 																<span class="help-block">
-                                                            <strong class="text-danger">{{ $errors->first('topic') }}</strong>
-                                                    </span>
+																	<strong class="text-danger">{{ $errors->first('topic') }}</strong>
+																</span>
 															@endif
+
+															<span class="text-danger text-center" id="topicError"></span>
 														</div>
 													</div>
 													<div class="form-group col-md-2">
@@ -108,25 +110,29 @@ Create New News
 														<div class="">
 															{!! Form::textArea('description', $value=old('description'), ['rows'=>8,'placeholder' => 'News Details Here ','class' => 'form-control textarea','required'=>false]) !!}
 
+
+															<strong class="text-default pull-right description-error"><span id="character_count">0</span> /5000 </strong>
+
 															@if ($errors->has('description'))
 																<span class="help-block">
 														<strong class="text-danger">{{ $errors->first('description') }}</strong>
 												</span>
 															@endif
 														</div>
+														<span id="descriptionError" class="text-danger"></span>
 													</div>
 
 													<div class="form-group col-md-2">
-														<label for="example-text-input" class=" col-form-label">Feature Image</label>
+														<label for="example-text-input" class=" col-form-label">Feature Image <sup class="text-danger">*</sup></label>
 														<div class="">
 
-															<label class="slide_upload" for="file">
+															<label class="slide_upload" for="featurePhoto">
 																<!--  -->
 
 																<img id="image_load" src="{{asset('images/default/default.png')}}" style="width: 150px; height: 150px;cursor:pointer;border:2px dashed #260d53;">
 
 															</label>
-															<input id="file" style="display:none" name="feature_photo" type="file" onchange="photoLoad(this,this.id)" accept="image/*">
+															<input id="featurePhoto" style="display:none" name="feature_photo" type="file"  required onchange="photoLoad(this,this.id)" accept="image/*">
 
 
 															@if ($errors->has('feature_photo'))
@@ -135,6 +141,7 @@ Create New News
                                                     </span>
 															@endif
 														</div>
+														<span class="text-danger text-center" style="display:none" id="fimageError">Feature Image is Required  </span>
 													</div>
 
 
@@ -159,7 +166,7 @@ Create New News
 													<div class="form-group col-md-3">
 														<label for="example-text-input" class="col-form-label">Video Link</label>
 														<div class="">
-															{!! Form::text('video_url', $value=old('video_url'), ['id'=>'video_link','placeholder' => 'News Topic Here','class' => 'form-control','required'=>false,]) !!}
+															{!! Form::text('video_url', $value=old('video_url'), ['id'=>'video_link','placeholder' => 'Past Video Link','class' => 'form-control','required'=>false,]) !!}
 
 															@if ($errors->has('video_url'))
 																<span class="help-block">
@@ -262,10 +269,9 @@ Create New News
 											<div class="kt-portlet__foot form-footer">
 												<div class="kt-form__actions">
 													<div class="row">
-														<div class="col-2">
-														</div>
+
 														<div class="col-10">
-															<button type="submit" class="btn btn-success">Submit</button>
+															<button type="submit" class="btn btn-success" onclick="return ValidateCharacterLength()">Submit</button>
 															<button type="reset" class="btn btn-secondary pull-right">Cancel</button>
 														</div>
 													</div>
@@ -277,10 +283,7 @@ Create New News
                             </div>
                         </div>
         </div>
-
             <!--End::Row-->
-
-            <!--End::Dashboard 1-->
     </div>
 
         <!-- end:: Content -->
@@ -307,6 +310,54 @@ Create New News
                 });
             }
         });
+
+
+        function CountCharacters() {
+            var body = tinymce.get("description").getBody();
+            var content = tinymce.trim(body.innerText || body.textContent);
+            return content.length;
+        };
+        function ValidateCharacterLength() {
+            var max = 5000;
+            var count = CountCharacters();
+            if (count > max) {
+                alert("Maximum " + max + " characters allowed.")
+                return false;
+            }else if(count<=10) {
+                alert("Minimum " + 50 + " characters required for news description")
+
+                return false;
+            }else{
+
+                var imgVal = $('#featurePhoto').val();
+                if(imgVal=='')
+                {
+                    $('#fimageError').show();
+                    return false;
+                }else{
+                    $('#fimageError').hide();
+                }
+
+
+
+                if($('#topicFieldUl li').length<2){
+                    $('#errorPhoto').html('');
+
+                    $('#topicError').html('Topic is required.');
+
+                    return false
+                }else {
+                    $('#topicError').html('');
+				}
+
+
+
+                return;
+            }
+        }
+
+
+
 	</script>
 
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -338,7 +389,16 @@ Create New News
 
 			var id=$(this).val()
 
+
+			if(id.length===0)
+			{
+			    id=0
+                $('#subCategory').html('<center><img src=" {{asset('images/default/loader.gif')}}"/></center>').load('{{URL::to("load-sub-cat-by-cat")}}/'+id);
+
+			}else {
+
             $('#subCategory').html('<center><img src=" {{asset('images/default/loader.gif')}}"/></center>').load('{{URL::to("load-sub-cat-by-cat")}}/'+id);
+            }
 
         })
 
