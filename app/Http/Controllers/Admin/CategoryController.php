@@ -22,7 +22,7 @@ class CategoryController extends Controller
     {
 
         $url=$request->path();
-        $allData=Category::orderBy('serial_num','DESC')->paginate(20);
+        $allData=Category::orderBy('serial_num','DESC')->paginate(80);
         $max_serial=Category::max('serial_num');
         return view('admin.categories.index',compact('allData','max_serial'));
     }
@@ -123,17 +123,17 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $input = $request->all();
-        $link=str_replace(' , ', '-', $input['category_name']);
-        $link=str_replace(', ', '-', $link);
-        $link=str_replace(' ,', '-', $link);
-        $link=str_replace(',', '-', $link);
-        $link=str_replace('/', '-', $link);
-        $link=rtrim($link,' ');
-        $link=str_replace(' ', '-', $link);
-        $link=str_replace('.', '', $link);
-        $link=substr($link,0,40);
-        $link=strtolower($link);
-        $input['link']=$link;
+//        $link=str_replace(' , ', '-', $input['category_name']);
+//        $link=str_replace(', ', '-', $link);
+//        $link=str_replace(' ,', '-', $link);
+//        $link=str_replace(',', '-', $link);
+//        $link=str_replace('/', '-', $link);
+//        $link=rtrim($link,' ');
+//        $link=str_replace(' ', '-', $link);
+//        $link=str_replace('.', '', $link);
+//        $link=substr($link,0,40);
+//        $link=strtolower($link);
+//        $input['link']=$link;
 
         $data=Category::findOrFail($id);
 

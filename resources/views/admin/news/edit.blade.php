@@ -370,7 +370,7 @@ Edit News Info
                 singleField: true,
                 singleFieldNode: $('#topicField'),
                 allowSpaces: true,
-                tagLimit:3,
+                tagLimit:5,
                 placeholderText:'Enter News Topics (Max 3)',
             });
         });

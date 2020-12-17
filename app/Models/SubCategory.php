@@ -12,6 +12,7 @@ class SubCategory extends Model
 
     const ACTIVE='Active';
     const INACTIVE='Inactive';
+    const OTHER='Other';
 
     protected $table='sub_categories';
     protected $fillable=['category_id','sub_category_name','sub_category_name_bn','link','status','serial_num','icon_photo','short_description','created_by','updated_by'];

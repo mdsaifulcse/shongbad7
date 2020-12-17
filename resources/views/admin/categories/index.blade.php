@@ -62,7 +62,7 @@
                                      @endif
                                  </div>
                                  <div class="col-md-2">
-                                     {{Form::select('status', [\App\Models\Category::ACTIVE  => \App\Models\Category::ACTIVE , \App\Models\Category::INACTIVE  => \App\Models\Category::INACTIVE],[], ['class' => 'form-control'])}}
+                                     {{Form::select('status', [\App\Models\Category::ACTIVE  => \App\Models\Category::ACTIVE , \App\Models\Category::INACTIVE  => \App\Models\Category::INACTIVE,\App\Models\Category::OTHER  => \App\Models\Category::OTHER],[], ['class' => 'form-control'])}}
                                  </div>
                              </div>
 
@@ -146,7 +146,7 @@
                             <tr>
                                 <td>{{$data->serial_num}}</td>
                                 <td><a href="{{route('categories.edit',$data->id)}}"><i class="{{$data->icon_class}}"></i> {{$data->category_name}}</a></td>
-                                <td><a href="{{URL::to($data->link)}}" target="_blank">{{URL::to($data->link)}}</a></td>
+                                <td>{{$data->link}}</td>
 
                                 <td>
                                     <a class="btn btn-sm btn-sm btn-info" href='{{route('sub-categories.show',$data->id)}}'>Sub Category ({{$data->subCategoryData->count()}})</a>
@@ -170,6 +170,7 @@
                                 <div class="modal fade show" id="categoryModal{{$data->id}}" role="dialog" aria-labelledby="" style="display: none;" aria-modal="true">
                                     <div class="modal-dialog modal-lg" role="document">
                                         <div class="modal-content">
+                                            {!! Form::open(array('route' => ['categories.update', $data->id],'method'=>'PUT','class'=>'kt-form kt-form--label-right','files'=>true)) !!}
                                             <div class="modal-header modal-header-primary">
                                                 <h5 class="modal-title" id="">Edit  Category Info | {{$data->category_name}}</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -178,7 +179,7 @@
                                             </div>
 
                                             <div class="modal-body">
-                                                {!! Form::open(array('route' => ['categories.update', $data->id],'method'=>'PUT','class'=>'kt-form kt-form--label-right','files'=>true)) !!}
+
 
 
                                                 <div class="form-group row {{ $errors->has('name') ? 'has-error' : '' }}">
@@ -193,9 +194,23 @@
                                                     </div>
 
                                                     <div class="col-md-2">
-                                                        {{Form::select('status', [\App\Models\Category::ACTIVE  => \App\Models\Category::ACTIVE , \App\Models\Category::INACTIVE  => \App\Models\Category::INACTIVE],$data->status, ['class' => 'form-control'])}}
+                                                        {{Form::select('status', [\App\Models\Category::ACTIVE  => \App\Models\Category::ACTIVE , \App\Models\Category::INACTIVE  => \App\Models\Category::INACTIVE,\App\Models\Category::OTHER  => \App\Models\Category::OTHER],$data->status, ['class' => 'form-control'])}}
                                                     </div>
                                                 </div>
+
+
+                                                <div class="form-group row {{ $errors->has('link') ? 'has-error' : '' }}">
+                                                    {{Form::label('Link', 'URL', array('class' => 'col-md-2 control-label'))}}
+                                                    <div class="col-md-8">
+                                                        {{Form::text('link',$value=$data->link,array('class'=>'form-control','placeholder'=>'Category Name','required','autofocus'))}}
+                                                        @if ($errors->has('link'))
+                                                            <span class="help-block">
+                        				<strong class="text-danger">{{ $errors->first('link') }}</strong>
+                    			</span>
+                                                        @endif
+                                                    </div>
+                                                </div>
+
 
                                                 <div class="form-group row">
                                                     {{Form::label('short_description', 'Short Description', array('class' => 'col-md-2 control-label'))}}
@@ -229,35 +244,26 @@
                                                         <b>OR</b>
                                                     </div>
                                                     <div class="col-md-5">
-                                                        {{Form::text('icon_class','',array('class'=>'form-control','placeholder'=>'Ex: fa fa-facebook, ion-gear-a'))}}
+                                                        {{Form::text('icon_class',$data->icon_class,array('class'=>'form-control','placeholder'=>'Ex: fa fa-facebook, ion-gear-a'))}}
                                                         <span>Use : <a class="btn btn-link" href="http://fontawesome.io/icons/">Font Awesome</a>, <a class="btn btn-link" href="http://ionicons.com/">ion icons</a></span>
                                                     </div>
                                                     <?php $max=$max_serial+1; ?>
                                                     <div class="col-md-2">
-                                                        {{Form::number('serial_num',$max, ['min'=>'1','max'=>$max,'class' => 'form-control','required'])}}
+                                                        {{Form::number('serial_num',$data->serial_num, ['min'=>'1','max'=>$max,'class' => 'form-control','required'])}}
                                                         <span>Category Serial</span>
                                                     </div>
                                                 </div>
 
 
-
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                    </div>
-                                                    <div class="col-10">
-                                                        <button type="submit" class="btn btn-success">Submit</button>
-                                                    </div>
-                                                </div>
-
-
-
-                                                {!! Form::close() !!}
-                                            </div>
+                                            </div><!--end body-->
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-brand pull-left" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-brand">Submit</button>
+                                                <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
                                                 <!-- <button type="button" class="btn btn-secondary">Submit</button> -->
                                             </div>
-                                        </div>
+                                            {!! Form::close() !!}
+                                        </div><!--end content-->
+
                                     </div>
                                 </div>
 

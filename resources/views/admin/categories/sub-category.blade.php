@@ -65,7 +65,7 @@
                                      @endif
                                  </div>
                                  <div class="col-md-2">
-                                     {{Form::select('status', [\App\Models\SubCategory::ACTIVE  => \App\Models\SubCategory::ACTIVE , \App\Models\SubCategory::INACTIVE  => \App\Models\SubCategory::INACTIVE],[], ['class' => 'form-control'])}}
+                                     {{Form::select('status', [\App\Models\SubCategory::ACTIVE  => \App\Models\SubCategory::ACTIVE , \App\Models\SubCategory::INACTIVE  => \App\Models\SubCategory::INACTIVE,\App\Models\SubCategory::OTHER  => \App\Models\SubCategory::OTHER],[], ['class' => 'form-control'])}}
                                  </div>
                              </div>
 
@@ -152,7 +152,7 @@
 
                                 <td> {{$data->sub_category_name}}</td>
 
-                                <td><a href="{{URL::to($data->link)}}" target="_blank">{{URL::to($data->link)}}</a></td>
+                                <td>{{$data->link}}</td>
 
 
 
@@ -173,6 +173,7 @@
                                 <div class="modal fade show" id="subCategoryModal{{$data->id}}" role="dialog" aria-labelledby="" style="display: none;" aria-modal="true">
                                     <div class="modal-dialog modal-lg" role="document">
                                         <div class="modal-content">
+                                            {!! Form::open(array('route' => ['sub-categories.update', $data->id],'method'=>'PUT','class'=>'kt-form kt-form--label-right','files'=>true)) !!}
                                             <div class="modal-header modal-header-primary">
                                                 <h5 class="modal-title" id="">Edit Sub Category Info | {{$data->sub_category_name}}</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -181,8 +182,6 @@
                                             </div>
 
                                             <div class="modal-body">
-                                                {!! Form::open(array('route' => ['sub-categories.update', $data->id],'method'=>'PUT','class'=>'kt-form kt-form--label-right','files'=>true)) !!}
-
 
                                                 <div class="form-group row {{ $errors->has('name') ? 'has-error' : '' }}">
                                                     {{Form::label('category_name', 'Sub-category Name', array('class' => 'col-md-2 control-label'))}}
@@ -198,9 +197,23 @@
                                                         @endif
                                                     </div>
                                                     <div class="col-md-2">
-                                                        {{Form::select('status', [\App\Models\SubCategory::ACTIVE  => \App\Models\SubCategory::ACTIVE , \App\Models\SubCategory::INACTIVE  => \App\Models\SubCategory::INACTIVE],$data->status, ['class' => 'form-control'])}}
+                                                        {{Form::select('status', [\App\Models\SubCategory::ACTIVE  => \App\Models\SubCategory::ACTIVE , \App\Models\SubCategory::INACTIVE  => \App\Models\SubCategory::INACTIVE,\App\Models\SubCategory::OTHER  => \App\Models\SubCategory::OTHER],$data->status, ['class' => 'form-control'])}}
                                                     </div>
                                                 </div>
+
+
+                                                <div class="form-group row {{ $errors->has('link') ? 'has-error' : '' }}">
+                                                    {{Form::label('Link', 'URL', array('class' => 'col-md-2 control-label'))}}
+                                                    <div class="col-md-8">
+                                                        {{Form::text('link',$value=$data->link,array('class'=>'form-control','placeholder'=>'Category Name','required','autofocus'))}}
+                                                        @if ($errors->has('link'))
+                                                            <span class="help-block">
+                        				<strong class="text-danger">{{ $errors->first('link') }}</strong>
+                    			</span>
+                                                        @endif
+                                                    </div>
+                                                </div>
+
 
                                                 <div class="form-group row">
                                                     {{Form::label('short_description', 'Short Description', array('class' => 'col-md-2 control-label'))}}
@@ -243,30 +256,14 @@
                                                     </div>
                                                 </div>
 
-
-
-
-
-
-
-
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                    </div>
-                                                    <div class="col-10">
-                                                        <button type="submit" class="btn btn-success">Submit</button>
-                                                    </div>
-                                                </div>
-
-
-
-                                                {!! Form::close() !!}
-                                            </div>
+                                            </div><!-- end body -->
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-brand pull-left" data-dismiss="modal">Close</button>
-                                                <!-- <button type="button" class="btn btn-secondary">Submit</button> -->
+                                                <button type="submit" class="btn btn-brand">Submit</button>
+                                                <button type="button" class="btn btn-secondary  pull-right" data-dismiss="modal">Close</button>
                                             </div>
-                                        </div>
+                                            {!! Form::close() !!}
+                                        </div><!-- end content -->
+
                                     </div>
                                 </div>
 
@@ -279,7 +276,7 @@
                         @empty
 
                             <tr>
-                                <td colspan="8" class="text-center"> No Menu Data ! </td>
+                                <td colspan="8" class="text-center"> No Data Found ! </td>
                             </tr>
                         @endforelse
 

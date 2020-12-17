@@ -77,7 +77,7 @@
                                                 <label class="input-group-text">Icon Class:</label>
                                             </span>
 
-                                        {{Form::text('icon_class','',array('class'=>'form-control','placeholder'=>'Ex: fa fa-folder','required'))}}
+                                        {{Form::text('icon_class','',array('class'=>'form-control','placeholder'=>'Ex: fa fa-folder'))}}
                                         @if ($errors->has('icon_class'))
                                             <span class="help-block">
                                                     <strong>{{ $errors->first('icon_class') }}</strong>

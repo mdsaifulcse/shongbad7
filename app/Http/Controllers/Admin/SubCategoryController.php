@@ -95,7 +95,7 @@ class SubCategoryController extends Controller
     {
         $allData=SubCategory::leftJoin('categories','sub_categories.category_id','=','categories.id')
             ->select('sub_categories.*','categories.category_name','categories.id as category_id')
-            ->where('sub_categories.category_id',$id)->orderBy('sub_categories.id','DESC')->paginate(15);
+            ->where('sub_categories.category_id',$id)->orderBy('sub_categories.id','DESC')->paginate(80);
 
         $category=Category::findOrFail($id);
         $max_serial=SubCategory::where('category_id',$id)->max('serial_num');
@@ -125,17 +125,17 @@ class SubCategoryController extends Controller
     {
 
         $input = $request->all();
-        $link=str_replace(' , ', '-', $input['sub_category_name']);
-        $link=str_replace(', ', '-', $link);
-        $link=str_replace(' ,', '-', $link);
-        $link=str_replace(',', '-', $link);
-        $link=str_replace('/', '-', $link);
-        $link=rtrim($link,' ');
-        $link=str_replace(' ', '-', $link);
-        $link=str_replace('.', '', $link);
-        $link=substr($link,0,50);
-        $link=strtolower($link);
-        $input['link']=$link;
+//        $link=str_replace(' , ', '-', $input['sub_category_name']);
+//        $link=str_replace(', ', '-', $link);
+//        $link=str_replace(' ,', '-', $link);
+//        $link=str_replace(',', '-', $link);
+//        $link=str_replace('/', '-', $link);
+//        $link=rtrim($link,' ');
+//        $link=str_replace(' ', '-', $link);
+//        $link=str_replace('.', '', $link);
+//        $link=substr($link,0,50);
+//        $link=strtolower($link);
+//        $input['link']=$link;
 
         $validator = Validator::make($input, [
             'sub_category_name' => 'required',
@@ -150,7 +150,7 @@ class SubCategoryController extends Controller
 
             if ($request->hasFile('icon_photo')) {
 
-               return $input['icon_photo']=\MyHelper::photoUpload($request->file('icon_photo'),'images/sub-categories/',120,100);
+                $input['icon_photo']=\MyHelper::photoUpload($request->file('icon_photo'),'images/sub-categories/',120,100);
 
                 if($data->icon_photo!=null and file_exists($data->icon_photo)){
                     unlink($data->icon_photo);
