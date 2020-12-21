@@ -42,7 +42,7 @@
                     </h4>
                     <ul>
                         @forelse($menuData->subCatAsSubMenu as $subMenuData)
-                        <li><a href="{{$subMenuData->link}}">{{$subMenuData->sub_category_name}}</a></li>
+                        <li><a href="{{URL::to('/'.$menuData->link.'/'.$subMenuData->link)}}">{{$subMenuData->sub_category_name}}</a></li>
 
                         @empty
 
@@ -176,7 +176,7 @@
                             <ul class="{{$dropDownMenu}}">
                             @forelse($menu->subCatAsSubMenu as $subMenu)
 
-                                <li><a href="{{URL::to($subMenu->link)}}">{{$subMenu->sub_category_name}} </a></li>
+                                <li><a href="{{URL::to('/'.$menu->link.'/'.$subMenu->link)}}">{{$subMenu->sub_category_name}} </a></li>
                                 @empty
 
                                 @endforelse

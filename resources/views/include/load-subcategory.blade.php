@@ -1,7 +1,7 @@
 
 @if(count($subCats)>0)
 
-{!! Form::select('sub_cat_id',$subCats,[], ['placeholder' => 'Select Sub-Category','class' => 'form-control','required'=>false]) !!}
+{!! Form::select('sub_cat_id',$subCats,[], ['placeholder' => 'Select Sub-Category','class' => 'form-control','required'=>true]) !!}
 
 @if ($errors->has('sub_cat_id'))
     <span class="help-block">

@@ -112,7 +112,7 @@ class NewsController extends Controller
             if ($request->hasFile('feature_photo')) {
 
                 $input['feature_photo']=\MyHelper::photoUpload($request->file('feature_photo'),'images/news/big/');
-                $input['feature_medium']=\MyHelper::photoUpload($request->file('feature_photo'),'images/news/medium',350);
+                $input['feature_medium']=\MyHelper::photoUpload($request->file('feature_photo'),'images/news/medium',350,182);
                 $input['feature_small']=\MyHelper::photoUpload($request->file('feature_photo'),'images/news/small',120);
             }
 

@@ -123,7 +123,7 @@ Edit News Info
 													</div>
 
 													<div class="form-group col-md-2">
-														<label for="example-text-input" class=" col-form-label">Feature Image <sup class="text-danger">*</sup></label>
+														<label for="example-text-input" class=" col-form-label">Feature Image(750x390) <sup class="text-danger">*</sup></label>
 														<div class="">
 
 															<label class="slide_upload" for="featurePhoto">

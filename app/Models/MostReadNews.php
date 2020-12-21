@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class MostReadNews extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory;
 
     protected $table='most_read_news';
-    protected $fillable=['news_id','read_number'];
+    protected $fillable=['news_id','read_number','category_id'];
 }

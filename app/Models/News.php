@@ -19,4 +19,14 @@ class News extends Model
     protected $table='news';
     protected $fillable=['title','feature_photo','feature_medium','feature_small','description','topic','photo_caption','video_url','published_status','published_date', 'show_at_homepage','is_cover_news','category_id','sub_cat_id','news_author_id','division_id','district_id','created_by','updated_by'];
 
+    public function newsCategory()
+    {
+        return $this->belongsTo(Category::class,'category_id','id');
+    }
+    public function newsSubCategory()
+    {
+        return $this->belongsTo(SubCategory::class,'sub_cat_id','id');
+    }
+
+
 }

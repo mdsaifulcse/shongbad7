@@ -18,230 +18,135 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="row">
+
+
                                 <div class="col-sm-8">
+                                    @forelse($coverNews->take(1) as $coverData)
                                     <div class="single-block mainLead">
-                                        <div class="img-box"><a href="education.htm">
-                                                <img src="{{asset('/client')}}/media/common/placeholder-bg.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="" class="lazyload img-responsive"></a>
+
+                                        <?php
+                                        if (isset($coverData->newsSubCategory))
+                                        {
+                                            $url=$coverData->newsCategory->link.'/'.$coverData->newsSubCategory->link.'/'.$coverData->id.'/'.$coverData->title;
+                                        }else{
+                                            $url=$coverData->newsCategory->link.'/'.'news'.'/'.$coverData->id.'/'.$coverData->title;
+                                        }
+
+                                        ?>
+
+                                        <div class="img-box">
+                                            <a href="{{url($url)}}">
+                                                <img src="{{asset('/client')}}/media/common/placeholder-bg.png" data-src="{{asset($coverData->feature_photo)}}" alt="{{$coverData->title}}" class="lazyload img-responsive"></a>
                                         </div>
                                         <div class="details">
                                             <h3>
-                                                <a href="education.htm">করোনায় পাঁচ শতাধিক ব্যাংকার আক্রান্ত, মারা গেছেন ১৭ জন</a></h3><p>নভেল করোনাভাইরাসে (কোভিড-১৯) আক্রান্ত ও মৃত্যুর সংখ্যা দিন দিন বাড়ছে ব্যাংকগুলোতে। এখন পর্যন্ত প্রাণঘাতী এ ভাইরাস...</p>
+                                                <a href="{{url($url)}}" >{{$coverData->title}}</a>
+                                            </h3>
+                                            <p>  </p>
                                         </div>
-                                        <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">করোনাভাইরাস</a></span><a href="education.htm" class="pull-right">অর্থনীতি</a>
+                                        <div class="meta">
+                                            <span class="pull-left tags"><i class="fa fa-tags"></i>
+                                                <a href="{{url('/topic/'.explode(',', $coverData->topic)[0])}}">{{explode(',', $coverData->topic)[0]}}</a>
+                                            </span>
+                                            <a href="{{url($coverData->newsCategory->link)}}" class="pull-right">{{$coverData->newsCategory->category_name}}</a>
                                         </div>
                                     </div>
+                                        @empty
+
+
+
+                                        @endforelse
+
                                 </div>
+
                                 <div class="col-sm-4">
+
+                                    @forelse($coverNews->skip(1)->take(2) as $data)
                                     <div class="single-block subLead ">
+
+                                        <?php
+                                        if (isset($data->newsSubCategory))
+                                        {
+                                            $url=$data->newsCategory->link.'/'.$data->newsSubCategory->link.'/'.$data->id.'/'.$data->title;
+                                        }else{
+                                            $url=$data->newsCategory->link.'/'.'news'.'/'.$data->id.'/'.$data->title;
+                                        }
+
+                                        ?>
 
                                         <div class="img-mobile-left">
                                             <div class="img-box">
-                                                <a href="education.htm">
-                                                    <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="করোনার সংক্রমণ-উপসর্গ নিয়ে মারা গেলেন যে ৩৩ চিকিৎসক" class="lazyload img-responsive">
+                                                <a href="{{$url}}">
+                                                    <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset($data->feature_medium)}}" alt="{{$data->title}}" class="lazyload img-responsive">
                                                 </a>
                                             </div>
                                         </div>
 
                                         <div class="content-mobile-right">
                                             <div class="details">
-                                                <h4><a href="education.htm">করোনার সংক্রমণ-উপসর্গ নিয়ে মারা গেলেন যে ৩৩ চিকিৎসক</a></h4>
+                                                <h4><a href="{{$url}}">{{$data->title}}</a></h4>
                                             </div>
                                             <div class="meta hidden-xs">
                                             <span class="pull-left tags"><i class="fa fa-tags"></i>
-                                                <a href="education.htm">করোনাভাইরাস</a></span><a href="health.htm" class="pull-right">স্বাস্থ্য</a>
+                                                <a href="{{url('/topic/'.explode(',', $coverData->topic)[0])}}">{{explode(',', $coverData->topic)[0]}}</a></span>
+                                                <a href="{{url($coverData->newsCategory->link)}}" class="pull-right">{{$data->newsCategory->category_name}}</a>
                                             </div>
                                         </div>
 
                                     </div>
-
-                                    <div class="single-block subLead">
-
-                                        <div class="img-mobile-left">
-                                            <div class="img-box">
-                                                <a href="education.htm">
-                                                    <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="রেড জোনে নামাজ পড়তে হবে ঘরে" class="lazyload img-responsive"></a>
-                                            </div>
-                                        </div>
-
-                                        <div class="content-mobile-right">
-                                            <div class="details">
-                                                <h4><a href="education.htm">রেড জোনে নামাজ পড়তে হবে ঘরে</a></h4>
-                                            </div>
-                                            <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">করোনাভাইরাস</a></span><a href="education.htm" class="pull-right">জাতীয়</a>
-                                            </div>
-                                        </div>
+                                    @empty
 
 
-                                    </div>
-                                </div>
+
+                                    @endforelse
+
+
+                                </div><!-- end col-sm-4 -->
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
+                        @forelse($homeNews as $news)
+
                         <div class="col-sm-4">
                             <div class="single-block">
+
+                                <?php
+                                if (isset($news->newsSubCategory))
+                                {
+                                    $url=$news->newsCategory->link.'/'.$news->newsSubCategory->link.'/'.$news->id.'/'.$news->title;
+                                }else{
+                                    $url=$news->newsCategory->link.'/'.'news'.'/'.$news->id.'/'.$news->title;
+                                }
+
+                                ?>
+
                                 <div class="img-mobile-left">
-                                    <div class="img-box"><a href="education.htm">
-                                            <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="করোনা আক্রান্তে চীনকে ছাড়িয়ে গেল বাংলাদেশ" class="lazyload img-responsive"></a>
+                                    <div class="img-box">
+                                        <a href="{{$url}}">
+                                            <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset($news->feature_medium)}}" alt="{{$news->title}}" class="lazyload img-responsive"></a>
                                     </div>
                                 </div>
 
                                 <div class="content-mobile-right">
-                                    <div class="details"><h4><a href="education.htm">করোনা আক্রান্তে চীনকে ছাড়িয়ে গেল বাংলাদেশ</a></h4>
+                                    <div class="details"><h4><a href="{{$url}}">{{$news->title}}</a></h4>
                                     </div>
-                                    <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">বাংলাদেশ</a></span>
-                                        <a href="education.htm" class="pull-right">আন্তর্জাতিক</a>
+                                    <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i>
+                                            <a href="{{url('/topic/'.explode(',', $news->topic)[0])}}">{{explode(',', $news->topic)[0]}}</a></span>
+                                        <a href="{{url($news->newsCategory->link)}}" class="pull-right">{{$news->newsCategory->category_name}}</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-sm-4">
-                            <div class="single-block">
-
-                                <div class="img-mobile-left">
-                                    <div class="img-box"><a href="education.htm">
-                                            <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="সময়মতো পদক্ষেপ নিলে করোনা মোকাবিলা এখন সহজ হতো" class="lazyload img-responsive"></a>
-                                    </div>
-                                </div>
-
-                                <div class="content-mobile-right">
-                                    <div class="details"><h4><a href="education.htm">সময়মতো পদক্ষেপ নিলে করোনা মোকাবিলা এখন সহজ হতো</a></h4>
-                                    </div>
-                                    <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">করোনাভাইরাস</a></span><a href="education.htm" class="pull-right">জাতীয়</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-4">
-                            <div class="single-block">
-                                <div class="img-mobile-left">
-                                    <div class="img-box"><a href="education.htm">
-                                            <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="সময়মতো পদক্ষেপ নিলে করোনা মোকাবিলা এখন সহজ হতো" class="lazyload img-responsive"></a>
-                                    </div>
-                                </div>
-
-                                <div class="content-mobile-right">
-                                    <div class="details"><h4><a href="education.htm">সময়মতো পদক্ষেপ নিলে করোনা মোকাবিলা এখন সহজ হতো</a></h4>
-                                    </div>
-                                    <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">করোনাভাইরাস</a></span><a href="education.htm" class="pull-right">জাতীয়</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="single-block">
-
-                                <div class="img-mobile-left">
-                                    <div class="img-box"><a href="education.htm">
-                                            <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="সময়মতো পদক্ষেপ নিলে করোনা মোকাবিলা এখন সহজ হতো" class="lazyload img-responsive"></a>
-                                    </div>
-                                </div>
-
-                                <div class="content-mobile-right">
-                                    <div class="details"><h4><a href="education.htm">সময়মতো পদক্ষেপ নিলে করোনা মোকাবিলা এখন সহজ হতো</a></h4>
-                                    </div>
-                                    <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">করোনাভাইরাস</a></span><a href="education.htm" class="pull-right">জাতীয়</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="single-block">
-
-                                <div class="img-mobile-left">
-                                    <div class="img-box"><a href="education.htm">
-                                            <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="সময়মতো পদক্ষেপ নিলে করোনা মোকাবিলা এখন সহজ হতো" class="lazyload img-responsive"></a>
-                                    </div>
-                                </div>
-
-                                <div class="content-mobile-right">
-                                    <div class="details"><h4><a href="education.htm">সময়মতো পদক্ষেপ নিলে করোনা মোকাবিলা এখন সহজ হতো</a></h4>
-                                    </div>
-                                    <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">করোনা{{asset('/client')}}/ভাইরাস</a></span><a href="education.htm" class="pull-right">জাতীয়</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-sm-4">
-
-                            <div class="single-block">
-
-                                <div class="img-mobile-left">
-                                    <div class="img-box"><a href="education.htm">
-                                            <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="ঢামেকের করোনা ইউনিটে দুইদিনে ২৬ জনের মৃত্যু" class="lazyload img-responsive"></a>
-                                    </div>
-                                </div>
+                        @empty
 
 
-                                <div class="content-mobile-right">
-                                    <div class="details"><h4><a href="education.htm">ঢামেকের করোনা ইউনিটে দুইদিনে ২৬ জনের মৃত্যু</a></h4></div><div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="topic/ঢামেক.htm">ঢামেক</a></span><a href="education.htm" class="pull-right">জাতীয়</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="single-block">
-                                <div class="img-mobile-left">
-                                    <div class="img-box"><a href="education.htm">
-                                            <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="শুধুমাত্র প্রবৃদ্ধিনির্ভর বাজেট জনকল্যাণ নিশ্চিত করে না" class="lazyload img-responsive"></a>
-                                    </div>
-                                </div>
+                        @endforelse
 
 
-                                <div class="content-mobile-right">
-                                    <div class="details"><h4><a href="education.htm">শুধুমাত্র প্রবৃদ্ধিনির্ভর বাজেট জনকল্যাণ নিশ্চিত করে না</a></h4>
-                                    </div>
-                                    <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">বাজেট</a></span><a href="economy.htm" class="pull-right">অর্থনীতি</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-4">
-                            <div class="single-block">
-                                <div class="img-mobile-left">
-                                    <div class="img-box"><a href="education.htm">
-                                            <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="শুধুমাত্র প্রবৃদ্ধিনির্ভর বাজেট জনকল্যাণ নিশ্চিত করে না" class="lazyload img-responsive"></a>
-                                    </div>
-                                </div>
-
-
-                                <div class="content-mobile-right">
-                                    <div class="details"><h4><a href="education.htm">শুধুমাত্র প্রবৃদ্ধিনির্ভর বাজেট জনকল্যাণ নিশ্চিত করে না</a></h4>
-                                    </div>
-                                    <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">বাজেট</a></span><a href="economy.htm" class="pull-right">অর্থনীতি</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-4">
-                            <div class="single-block">
-                                <div class="img-mobile-left">
-                                    <div class="img-box"><a href="education.htm">
-                                            <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="শুধুমাত্র প্রবৃদ্ধিনির্ভর বাজেট জনকল্যাণ নিশ্চিত করে না" class="lazyload img-responsive"></a>
-                                    </div>
-                                </div>
-
-
-                                <div class="content-mobile-right">
-                                    <div class="details"><h4><a href="education.htm">শুধুমাত্র প্রবৃদ্ধিনির্ভর বাজেট জনকল্যাণ নিশ্চিত করে না</a></h4>
-                                    </div>
-                                    <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">বাজেট</a></span><a href="economy.htm" class="pull-right">অর্থনীতি</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                 </div>

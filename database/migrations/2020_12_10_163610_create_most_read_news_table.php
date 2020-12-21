@@ -16,6 +16,7 @@ class CreateMostReadNewsTable extends Migration
         Schema::create('most_read_news', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('news_id',false,20);
+            $table->unsignedBigInteger('category_id',false,20);
             $table->tinyInteger('read_number');
             $table->timestamps();
         });
