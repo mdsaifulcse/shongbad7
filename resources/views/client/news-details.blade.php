@@ -180,88 +180,39 @@
                     <div class="marginBottom20 hidden-print">
                         <h2 class="McatTitle"><span class="eee"> {{\App\Models\Setting::first()->value('company_name')}} জনপ্রিয় </span></h2>
                         <div class="row">
+                            @forelse($mostReadNews as $mostRead)
+                                <?php
+                                if (isset($mostRead->newsSubCategory))
+                                {
+                                    $url=$mostRead->newsCategory->link.'/'.$mostRead->newsSubCategory->link.'/'.$mostRead->id.'/'.$news->title;
+                                }else{
+                                    $url=$mostRead->newsCategory->link.'/'.'news'.'/'.$mostRead->id.'/'.$mostRead->title;
+                                }
 
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-                                <div class="single-block">
-                                    <div class="img-mobile-left">
-                                        <div class="img-box">
-                                            <a href="../../country/news/589435.htm">
-                                                <img src="{{asset('/client')}}/media/default/desktop.png" alt="অনলাইন ব্যাংক অ্যাকাউন্ট হ্যাক করে টাকা হাতিয়ে নেন তিনি" class="lazyload img-responsive">
-                                            </a>
+                                ?>
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                                    <div class="single-block">
+                                        <div class="img-mobile-left">
+                                            <div class="img-box">
+                                                <a href="{{url($url)}}">
+                                                    <img src="{{asset($mostRead->feature_medium)}}" alt="{{$mostRead->title}}" class="lazyload img-responsive">
+                                                </a>
+                                            </div>
                                         </div>
 
-                                    </div>
-                                    <div class="content-mobile-right">
-                                        <div class="details">
-                                            <h3><a href="../../country/news/589435.htm">অনলাইন ব্যাংক অ্যাকাউন্ট হ্যাক করে টাকা হাতিয়ে নেন তিনি</a></h3>
-                                        </div>
-                                        <div class="meta">
-                                            <span class="tags"><a href="../../country.htm">দেশজুড়ে</a></span>
+                                        <div class="content-mobile-right">
+                                            <div class="details">
+                                                <h3><a href="{{url($url)}}">{{$mostRead->title}}</a></h3>
+                                            </div>
+                                            <div class="meta">
+                                                <span class="tags"><a href="{{url($mostRead->newsCategory->link)}}">{{$mostRead->newsCategory->category_name}}</a></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @empty
 
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-                                <div class="single-block">
-                                    <div class="img-mobile-left">
-                                        <div class="img-box">
-                                            <a href="../../country/news/589435.htm">
-                                                <img src="{{asset('/client')}}/media/default/desktop.png" alt="অনলাইন ব্যাংক অ্যাকাউন্ট হ্যাক করে টাকা হাতিয়ে নেন তিনি" class="lazyload img-responsive">
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                    <div class="content-mobile-right">
-                                        <div class="details">
-                                            <h3><a href="../../country/news/589435.htm">অনলাইন ব্যাংক অ্যাকাউন্ট হ্যাক করে টাকা হাতিয়ে নেন তিনি</a></h3>
-                                        </div>
-                                        <div class="meta">
-                                            <span class="tags"><a href="../../country.htm">দেশজুড়ে</a></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-                                <div class="single-block">
-                                    <div class="img-mobile-left">
-                                        <div class="img-box">
-                                            <a href="../../country/news/589435.htm">
-                                                <img src="{{asset('/client')}}/media/default/desktop.png" alt="অনলাইন ব্যাংক অ্যাকাউন্ট হ্যাক করে টাকা হাতিয়ে নেন তিনি" class="lazyload img-responsive">
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                    <div class="content-mobile-right">
-                                        <div class="details">
-                                            <h3><a href="../../country/news/589435.htm">অনলাইন ব্যাংক অ্যাকাউন্ট হ্যাক করে টাকা হাতিয়ে নেন তিনি</a></h3>
-                                        </div>
-                                        <div class="meta">
-                                            <span class="tags"><a href="../../country.htm">দেশজুড়ে</a></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-                                <div class="single-block">
-                                    <div class="img-mobile-left">
-                                        <div class="img-box">
-                                            <a href="../../country/news/589435.htm">
-                                                <img src="{{asset('/client')}}/media/default/desktop.png" alt="অনলাইন ব্যাংক অ্যাকাউন্ট হ্যাক করে টাকা হাতিয়ে নেন তিনি" class="lazyload img-responsive">
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                    <div class="content-mobile-right">
-                                        <div class="details">
-                                            <h3><a href="../../country/news/589435.htm">অনলাইন ব্যাংক অ্যাকাউন্ট হ্যাক করে টাকা হাতিয়ে নেন তিনি</a></h3>
-                                        </div>
-                                        <div class="meta">
-                                            <span class="tags"><a href="../../country.htm">দেশজুড়ে</a></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforelse
 
                         </div>
                     </div>
@@ -312,59 +263,56 @@
                         </div>
                     </div>
                     <div>
-                        <h2 class="McatTitle"><span class="eee"> সর্বোচ্চ পঠিত - শিক্ষা </span>
+                        <h2 class="McatTitle"><span class="eee"> সর্বোচ্চ পঠিত - {{$news->newsCategory->category_name}} </span>
                         </h2>
                         <div class="details-thumb">
+                            @forelse($categoryMostReadNews->take(1) as $readNews)
+
+                                <?php
+                                if (isset($readNews->newsSubCategory))
+                                {
+                                    $url=$readNews->newsCategory->link.'/'.$readNews->newsSubCategory->link.'/'.$readNews->id.'/'.$news->title;
+                                }else{
+                                    $url=$readNews->newsCategory->link.'/'.'news'.'/'.$readNews->id.'/'.$readNews->title;
+                                }
+                                ?>
                             <div class="thumb-first">
-                                <a href="588123.htm">
-                                    <img src="{{asset('/client')}}/media/default/desktop.png" alt="করোনায় পেছাচ্ছে বড় পাঁচ পাবলিক পরীক্ষা!" style="width:100%;">
+                                <a href="{{url($url)}}">
+                                    <img src="{{asset($readNews->feature_medium)}}" alt="{{$readNews->title}}!" style="width:100%;">
                                 </a>
                                 <h4>
-                                    <a href="588123.htm">করোনায় পেছাচ্ছে বড় পাঁচ পাবলিক পরীক্ষা!</a>
+                                    <a href="{{url($url)}}">{{$readNews->title}}!</a>
                                 </h4>
                             </div>
+                            @empty
+
+                            @endforelse
+
                             <div class="sub-thumb">
                                 <div class="row FlexRow">
+                                    @forelse($categoryMostReadNews->skip(1)->take(4) as $readNewsData)
+                                        <?php
+                                        if (isset($readNewsData->newsSubCategory))
+                                        {
+                                            $url=$readNewsData->newsCategory->link.'/'.$readNewsData->newsSubCategory->link.'/'.$readNewsData->id.'/'.$news->title;
+                                        }else{
+                                            $url=$readNewsData->newsCategory->link.'/'.'news'.'/'.$readNewsData->id.'/'.$readNewsData->title;
+                                        }
+                                        ?>
                                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 FlexRow">
                                         <div class="small-thumb thumb-border-bottom">
-                                            <a href="#">
-                                                <img src="{{asset('/client')}}/media/common/placeholder-xs.png" alt="প্রাথমিকের শিক্ষার্থীদের পরীক্ষা নেবেন বাবা-মা" style="width:100%;">
+                                            <a href="{{url($url)}}">
+                                                <img src="{{asset($readNewsData->feature_medium)}}" alt="{{$readNewsData->title}}" style="width:100%;">
                                             </a>
                                             <h4>
-                                                <a href="#">প্রাথমিকের শিক্ষার্থীদের পরীক্ষা নেবেন বাবা-মা</a>
+                                                <a href="{{url($url)}}">{{$readNewsData->title}}</a>
                                             </h4>
                                         </div>
                                     </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 FlexRow">
-                                        <div class="small-thumb thumb-border-bottom">
-                                            <a href="#">
-                                                <img src="{{asset('/client')}}/media/common/placeholder-xs.png" alt="প্রাথমিকের শিক্ষার্থীদের পরীক্ষা নেবেন বাবা-মা" style="width:100%;">
-                                            </a>
-                                            <h4>
-                                                <a href="#">প্রাথমিকের শিক্ষার্থীদের পরীক্ষা নেবেন বাবা-মা</a>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 FlexRow">
-                                        <div class="small-thumb thumb-border-bottom">
-                                            <a href="#">
-                                                <img src="{{asset('/client')}}/media/common/placeholder-xs.png" alt="প্রাথমিকের শিক্ষার্থীদের পরীক্ষা নেবেন বাবা-মা" style="width:100%;">
-                                            </a>
-                                            <h4>
-                                                <a href="#">প্রাথমিকের শিক্ষার্থীদের পরীক্ষা নেবেন বাবা-মা</a>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 FlexRow">
-                                        <div class="small-thumb thumb-border-bottom">
-                                            <a href="#">
-                                                <img src="{{asset('/client')}}/media/common/placeholder-xs.png" alt="প্রাথমিকের শিক্ষার্থীদের পরীক্ষা নেবেন বাবা-মা" style="width:100%;">
-                                            </a>
-                                            <h4>
-                                                <a href="#">প্রাথমিকের শিক্ষার্থীদের পরীক্ষা নেবেন বাবা-মা</a>
-                                            </h4>
-                                        </div>
-                                    </div>
+
+                                    @empty
+
+                                    @endforelse
 
                                 </div>
                             </div>

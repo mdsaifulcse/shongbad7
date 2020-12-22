@@ -26,7 +26,13 @@ class CategoryNewsController extends Controller
             ->whereHas('newsCategory',function ($q)use($category){
                 $q->where("categories.link", "$category");
             });
+        $allLatestNews=News::with('newsCategory','newsSubCategory')
+            ->orderBy('id','DESC')->where('id','!=',$newsId);
 
+        $allMostReadNews=News::with('newsCategory','newsSubCategory','mostReadNews')
+            ->whereHas('mostReadNews',function ($q){
+                $q->orderBy("most_read_news.read_number",'DESC');
+            });
 
 
         if ($newsId!=null)
@@ -35,8 +41,7 @@ class CategoryNewsController extends Controller
 
             $news=$categoryNews->where('id',$newsId)->first();
 
-            $latestCatNews=News::with('newsCategory','newsSubCategory')
-                ->whereHas('newsCategory',function ($q)use($category){
+            $latestCatNews=$allLatestNews->whereHas('newsCategory',function ($q)use($category){
                     $q->where("categories.link", "$category");
                 })
                 ->orderBy('id','DESC')->where('id','!=',$newsId)->take(5)->get();
@@ -46,19 +51,23 @@ class CategoryNewsController extends Controller
                 ->orderBy('id','DESC')->where('id','!=',$newsId)->take(4)->get();
 
 
+            $categoryMostReadNews=$allMostReadNews->where('category_id',$categoryData->id)->take(5)->get();
+
+            $mostReadNews=News::with('newsCategory','newsSubCategory','mostReadNews')
+                ->whereHas('mostReadNews',function ($q){
+                    $q->orderBy("most_read_news.read_number",'DESC');
+                })->take(4)->get();
+
             $readNews=MostReadNews::where('news_id',$newsId)->first();
-
-
             if (empty($readNews))
             {
                 MostReadNews::create(['news_id'=>$newsId,'category_id'=>$categoryData->id,'read_number'=>1]);
 
             }else{
-                $readNews->update(['read_number'=>$readNews->read_number+1]);
+               // $readNews->update(['read_number'=>$readNews->read_number+1]);
             }
 
-
-            return view('client.news-details',compact('news','latestCatNews','latestNews'));
+            return view('client.news-details',compact('news','latestCatNews','latestNews','categoryMostReadNews','mostReadNews'));
         }
 
 
@@ -76,6 +85,9 @@ class CategoryNewsController extends Controller
                 $q->where("sub_categories.link", "$subCate");
             });
         }
+
+        $allLatestNews->take(5)->get();
+        $allMostReadNews->take(5)->get();
 
         $categoryNews->get();
 

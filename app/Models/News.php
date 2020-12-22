@@ -23,9 +23,14 @@ class News extends Model
     {
         return $this->belongsTo(Category::class,'category_id','id');
     }
+
     public function newsSubCategory()
     {
         return $this->belongsTo(SubCategory::class,'sub_cat_id','id');
+    }
+    public function mostReadNews()
+    {
+        return $this->hasOne(MostReadNews::class,'news_id','id');
     }
 
 
