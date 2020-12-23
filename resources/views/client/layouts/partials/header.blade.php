@@ -86,12 +86,14 @@
     <nav class="logo-date navbar navbar-default no-margin navbar-static-top top hidden-xs" style="z-index:100;display: block;" role="navigation" id="top1">
         <div class="container">
             <div class="row">
-                <div class="col-sm-3">
-                    <a class="navbar-brand" href="{{URL::to('/')}}"><img alt="Logo" src="{{asset('/client')}}/media/common/logo.png" style="margin-top: -35px;width: 260px;" /></a>
+                <div class="col-sm-3 marginTop20">
+                    <a class="navbar-brand" href="{{URL::to('/')}}"><img alt="Logo" src="{{asset(\App\Models\Setting::first()->value('logo'))}}" style="margin-top: -37px;width: 240px;" /></a>
                 </div>
-                <div class="col-sm-5 text-center hidden-print">
+                <div class="col-sm-5 text-center marginTop20 hidden-print">
                     <small class="date">
-                        <i class="fa fa-map-marker"></i> ঢাকা, শনিবার, ১৩ জুন ২০২০ | ৩০ জ্যৈষ্ঠ ১৪২৭ বঙ্গাব্দ
+                        <i class="fa fa-calendar"></i>  {{MyHelper::bn_date_time(date('l d M Y'),strtotime(now()))}} | <?php $bongabda = new EasyBanglaDate\Types\BnDateTime(now());
+
+                        echo  $bongabda->format('l jS F Y ').'বঙ্গাব্দ'?>
                     </small>
                 </div>
                 <div class="col-sm-4 text-right marginTop20 hidden-print">

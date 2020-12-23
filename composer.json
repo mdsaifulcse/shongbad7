@@ -18,7 +18,8 @@
         "laravel/ui": "^3.1",
         "laravelcollective/html": "^6.2",
         "spatie/laravel-permission": "^3.17",
-        "yajra/laravel-datatables": "1.5"
+        "yajra/laravel-datatables": "1.5",
+        "ronisaha/easy-bangla-date": "dev-master"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

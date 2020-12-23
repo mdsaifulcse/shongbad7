@@ -31,7 +31,6 @@
                                         }else{
                                             $url=$coverData->newsCategory->link.'/'.'news'.'/'.$coverData->id.'/'.$coverData->title;
                                         }
-
                                         ?>
 
                                         <div class="img-box">
@@ -52,8 +51,6 @@
                                         </div>
                                     </div>
                                         @empty
-
-
 
                                         @endforelse
 

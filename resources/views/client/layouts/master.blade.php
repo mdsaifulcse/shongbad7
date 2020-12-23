@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('/client/assets')}}/common/css/SolaimanLipi.css">
     <link rel="stylesheet" type="text/css" href="{{asset('/client/assets')}}/common/css/style.css">
 
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset(\App\Models\Setting::first()->value('favicon'))}}" />
 
     <?php
     if(stristr($_SERVER['HTTP_USER_AGENT'], "Mobile")){ // if mobile browser

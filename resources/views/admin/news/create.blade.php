@@ -106,6 +106,24 @@ Create New News
 
 												<div class="row">
 													<div class="form-group col-md-10">
+														<label for="example-text-input" class="col-form-label">News Meta Details<sup class="text-danger">*</sup></label>
+														<div class="">
+															{!! Form::textArea('meta_description', $value=old('meta_description'), ['rows'=>3,'placeholder' => 'News Meta Details Here ','class' => 'form-control ','required'=>true]) !!}
+
+
+															@if ($errors->has('meta_description'))
+																<span class="help-block">
+														<strong class="text-danger">{{ $errors->first('meta_description') }}</strong>
+												</span>
+															@endif
+														</div>
+														<span id="descriptionError" class="text-danger"></span>
+													</div>
+
+
+												</div><!-- end row -->
+												<div class="row">
+													<div class="form-group col-md-10">
 														<label for="example-text-input" class="col-form-label">News Details<sup class="text-danger">*</sup></label>
 														<div class="">
 															{!! Form::textArea('description', $value=old('description'), ['rows'=>8,'placeholder' => 'News Details Here ','class' => 'form-control textarea','required'=>false]) !!}
@@ -146,7 +164,6 @@ Create New News
 
 
 												</div><!-- end row -->
-
 
 
 												<div class="row">

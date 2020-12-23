@@ -36,17 +36,24 @@
                                             <div class="col-sm-8">
                                                 <div class="media">
                                                     <div class="media-left hidden-print">
-                                                        <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="নিজস্ব প্রতিবেদক" class="media-object" style="margin-top:5px;width:40px;height:40px;border-radius:100%;display:inline-block;">
+                                                        <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset(\App\Models\Setting::first()->value('favicon'))}}" alt="{{$news->title}}" class="media-object" style="margin-top:5px;width:40px;height:40px;border-radius:100%;display:inline-block;">
                                                     </div>
                                                     <div class="media-body">
-<span class="small text-muted time-with-author">
-<i class="fa fa-pencil"></i>
-<a class="hidden-print" href="#" style="display:inline-block;" rel="nofollow">নিজস্ব প্রতিবেদক</a>
-<a class="visible-print-view" rel="nofollow">নিজস্ব প্রতিবেদক</a>
-<br>
-<i class="fa fa fa-clock-o text-danger"></i>
-প্রকাশিত: ০৮:৪২ পিএম, ১১ জুন ২০২০
-</span>
+                                                <span class="small text-muted time-with-author">
+                                                <i class="fa fa-pencil"></i>
+                                                @if(isset($news->newsAuthor))
+                                                <a class="hidden-print" href="{{url('/author/'.$news->newsAuthor->id)}}" style="display:inline-block;" rel="nofollow">{{$news->newsAuthor->profile->designation}} </a>
+
+                                                @endif
+                                                <br>
+                                                <i class="fa fa fa-clock-o text-danger"></i>
+                                                প্রকাশিত:
+                                                    <?php $bongabda = new EasyBanglaDate\Types\BnDateTime($news->published_date);
+
+                                                    echo  $bongabda->format('h:i a, l jS F Y ')?>
+
+                                                    {{MyHelper::bn_date_time(date('h:i A d M Y'),strtotime($news->published_date))}}
+                                                </span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -100,6 +107,11 @@
 
 
                                 <div class="content-details">
+
+                                  <p><?php
+                                      echo $news->meta_description;
+                                      ?></p>
+
                                   <?php
                                     echo $news->description;
                                     ?>
@@ -167,7 +179,7 @@
                                 </div>
                             </div>
                                 @empty
-
+                                <h4 class="text-danger text-center">কোন ফলাফল পাওয়া যায়নি</h4>
                             @endforelse
                         </div>
                     </div>
@@ -211,7 +223,7 @@
                                     </div>
                                 </div>
                             @empty
-
+                                <h4 class="text-danger text-center">কোন ফলাফল পাওয়া যায়নি</h4>
                             @endforelse
 
                         </div>
@@ -249,7 +261,7 @@
                                 </div>
 
                                     @empty
-
+                                    <h4 class="text-danger text-center">কোন ফলাফল পাওয়া যায়নি</h4>
                                 @endforelse
                             </div>
                         </div>
@@ -322,7 +334,7 @@
                         <div class="row">
                             <div class="col-sm-12 paddingBottom20">
 
-                                <div id='div-gpt-ad-1536579756321-0'></div>
+                                <div id='div0'></div>
                             </div>
                         </div>
                     </div>

@@ -200,7 +200,7 @@ class NewsController extends Controller
 
             $input['update_by']=\Auth::user()->id;
 
-            if (isset($request->published_status) && $request->published_status==News::PUBLISHED)
+            if (isset($request->published_status) && $request->published_status==News::PUBLISHED  && $news->published_date==null)
             {
                 $input['published_date']=Carbon::now();
             }
@@ -236,7 +236,7 @@ class NewsController extends Controller
         }
 
         if ($bug == 0) {
-            return redirect()->back()->with('success', 'News is Successfully Created');
+            return redirect()->back()->with('success', 'News Successfully Update');
         }elseif ($bug==1062){
             return redirect()->back()->with('error', 'The News has already been taken');
         }

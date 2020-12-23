@@ -103,7 +103,24 @@ Edit News Info
 
 												</div><!-- end row -->
 
+												<div class="row">
+													<div class="form-group col-md-10">
+														<label for="example-text-input" class="col-form-label">News Meta Details<sup class="text-danger">*</sup></label>
+														<div class="">
+															{!! Form::textArea('meta_description', $value=old('meta_description',$news->meta_description), ['rows'=>3,'placeholder' => 'News Meta Details Here ','class' => 'form-control ','required'=>true]) !!}
 
+
+															@if ($errors->has('meta_description'))
+																<span class="help-block">
+														<strong class="text-danger">{{ $errors->first('meta_description') }}</strong>
+												</span>
+															@endif
+														</div>
+														<span id="descriptionError" class="text-danger"></span>
+													</div>
+
+
+												</div><!-- end row -->
 												<div class="row">
 													<div class="form-group col-md-10">
 														<label for="example-text-input" class="col-form-label">News Details<sup class="text-danger">*</sup></label>
@@ -129,7 +146,7 @@ Edit News Info
 															<label class="slide_upload" for="featurePhoto">
 																@if(!empty($news->feature_photo) && file_exists($news->feature_photo))
 
-																<img id="image_load" src="{{asset($news->feature_photo)}}" style="width: 150px; height: 150px;cursor:pointer;border:2px dashed #260d53;">
+																	<img id="image_load" src="{{asset($news->feature_photo)}}" style="width: 150px; height: 150px;cursor:pointer;border:2px dashed #260d53;">
 																@else
 																	<img id="image_load" src="{{asset('images/default/default.png')}}" style="width: 150px; height: 150px;cursor:pointer;border:2px dashed #260d53;">
 																@endif
@@ -147,10 +164,7 @@ Edit News Info
 														<span class="text-danger text-center" style="display:none" id="fimageError">Feature Image is Required  </span>
 													</div>
 
-
 												</div><!-- end row -->
-
-
 
 												<div class="row">
 													<div class="form-group col-md-5">

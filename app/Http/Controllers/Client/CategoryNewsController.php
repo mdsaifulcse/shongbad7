@@ -7,7 +7,11 @@ use App\Models\MostReadNews;
 use App\Models\News;
 use App\Models\SubCategory;
 use App\Models\Category;
+use Carbon\CarbonTimeZone;
 use Illuminate\Http\Request;
+
+use EasyBanglaDate\Types\BnDateTime ;
+
 
 class CategoryNewsController extends Controller
 {
@@ -22,24 +26,29 @@ class CategoryNewsController extends Controller
         }
 
 
-        $categoryNews=News::with('newsCategory','newsSubCategory')
+        $categoryNews=News::with('newsCategory','newsSubCategory','newsAuthor','newsAuthor.profile')
             ->whereHas('newsCategory',function ($q)use($category){
                 $q->where("categories.link", "$category");
             });
         $allLatestNews=News::with('newsCategory','newsSubCategory')
             ->orderBy('id','DESC')->where('id','!=',$newsId);
 
-        $allMostReadNews=News::with('newsCategory','newsSubCategory','mostReadNews')
+        $categoryMostReadNews=News::with('newsCategory','newsSubCategory','mostReadNews')
+            ->whereHas('mostReadNews',function ($q){
+                $q->orderBy("most_read_news.read_number",'DESC');
+            })->where('category_id',$categoryData->id);
+
+        $mostReadNews=News::with('newsCategory','newsSubCategory','mostReadNews')
             ->whereHas('mostReadNews',function ($q){
                 $q->orderBy("most_read_news.read_number",'DESC');
             });
-
 
         if ($newsId!=null)
         {
             News::findOrFail($newsId);
 
             $news=$categoryNews->where('id',$newsId)->first();
+
 
             $latestCatNews=$allLatestNews->whereHas('newsCategory',function ($q)use($category){
                     $q->where("categories.link", "$category");
@@ -51,12 +60,9 @@ class CategoryNewsController extends Controller
                 ->orderBy('id','DESC')->where('id','!=',$newsId)->take(4)->get();
 
 
-            $categoryMostReadNews=$allMostReadNews->where('category_id',$categoryData->id)->take(5)->get();
+            $categoryMostReadNews=$categoryMostReadNews->take(5)->get();
 
-            $mostReadNews=News::with('newsCategory','newsSubCategory','mostReadNews')
-                ->whereHas('mostReadNews',function ($q){
-                    $q->orderBy("most_read_news.read_number",'DESC');
-                })->take(4)->get();
+            $mostReadNews=$mostReadNews->take(4)->get();
 
             $readNews=MostReadNews::where('news_id',$newsId)->first();
             if (empty($readNews))
@@ -72,6 +78,7 @@ class CategoryNewsController extends Controller
 
 
 
+        $subCatData='';
         if (!is_null($subCate) && $subCate!='news')
         {
             $subCatData=SubCategory::where('link',$subCate)->first();
@@ -86,13 +93,15 @@ class CategoryNewsController extends Controller
             });
         }
 
-        $allLatestNews->take(5)->get();
-        $allMostReadNews->take(5)->get();
+        $allLatestNews=$allLatestNews->take(5)->get();
+        $categoryMostReadNews=$categoryMostReadNews->take(10)->get();
+        $mostReadNews=$mostReadNews->take(10)->get();
 
-        $categoryNews->get();
+
+        $categoryNews= $categoryNews->take(21)->get();
 
 
-        return view('client.category-news',compact('categoryNews'));
+        return view('client.category-news',compact('categoryData','subCatData','categoryNews','allLatestNews','categoryMostReadNews','mostReadNews'));
     }
 
 
