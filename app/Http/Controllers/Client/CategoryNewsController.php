@@ -53,7 +53,7 @@ class CategoryNewsController extends Controller
             $latestCatNews=$allLatestNews->whereHas('newsCategory',function ($q)use($category){
                     $q->where("categories.link", "$category");
                 })
-                ->orderBy('id','DESC')->where('id','!=',$newsId)->take(5)->get();
+                ->where('id','!=',$newsId)->take(5)->get();
 
 
             $latestNews=News::with('newsCategory','newsSubCategory')

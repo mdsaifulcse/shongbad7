@@ -17,9 +17,15 @@ class HomeNewsController extends Controller
         $homeNews=News::with('newsCategory','newsSubCategory')->where(['published_status'=>News::PUBLISHED,'show_at_homepage'=>News::YES])
             ->orderBy('id','DESC')->take(9)->get();
 
-        //dd($coverNews);
+        $allLatestNews=News::with('newsCategory','newsSubCategory')
+            ->orderBy('id','DESC')->take(10)->get();
 
-        return view('client.index',compact('coverNews','homeNews'));
+        $mostReadNews=News::with('newsCategory','newsSubCategory','mostReadNews')
+                    ->whereHas('mostReadNews',function ($q){
+                        $q->orderBy("most_read_news.read_number",'DESC');
+                    })->take(10)->get();
+
+        return view('client.index',compact('coverNews','homeNews','allLatestNews','mostReadNews'));
     }
 
 

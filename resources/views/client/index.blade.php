@@ -148,469 +148,78 @@
 
                 </div>
                 <aside class="col-sm-4 aside">
-                    <div class="live-update marginBottom20">
-                        <a href="education.htm" target="_blank">
-                            <h3>
-<span class="intro-banner-vdo-play-btn pinkBg">
-<span class="ripple pinkBg"></span>
-<span class="ripple pinkBg"></span>
-<span class="ripple pinkBg"></span>
-</span>
-                                করোনা ভাইরাস - লাইভ আপডেট
-                            </h3>
-                        </a>
-                        <div class="neday"><h3>১৩ জুন, ২০২০</h3><div class="media">
-                                <div class="media-left">
-                                    <span>১০:২২ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">পাকিস্তানের সাবেক প্রধানমন্ত্রী ইউসুফ রাজা গিলানি করোনা আক্রান্ত</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>১০:২১ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">করোনায় পাঁচ শতাধিক ব্যাংকার আক্রান্ত, মারা গেছেন ১৭ জন</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>১০:২১ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">রংপুরে করোনা থেকে সুস্থ হয়ে বাড়ি ফিরলেন ১০০ জন</h4></div>
-                            </div>
-
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৬:৫৫ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">সিরাজগঞ্জে করোনা উপসর্গ নিয়ে তিনজনের মৃত্যু</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৬:৫৫ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">করোনা উপসর্গ নিয়ে রামেক হাসপাতালে দুইজনের মৃত্যু</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৪:১৭ পিএম</span>
-                                </div>
-                                <div class="media-body">
-                                    <a href="education.htm" rel="follow" class="media-heading">
-                                        <h4 class="media-heading">করোনা সংক্রমণের ঝুঁকি কমায় মাস্ক: গবেষণা</h4></a></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৩:০৬ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">করোনাভাইরাসে আক্রান্ত পাকিস্তানের সাবেক অধিনায়ক ও মারকুটে অলরাউন্ডার শহিদ আফ্রিদি</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০২:৪৩ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">দেশে করোনাভাইরাসে (কোভিড-১৯) আক্রান্ত হয়ে গত ২৪ ঘণ্টায় আরও ৪৪ জন প্রাণ হারিয়েছেন। এ নিয়ে ভাইরাসটিতে মৃতের সংখ্যা দাঁড়াল এক হাজার ১৩৯ জনে। একই সময়ে আক্রান্ত হিসেবে শনাক্ত হয়েছেন আরও দুই হাজার ৮৫৬ জন। ফলে করোনায় মোট আক্রান্তের সংখ্যা দাঁড়াল ৮৪ হাজার ৩৭৯ জনে</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০২:১৪ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">করোনামুক্ত হয়ে ঘরে ফিরলেন সুজেয় শ্যাম</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০২:১৪ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">রেড জোনে থাকবে সাধারণ ছুটি</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০১:১২ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">চীনে করোনার দ্বিতীয় ঢেউ, বেইজিংয়ে মার্কেট লকডাউন</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০১:১১ পিএম</span>
-                                </div>
-                                <div class="media-body"><a href="education.htm" rel="follow" class="media-heading"><h4 class="media-heading">মালয়েশিয়ায় ফের করোনার জাল সনদ বিক্রি, তিন বাংলাদেশি গ্রেফতার</h4></a></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>১২:১১ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">গাজীপুরে করোনার উপসর্গ নিয়ে দুইজনের মৃত্যু</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>১২:১১ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">করোনায় সুপ্রিম কোর্টের আরও এক আইনজীবীর মৃত্যু</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>১২:১১ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">যবিপ্রবিতে আরও ৩৩ জনের করোনা শনাক্ত</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>১২:১০ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">ময়মনসিংহে করোনার উপসর্গ নিয়ে যুবকের মৃত্যু</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৯:৩২ এএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">করোনায় মৃত্যুতে ২য় স্থানে উঠে এলো ব্রাজিল, প্রাণহানি ৪১ হাজার</h4>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৮:৪৪ এএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">এশিয়ায় মৃত্যুতে শীর্ষে ভারত, আক্রান্ত ছাড়াল ৩ লাখ</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৮:০৭ এএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">চট্টগ্রামে করোনা উপসর্গ নিয়ে আরও এক চিকিৎসকের মৃত্যু</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৮:০৭ এএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">খুলনায় একদিনে সর্বোচ্চ ৫৮ জনের করোনা শনাক্ত</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৮:০৬ এএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">সিলেটে আরও ৫৪ জনের করোনা শনাক্ত</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৮:০৬ এএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">করোনা ইউনিটে ৪০ মিনিটে দুইজনের মৃত্যু</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৮:০৬ এএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">অক্সফোর্ডের ভ্যাকসিন ৪২ হাজার মানুষের দেহে পুশ হচ্ছে</h4></div>
-                            </div><h3>১২ জুন, ২০২০</h3>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>১০:০৭ পিএম</span>
-                                </div>
-                                <div class="media-body"><a href="education.htm" rel="follow" class="media-heading">
-                                        <h4 class="media-heading">পোলিও টিকায় করোনা প্রতিরোধ, আশা দেখছেন বিজ্ঞানীরা</h4></a>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৯:০০ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">ভারতে করোনায় আক্রান্ত দুই লাখ ৯৭ হাজার ৫৩৫ জন, মারা গেছেন আট হাজার ৪৯৮ জন, সুস্থ হয়েছেন এক লাখ ৪৭ হাজার ১৯৫ জন, এখনো সংক্রমিত এক লাখ ৪১ হাজার ৮৪২ জন</h4>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৮:৫৮ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">গত ২৪ ঘণ্টায় পাবনায় করোনাভাইরাসের উপসর্গ নিয়ে তিনজনের মৃত্যু হয়েছে</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৭:৩৭ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">গত ২৪ ঘণ্টায় নতুন করে বাংলাদেশ পুলিশের ২২১ জন সদস্য করোনাভাইরাসে আক্রান্ত হয়েছেন</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৭:৩৬ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">মুক্তিযুদ্ধবিষয়ক মন্ত্রী আ ক ম মোজাম্মেল হক এবং তার স্ত্রী লায়লা আরজুমান্দ বানু করোনাভাইরাসে (কোভিড-১৯) আক্রান্ত হয়েছেন</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৬:১২ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">করোনার কারণে বিশ্ব অর্থনীতিতে যে ধস নেমেছে তাতে চরম দরিদ্র মানুষের তালিকায় যুক্ত হবে আরও প্রায় ৪০ কোটি নাম</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৬:১১ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">পাবনার পুলিশ সুপার শেখ রফিকুল ইসলাম করোনায় আক্রান্ত হয়েছেন</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৩:৪০ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">যশোর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়ের ল্যাবে নমুনা পরীক্ষায় নতুন ২৪ জনের করোনা শনাক্ত হয়েছে</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৩:৩৮ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">কুষ্টিয়ায় করোনা ভাইরাসের উপসর্গ নিয়ে গত দুই মাসে ১১ জনের মৃত্যু হয়েছে</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৩:৩৮ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">রাজশাহী বিভাগে নতুন করে আরও ১০৮ জনের দেহে করোনাভাইরাস শনাক্ত হয়েছেন</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০২:৩৯ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">মহামারি করোনাভাইরাসে (কোভিড-১৯) আক্রান্ত হয়ে দেশে গত ২৪ ঘণ্টায় আরও ৪৬ জনের মৃত্যু হয়েছে। এ নিয়ে ভাইরাসটিতে মোট এক হাজার ৯৫ জনের মৃত্যু হলো। একই সময়ে আক্রান্ত হিসেবে শনাক্ত হয়েছেন আরও তিন হাজার ৪৭১ জন। ফলে করোনায় মোট আক্রান্তের সংখ্যা দাঁড়াল ৮১ হাজার ৫২৩ জনে</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>১১:২৭ এএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">ভাইরাসজনিত পুরনো অসুখেই তৈরি হচ্ছে করোনাপ্রতিরোধী ক্ষমতা: গবেষণা</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>১১:২৬ এএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">গণস্বাস্থ্যের কিটে করোনা পরীক্ষার খবর মিথ্যা</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>১১:২৬ এএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">ভৈরবে র‌্যাবের অধিনায়ক-সহকারী অধিনায়ক করোনায় আক্রান্ত</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৮:০৮ এএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">ব্রাজিলে করোনায় আক্রান্ত ৮ লাখ, মৃত্যু ৪০ হাজার ছাড়াল</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৮:০৮ এএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">সৌদিতে করোনায় নতুন আক্রান্ত ৩৭৩৩, মৃত্যু ৩৮ জনের</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৮:০৮ এএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">সিলেটে করোনা আক্রান্তের সংখ্যা দুই হাজার ছাড়াল</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৮:০৭ এএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">বান্দরবানের ডিসি করোনায় আক্রান্ত</h4></div>
-                            </div><h3>১১ জুন, ২০২০</h3>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৯:৩১ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">সিঙ্গাপুরে করোনায় মোট আক্রান্ত ৩৯৩৮৭ জন, সুস্থ ২৭২৮৬</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৯:৩১ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">কুমিল্লায় করোনার উপসর্গ নিয়ে সাংবাদিক ও ব্যবসায়ীর মৃত্যু</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৯:৩১ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">যশোরের শার্শা উপজেলায় করোনাভাইরাসে আক্রান্ত হয়ে আরেকজনের মৃত্যু হয়েছে</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৯:৩০ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">গাজীপুরে করোনা আক্রান্ত দুই হাজার ছাড়াল, মৃত্যু ২০</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৯:৩০ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">সৌদিতে করোনায় ২০ দিনে আরও ৫৩ বাংলাদেশির মৃত্যু</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৮:৩৯ পিএম</span>
-                                </div>
-                                <div class="media-body"><a href="education.htm" rel="follow" class="media-heading"><h4 class="media-heading">করোনা ভ্যাকসিনের শেষ ধাপের পরীক্ষার ঘোষণা দিলো মডার্না</h4></a></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৭:১১ পিএম</span>
-                                </div>
-                                <div class="media-body"><a href="education.htm" rel="follow" class="media-heading"><h4 class="media-heading">করোনায় বাজিমাত, ভিয়েতনাম ছুটছে বিশ্ব বাজারে</h4></a></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৫:২৬ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">রাশিয়ায় করোনায় আক্রান্ত ৫ লাখ ছাড়াল</h4></div>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <span>০৫:২৬ পিএম</span>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading">করোনা উপসর্গ নিয়ে পটুয়াখালীতে রূপালী ব্যাংক কর্মকর্তার মৃত্যু</h4></div>
-                            </div></div><a href="education.htm" class="btn btn-default btn-lg btn-block">আরও পড়ুন</a>
-                    </div>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="box-white">
-                                <div class="jagoTab2">
+                                <div class="jagoTab2 TwoTab">
 
                                     <ul class="nav nav-tabs nav-justified" role="tablist">
-                                        <li role="presentation" class="active"><a href="education.htm" aria-controls="tab21" role="tab" data-toggle="tab">সর্বশেষ</a></li>
-                                        <li role="presentation"><a href="index.html#tab22" aria-controls="tab22" role="tab" data-toggle="tab">জনপ্রিয়</a></li>
+                                        <li role="presentation" class="active">
+                                            <a href="education.htm#tab21" aria-controls="tab21" role="tab" data-toggle="tab">সর্বশেষ</a></li>
+                                        <li role="presentation"><a href="education.htm#tab22" aria-controls="tab22" role="tab" data-toggle="tab">জনপ্রিয়</a></li>
                                     </ul>
 
                                     <div class="tab-content">
                                         <div role="tabpanel" class="tab-pane fade in active" id="tab21">
-                                            <ul class="media-list" style="max-height:357px!important;">
-                                                <li class="media">
-                                                    <div class="media-left">
-                                                        <span>১</span><a href="education.htm">
-                                                            <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="বিপাকে বায়িং হাউজ, সহায়তা চান ব্যবসায়ীরা"></a></div>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><a href="economy/news/589861.htm">বিপাকে বায়িং হাউজ, সহায়তা চান ব্যবসায়ীরা</a></h4>
-                                                    </div></li><li class="media">
-                                                    <div class="media-left">
-                                                        <span>২</span><a href="education.htm">
-                                                            <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="করোনার সংক্রমণ-উপসর্গ নিয়ে মারা গেলেন যে ৩৩ চিকিৎসক"></a></div>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><a href="education.htm">করোনার সংক্রমণ-উপসর্গ নিয়ে মারা গেলেন যে ৩৩ চিকিৎসক</a></h4>
-                                                    </div></li><li class="media">
-                                                    <div class="media-left">
-                                                        <span>৩</span><a href="education.htm">
-                                                            <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="সবসময় খেলোয়াড়দের পক্ষেই থাকব : গাঙ্গুলি"></a></div>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><a href="education.htm">সবসময় খেলোয়াড়দের পক্ষেই থাকব : গাঙ্গুলি</a></h4>
-                                                    </div></li><li class="media">
-                                                    <div class="media-left">
-                                                        <span>৪</span><a href="education.htm">
-                                                            <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="উন্নয়নের নামে ভাঁওতাবাজি চলছে : আসিফ নজরুল"></a></div>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><a href="education.htm">উন্নয়নের নামে ভাঁওতাবাজি চলছে : আসিফ নজরুল</a></h4>
-                                                    </div></li><li class="media">
-                                                    <div class="media-left">
-                                                        <span>৫</span><a href="education.htm">
-                                                            <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="পাকিস্তানের সাবেক প্রধানমন্ত্রী গিলানি করোনা আক্রান্ত"></a></div>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><a href="education.htm">পাকিস্তানের সাবেক প্রধানমন্ত্রী গিলানি করোনা আক্রান্ত</a></h4>
-                                                    </div></li><li class="media">
-                                                    <div class="media-left">
-                                                        <span>৬</span><a href="education.htm">
-                                                            <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="অক্সফোর্ড ভ্যাকসিন নিয়ে ৪ দেশের সঙ্গে অ্যাস্ট্রাজেনেকার চুক্তি"></a></div>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><a href="education.htm">অক্সফোর্ড ভ্যাকসিন নিয়ে ৪ দেশের সঙ্গে অ্যাস্ট্রাজেনেকার চুক্তি</a></h4>
-                                                    </div></li><li class="media">
-                                                    <div class="media-left">
-                                                        <span>৭</span><a href="education.htm">
-                                                            <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="কলপ্রতি এক পয়সা কেটে নিয়ে কোভিড তহবিল গঠনের পরামর্শ ড. আতিউরের"></a></div>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><a href="education.htm">কলপ্রতি এক পয়সা কেটে নিয়ে কোভিড তহবিল গঠনের পরামর্শ ড. আতিউরের</a></h4>
-                                                    </div></li><li class="media">
-                                                    <div class="media-left">
-                                                        <span>৮</span><a href="education.htm">
-                                                            <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="দেড় বছর ধরে পাসপোর্ট পাচ্ছি না : ভিপি নুর"></a></div>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><a href="national/news/589854.htm">দেড় বছর ধরে পাসপোর্ট পাচ্ছি না : ভিপি নুর</a></h4>
-                                                    </div></li><li class="media">
-                                                    <div class="media-left">
-                                                        <span>৯</span><a href="education.htm">
-                                                            <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="আমাদের ‘গিনিপিগ’ বানানো হয়নি : ওয়েস্ট ইন্ডিজ"></a></div>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><a href="education.htm">আমাদের ‘গিনিপিগ’ বানানো হয়নি : ওয়েস্ট ইন্ডিজ</a></h4>
-                                                    </div></li><li class="media">
-                                                    <div class="media-left">
-                                                        <span>১০</span><a href="education.htm">
-                                                            <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="ঢামেকের করোনা ইউনিটে দুইদিনে ২৬ জনের মৃত্যু"></a></div>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><a href="education.htm">ঢামেকের করোনা ইউনিটে দুইদিনে ২৬ জনের মৃত্যু</a></h4>
-                                                    </div></li>
+                                            <ul class="media-list">
+                                                @forelse($allLatestNews->skip(1)->take(4) as $key=>$latestNews)
+                                                    <?php
+                                                    if (isset($latestNews->newsSubCategory))
+                                                    {
+                                                        $url=$latestNews->newsCategory->link.'/'.$latestNews->newsSubCategory->link.'/'.$latestNews->id.'/'.$latestNews->title;
+                                                    }else{
+                                                        $url=$latestNews->newsCategory->link.'/'.'news'.'/'.$latestNews->id.'/'.$latestNews->title;
+                                                    }
+                                                    ?>
+                                                    <li class="media">
+                                                        <div class="media-left">
+                                                    <span>
+                                                        {{MyHelper::bn_number($key)}}
+                                                    </span>
+                                                            <a href="{{url($url)}}">
+                                                                <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset($latestNews->feature_small)}}" alt="{{$latestNews->title}}">
+                                                            </a>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading"><a href="{{url($url)}}">{{$latestNews->title}}</a></h4>
+                                                        </div>
+                                                    </li>
+                                                @empty
+                                                    <h4 class="text-danger text-center">কোন ফলাফল পাওয়া যায়নি</h4>
+                                                @endforelse
                                             </ul>
-                                            <div class="allnews"><a href="education.htm" rel="nofollow">আজকের
-                                                    সর্বশেষ সবখবর</a></div>
+                                            <div class="allnews"><a href="{{url('/archive')}}" rel="nofollow">আজকের সর্বশেষ সবখবর</a></div>
                                         </div>
                                         <div role="tabpanel" class="tab-pane" id="tab22">
-                                            <ul class="media-list" style="max-height:357px!important;">
-                                                <li class="media">
-                                                    <div class="media-left">
-                                                        <span>১</span><a href="education.htm">
-                                                            <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="৪৪টি ডিম পেড়েছে পিলপিল"></a></div>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><a href="education.htm">৪৪টি ডিম পেড়েছে পিলপিল</a></h4>
-                                                    </div></li><li class="media">
-                                                    <div class="media-left">
-                                                        <span>২</span><a href="education.htm">
-                                                            <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="অক্সফোর্ডের ভ্যাকসিন ৪২ হাজার মানুষের দেহে পুশ হচ্ছে"></a></div>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><a href="education.htm">অক্সফোর্ডের ভ্যাকসিন ৪২ হাজার মানুষের দেহে পুশ হচ্ছে</a></h4>
-                                                    </div></li><li class="media">
-                                                    <div class="media-left">
-                                                        <span>৩</span><a href="education.htm">
-                                                            <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="বগুড়ায় আরও ৫১ জনের করোনা পজিটিভ"></a></div>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><a href="education.htm">বগুড়ায় আরও ৫১ জনের করোনা পজিটিভ</a></h4>
-                                                    </div></li><li class="media">
-                                                    <div class="media-left">
-                                                        <span>৪</span><a href="education.htm">
-                                                            <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="৩৯৯ আইসিইউ শয্যার কতটিতে আসলে সেবা মিলছে?"></a></div>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><a href="education.htm">৩৯৯ আইসিইউ শয্যার কতটিতে আসলে সেবা মিলছে?</a></h4>
-                                                    </div></li><li class="media">
-                                                    <div class="media-left">
-                                                        <span>৫</span><a href="education.htm">
-                                                            <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="চলে গেলেন ঢাকার ফুটবলের ট্রিপল হ্যাটট্রিকম্যান ময়না"></a></div>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><a href="education.htm">চলে গেলেন ঢাকার ফুটবলের ট্রিপল হ্যাটট্রিকম্যান ময়না</a></h4>
-                                                    </div></li><li class="media">
-                                                    <div class="media-left">
-                                                        <span>৬</span><a href="education.htm">
-                                                            <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="ইউক্রেনের ফার্স্ট লেডি করোনায় আক্রান্ত"></a></div>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><a href="education.htm">ইউক্রেনের ফার্স্ট লেডি করোনায় আক্রান্ত</a></h4>
-                                                    </div></li><li class="media">
-                                                    <div class="media-left">
-                                                        <span>৭</span><a href="education.htm">
-                                                            <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="/corona-1-20200612225900.png" alt="'প্লিজ, স্বজনকে বেওয়ারিশ লাশ না বানাই'"></a></div>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><a href="education.htm">'প্লিজ, স্বজনকে বেওয়ারিশ লাশ না বানাই'</a></h4>
-                                                    </div></li><li class="media">
-                                                    <div class="media-left">
-                                                        <span>৮</span><a href="education.htm">
-                                                            <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="/nasim-11-20200612235311.jpg" alt="রাতে হঠাৎ হার্টের কার্যকা‌রিতা ক‌মে গিয়েছিল না‌সি‌মের"></a></div>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><a href="education.htm">রাতে হঠাৎ হার্টের কার্যকা‌রিতা ক‌মে গিয়েছিল না‌সি‌মের</a></h4>
-                                                    </div></li><li class="media">
-                                                    <div class="media-left">
-                                                        <span>৯</span><a href="education.htm">
-                                                            <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="/road-accident-1-20200613000316.jpg" alt="যাত্রাবাড়ীতে বাসচাপায় অজ্ঞাত বৃদ্ধের মৃত্যু"></a></div>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><a href="education.htm">যাত্রাবাড়ীতে বাসচাপায় অজ্ঞাত বৃদ্ধের মৃত্যু</a></h4>
-                                                    </div></li><li class="media">
-                                                    <div class="media-left">
-                                                        <span>১০</span><a href="education.htm">
-                                                            <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="/sher-barishal-11-20200613001714.jpg" alt="করোনা ইউনিটে ৪০ মিনিটে দুইজনের মৃত্যু"></a></div>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><a href="education.htm">করোনা ইউনিটে ৪০ মিনিটে দুইজনের মৃত্যু</a></h4>
-                                                    </div></li>
+                                            <ul class="media-list">
+                                                @forelse($mostReadNews->skip(1)->take(4) as $key=>$data)
+                                                    <?php
+                                                    if (isset($data->newsSubCategory))
+                                                    {
+                                                        $url=$data->newsCategory->link.'/'.$data->newsSubCategory->link.'/'.$data->id.'/'.$data->title;
+                                                    }else{
+                                                        $url=$data->newsCategory->link.'/'.'news'.'/'.$data->id.'/'.$data->title;
+                                                    }
+                                                    ?>
+                                                    <li class="media">
+                                                        <div class="media-left">
+                                                    <span>
+                                                        {{MyHelper::bn_number($key)}}
+                                                    </span>
+                                                            <a href="{{url($url)}}">
+                                                                <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset($data->feature_small)}}" alt="{{$data->title}}">
+                                                            </a>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading"><a href="{{url($url)}}">{{$data->title}}</a></h4>
+                                                        </div>
+                                                    </li>
+                                                @empty
+                                                    <h4 class="text-danger text-center">কোন ফলাফল পাওয়া যায়নি</h4>
+                                                @endforelse
+
                                             </ul>
-                                            <div class="allnews"><a href="education.htm" rel="nofollow">আজকের
-                                                    সর্বশেষ সবখবর</a></div>
+                                            <div class="allnews"><a href="{{url('/archive')}}" rel="nofollow"> আজকের সর্বশেষ সবখবর</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -621,7 +230,7 @@
                     <div class="text-center row">
                         <div class="col-sm-12 paddingBottom20">
 
-                            <div id='div-gpt-ad-1536578631383-0'></div>
+                            <div id='12'></div>
                         </div>
                     </div>
 

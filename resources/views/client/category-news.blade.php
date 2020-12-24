@@ -211,7 +211,8 @@
                             <div class="jagoTab2 TwoTab">
 
                                 <ul class="nav nav-tabs nav-justified" role="tablist">
-                                    <li role="presentation" class="active"><a href="education.htm#tab21" aria-controls="tab21" role="tab" data-toggle="tab">সর্বশেষ</a></li>
+                                    <li role="presentation" class="active">
+                                        <a href="education.htm#tab21" aria-controls="tab21" role="tab" data-toggle="tab">সর্বশেষ</a></li>
                                     <li role="presentation"><a href="education.htm#tab22" aria-controls="tab22" role="tab" data-toggle="tab">জনপ্রিয়</a></li>
                                 </ul>
 
@@ -244,7 +245,7 @@
                                                 <h4 class="text-danger text-center">কোন ফলাফল পাওয়া যায়নি</h4>
                                             @endforelse
                                         </ul>
-                                        <div class="allnews"><a href="589371.htm" rel="nofollow">আজকের সর্বশেষ সবখবর</a></div>
+                                        <div class="allnews"><a href="{{url('/archive')}}" rel="nofollow">আজকের সর্বশেষ সবখবর</a></div>
                                     </div>
                                     <div role="tabpanel" class="tab-pane" id="tab22">
                                         <ul class="media-list">
@@ -275,7 +276,7 @@
                                             @endforelse
 
                                         </ul>
-                                        <div class="allnews"><a href="589371.htm" rel="nofollow"> আজকের সর্বশেষ সবখবর</a></div>
+                                        <div class="allnews"><a href="{{url('/archive')}}" rel="nofollow"> আজকের সর্বশেষ সবখবর</a></div>
                                     </div>
                                 </div>
                             </div>

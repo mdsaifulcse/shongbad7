@@ -95,7 +95,9 @@ Auth::routes([
 ]);
 
 Route::group(['namespace'=>'Client'], function() {
+
     Route::get('/', 'HomeNewsController@index');
+    Route::get('/archive', 'ArchiveController@archiveNews');
 
     Route::get('/topic/{topic}', 'CategoryNewsController@topicalNews');
 
