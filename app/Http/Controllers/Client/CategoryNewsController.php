@@ -29,9 +29,11 @@ class CategoryNewsController extends Controller
         $categoryNews=News::with('newsCategory','newsSubCategory','newsAuthor','newsAuthor.profile')
             ->whereHas('newsCategory',function ($q)use($category){
                 $q->where("categories.link", "$category");
-            });
+            })->where('published_status',News::PUBLISHED);
+
         $allLatestNews=News::with('newsCategory','newsSubCategory')
-            ->orderBy('id','DESC')->where('id','!=',$newsId);
+            ->orderBy('id','DESC')->where('published_status',News::PUBLISHED)
+            ->where('id','!=',$newsId);
 
         $categoryMostReadNews=News::with('newsCategory','newsSubCategory','mostReadNews')
             ->whereHas('mostReadNews',function ($q){
@@ -57,7 +59,8 @@ class CategoryNewsController extends Controller
 
 
             $latestNews=News::with('newsCategory','newsSubCategory')
-                ->orderBy('id','DESC')->where('id','!=',$newsId)->take(4)->get();
+                ->orderBy('id','DESC')->where('published_status',News::PUBLISHED)
+                ->where('id','!=',$newsId)->take(4)->get();
 
 
             $categoryMostReadNews=$categoryMostReadNews->take(5)->get();

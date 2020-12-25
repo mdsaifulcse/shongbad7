@@ -7,7 +7,10 @@
     overflow: hidden; }
     .kt-login.kt-login--v4 .kt-login__wrapper .kt-login__container {
       width: 430px;
-      margin: 0 auto; }
+      margin: 0 auto;
+      border: 1px solid red;
+      padding: 10px;
+    }
       .kt-login.kt-login--v4 .kt-login__wrapper .kt-login__container .kt-login__logo {
         text-align: center;
         margin: 0 auto 4rem auto; }
@@ -32,7 +35,6 @@
           margin: 0 auto; }
         .kt-login.kt-login--v4 .kt-login__wrapper .kt-login__container .kt-form .form-control {
           height: 46px;
-          border: none;
           padding-left: 1.5rem;
           padding-right: 1.5rem;
           border-radius: 46px;

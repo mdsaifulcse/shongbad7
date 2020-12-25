@@ -5,8 +5,8 @@
 <!-- begin::Head -->
 <head>
     <meta charset="utf-8" />
-    <title>Metronic | Login Page </title>
-    <meta name="description" content="Login page example">
+    <title>Login Page | {{\App\Models\Setting::first()->value('company_name')}}</title>
+    <meta name="description" content="{{\App\Models\Setting::first()->value('company_slogan')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!--begin::Fonts -->

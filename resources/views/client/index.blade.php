@@ -41,7 +41,16 @@
                                             <h3>
                                                 <a href="{{url($url)}}" >{{$coverData->title}}</a>
                                             </h3>
-                                            <p>  </p>
+                                            <p>
+                                                <?php
+                                                if (strlen($coverData->meta_description) != strlen(utf8_decode($coverData->meta_description)))
+                                                {
+                                                    echo substr($coverData->meta_description,0,300);
+                                                }else{
+                                                    echo substr($coverData->meta_description,0,19);
+                                                }
+                                                ?>...
+                                            </p>
                                         </div>
                                         <div class="meta">
                                             <span class="pull-left tags"><i class="fa fa-tags"></i>

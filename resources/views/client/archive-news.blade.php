@@ -27,15 +27,17 @@
                                     <div class="input-group">
 
                                         <div class="input-group-addon">তারিখ <i class="fa fa-calendar"></i></div>
-                                        <input type="text" name="dateFrom" class="form-control" id="dateFrom">
+                                        <input type="text" name="dateFrom" class="form-control" id="dateFrom"
+                                               value="@if(isset($request->dateFrom)) {{$request->dateFrom}} @endif">
 
                                         <div class="input-group-addon">থেকে <i class="fa fa-calendar"></i></div>
-                                        <input type="text" name="dateTo" class="form-control" id="dateTo">
+                                        <input type="text" name="dateTo" class="form-control" id="dateTo"
+                                        value="@if(isset($request->dateTo)) {{$request->dateTo}} @endif">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
 
-                                    {!! Form::select('category_id',$categories,[], ['id'=>'loadSubCategory','placeholder' => '-- ক্যাটাগরি --','class' => 'form-control','required'=>false]) !!}
+                                    {!! Form::select('category_id',$categories,isset($request->category_id)?$request->category_id:[], ['id'=>'loadSubCategory','placeholder' => '-- ক্যাটাগরি --','class' => 'form-control','required'=>false]) !!}
 
                                     @if ($errors->has('category_id'))
                                         <span class="help-block">
@@ -45,7 +47,7 @@
 
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" name="keyword" class="form-control" id="text_search" placeholder="আপনি কী খুঁজছেন?">
+                                    <input type="text" name="keyword" value="{{isset($request->keyword)?$request->keyword:''}}" class="form-control" id="text_search" placeholder="আপনি কী খুঁজছেন?">
                                 </div>
                             </div>
                         </div>
@@ -54,7 +56,7 @@
                                 <div class="col-sm-2">
                                     <label for="division" class="sr-only">বিভাগ</label>
 
-                                    {!! Form::select('division_id',$states,[], ['placeholder' => 'রাজ্য নির্বাচন','class' => 'form-control','required'=>false]) !!}
+                                    {!! Form::select('division_id',$states,isset($request->division_id)?$request->division_id:[], ['placeholder' => 'রাজ্য নির্বাচন','class' => 'form-control','required'=>false]) !!}
 
                                     @if ($errors->has('division_id'))
                                         <span class="help-block">
@@ -118,6 +120,7 @@
                     </div>
                 </div>
             </div>
+            </div>
     </section>
 
 
@@ -138,10 +141,14 @@
                 showDropdowns: true,
                 maxDate: new Date(),
                 locale: {
-                    format: 'DD/MM/YYYY'
+                    format: 'MM/DD/YYYY'
                 }
             });
+            @if($request->has('dateFrom'))
+            $('#dateFrom').val("{{$request->dateFrom}}");
+            @else
             $('#dateFrom').val('');
+            @endif
         });
         $(function() {
             $('#dateTo').daterangepicker({
@@ -149,10 +156,14 @@
                 showDropdowns: true,
                 maxDate: new Date(),
                 locale: {
-                    format: 'DD/MM/YYYY'
+                    format: 'MM/DD/YYYY'
                 }
             });
+            @if($request->has('dateTo'))
+            $('#dateTo').val("{{$request->dateTo}}");
+            @else
             $('#dateTo').val('');
+            @endif
         });
     </script>
 
