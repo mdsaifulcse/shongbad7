@@ -1,7 +1,7 @@
 @extends('client.layouts.master')
 
 @section('title')
-    {{\App\Models\Setting::first()->value('company_slogan')}}
+   {{$categoryData->category_name}} | {{\App\Models\Setting::first()->value('company_slogan')}}
 @endsection
 
 @section('style')

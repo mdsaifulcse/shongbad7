@@ -73,7 +73,7 @@ class CategoryNewsController extends Controller
                 MostReadNews::create(['news_id'=>$newsId,'category_id'=>$categoryData->id,'read_number'=>1]);
 
             }else{
-               // $readNews->update(['read_number'=>$readNews->read_number+1]);
+                $readNews->update(['read_number'=>$readNews->read_number+1]);
             }
 
             return view('client.news-details',compact('news','latestCatNews','latestNews','categoryMostReadNews','mostReadNews'));
