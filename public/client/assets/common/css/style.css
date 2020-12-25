@@ -120,6 +120,7 @@ body,h1,h2,h3,h4,h5,h6,p,textarea{font-family:SolaimanLipi;}
 .social-media li a, .social-media li button{color:#000;border:none;background:none;padding:0;}
 .social-media li a i,.social-media li button i{width:34px;height:34px;border-radius:100%;text-align:center;line-height:34px;;color:#fff;}
 .social-media a .fa-facebook, .social-media button .fa-facebook{background:#3b5998;}
+.social-media a .fa-instagram, .social-media button .fa-instagram{background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);}
 .social-media a .fa-twitter, .social-media button .fa-twitter{background:#00aced;}
 .social-media a .fa-linkedin, .social-media button .fa-linkedin{background:#007bb6;}
 .social-media a .fa-google-plus, .social-media button .fa-google-plus{background:#d34836;}

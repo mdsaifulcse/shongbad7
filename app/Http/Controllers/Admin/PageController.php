@@ -137,17 +137,22 @@ class PageController extends Controller
     {
         $input=$request->all();
 
-        $link=str_replace(' , ', '-', $input['title']);
-        $link=str_replace(', ', '-', $link);
-        $link=str_replace(' ,', '-', $link);
-        $link=str_replace(',', '-', $link);
-        $link=str_replace('/', '-', $link);
-        $link=rtrim($link,' ');
-        $link=str_replace(' ', '-', $link);
-        $link=str_replace('.', '', $link);
-        $link=substr($link,0,50);
-        $link=strtolower($link);
-        $input['link']=$link;
+        if ($request->link==null)
+        {
+            $link=str_replace(' , ', '-', $input['title']);
+            $link=str_replace(', ', '-', $link);
+            $link=str_replace(' ,', '-', $link);
+            $link=str_replace(',', '-', $link);
+            $link=str_replace('/', '-', $link);
+            $link=rtrim($link,' ');
+            $link=str_replace(' ', '-', $link);
+            $link=str_replace('.', '', $link);
+            $link=substr($link,0,50);
+            $link=strtolower($link);
+            $input['link']=$link;
+        }else{
+            $input['link']=$request->link;
+        }
 
 
         $validator = Validator::make($input,[

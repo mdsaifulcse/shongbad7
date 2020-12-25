@@ -170,7 +170,7 @@
                                     <div class="modal-dialog modal-lg" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header modal-header-primary">
-                                                <h5 class="modal-title" id="">Edit  States Info | {{$data->division}}</h5>
+                                                <h5 class="modal-title" id="">Edit  Page Info | {{$data->division}}</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true" class="la la-remove"></span>
                                                 </button>
@@ -185,12 +185,24 @@
                                                         {{Form::text('title',$value=$data->title,array('class'=>'form-control','placeholder'=>'Page title here','required','autofocus'))}}
                                                         @if ($errors->has('title'))
                                                             <span class="help-block">
-                        				<strong class="text-danger">{{ $errors->first('title') }}</strong>
-                    			</span>
+                                                                    <strong class="text-danger">{{ $errors->first('title') }}</strong>
+                                                            </span>
                                                         @endif
                                                     </div>
                                                     <div class="col-md-2">
                                                         {{Form::select('status', [\App\Models\Page::ACTIVE  => \App\Models\Page::ACTIVE , \App\Models\Page::INACTIVE  => \App\Models\Page::INACTIVE], $data->status, ['class' => 'form-control'])}}
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row {{ $errors->has('link') ? 'has-error' : '' }}">
+                                                    {{Form::label('link', ' Page Link', array('class' => 'col-md-2 control-label'))}}
+                                                    <div class="col-md-8">
+                                                        {{Form::text('link',$value=$data->link,array('class'=>'form-control','placeholder'=>'Page title here','required','autofocus'))}}
+                                                        @if ($errors->has('link'))
+                                                            <span class="help-block">
+                                                                    <strong class="text-danger">{{ $errors->first('link') }}</strong>
+                                                            </span>
+                                                        @endif
                                                     </div>
                                                 </div>
 

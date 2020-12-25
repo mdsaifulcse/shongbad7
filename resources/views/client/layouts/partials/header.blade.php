@@ -63,7 +63,7 @@
     <div class="visible-header">
         <span class="burger" onclick="openNav()">&#9776;</span>
         <a href="education.htm" class="logo">
-            <img src="{{asset('/client')}}/media/common/logo.png" alt="Logo">
+            <img src="{{asset(\App\Models\Setting::first()->value('logo'))}}" alt="Logo">
         </a>
         <!--<button onclick="openApp()" class="open-app">-->
         <!--OPEN APP-->
@@ -81,7 +81,7 @@
     <!-- big menu start -->
 
     <div class="visible-print-block text-center">
-        <img alt="Logo" src="{{asset('/client')}}/media/common/logo.png" style="width: 260px;" />
+        <img alt="Logo" src="{{asset(\App\Models\Setting::first()->value('logo'))}}" style="width: 260px;" />
     </div>
     <nav class="logo-date navbar navbar-default no-margin navbar-static-top top hidden-xs" style="z-index:100;display: block;" role="navigation" id="top1">
         <div class="container">
@@ -99,13 +99,12 @@
                 <div class="col-sm-4 text-right marginTop20 hidden-print">
 
                     <ul class="social-media">
-                        <li><a href="education.htm" target="_blank" title="Facebook" rel="nofollow"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="education.htm" target="_blank" title="Twitter" rel="nofollow"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="education.htm" target="_blank" title="Instagram" rel="nofollow"><i class="fa fa-instagram" style="background: #d6249f;background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);"></i></a></li>
-                        <li><a href="education.htm" target="_blank" title="Youtube" rel="nofollow"><i class="fa fa-youtube" style="background:red!important;"></i></a></li>
-                        <li><a href="education.htm" target="_blank" title="Soundcloud" rel="nofollow"><i class="fa fa-soundcloud" style="background:#ff4000!important;"></i></a></li>
-                        <li><a href="education.htm" target="_blank" title="Android" rel="nofollow"><i class="fa fa-android"></i></a></li>
-                        <li><a href="education.htm" target="_blank" title="iPhone/Mac" rel="nofollow"><i class="fa fa-apple"></i></a></li>
+                        @forelse($socials as $social)
+                        <li><a href="{{$social->link}}" target="_blank" title="Facebook" rel="nofollow"><i class="{{$social->icon_class}}"></i></a></li>
+
+                            @empty
+                            <li><a href="javascript:;" title="Nothing" rel="nofollow">No data</a></li>
+                        @endforelse
                     </ul>
                 </div>
             </div>
@@ -121,7 +120,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand visible-xs" href="education.htm"><img alt="Logo" src="{{asset('/client')}}/media/common/logo.png" style="width: 160px;margin-top:-10px;" /></a>
+                <a class="navbar-brand visible-xs" href="{{URL::to('/')}}"><img alt="Logo" src="{{asset('/client')}}/media/common/logo.png" style="width: 160px;margin-top:-10px;" /></a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
@@ -218,12 +217,12 @@
 
                                     @empty
 
-                                            <div class="col-sm-3">
-                                                <ul class="media">
-                                                    <li><a href="javascript:;">No Menu Data Found !</a></li>
+                                    <div class="col-sm-3">
+                                        <ul class="media">
+                                            <li><a href="javascript:;">No Menu Data Found !</a></li>
 
-                                                </ul>
-                                            </div>
+                                        </ul>
+                                    </div>
 
                                     @endforelse
                                 </div>

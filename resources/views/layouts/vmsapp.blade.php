@@ -70,7 +70,7 @@
     <link href="{{asset('/')}}/assets/vendors/custom.css" rel="stylesheet" type="text/css" />
 
     <!--end::Layout Skins -->
-    <link rel="shortcut icon" href="{{asset('/')}}/assets/media/logos/favicon.ico" />
+    <link rel="shortcut icon" href="{{asset(\App\Models\Setting::first()->value('favicon'))}}" />
 </head>
 
 <!-- end::Head -->

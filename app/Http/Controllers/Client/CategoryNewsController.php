@@ -113,7 +113,12 @@ class CategoryNewsController extends Controller
 
         if ($topic!=null){
 
-            return view('client.topical-news');
+            $topicalNews=News::with('newsCategory','newsSubCategory')
+                ->orderBy('id','DESC')->where(['published_status'=>News::PUBLISHED])
+                ->where('topic','LIKE',"%{$topic}%")
+                ->take(20)->get();
+
+            return view('client.topical-news',compact('topicalNews','topic'));
 
         }else{
             return redirect()->back();

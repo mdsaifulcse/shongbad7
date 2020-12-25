@@ -99,6 +99,11 @@ Route::group(['namespace'=>'Client'], function() {
     Route::get('/', 'HomeNewsController@index');
     Route::get('/archive', 'ArchiveController@archiveNews');
 
+    Route::get('/about-us.html', 'PageController@aboutUs');
+    Route::get('/contact.htm', 'PageController@contactUs');
+
+    Route::get('/page/{link}', 'PageController@pageView');
+
     Route::get('/topic/{topic}', 'CategoryNewsController@topicalNews');
 
     Route::get('/{category}/{subCate?}/{newsId?}/{title?}', 'CategoryNewsController@index');

@@ -4,7 +4,7 @@
     <div class="kt-aside__brand kt-grid__item " id="kt_aside_brand">
         <div class="kt-aside__brand-logo">
             <a href="{{URL::to('admin/home')}}">
-                <img alt="Logo" src="{{asset('/assets')}}/media/logos/logo-light.png" />
+                <img alt="Logo" src="{{asset(\App\Models\Setting::first()->value('favicon'))}}" />
             </a>
         </div>
         <div class="kt-aside__brand-tools">

@@ -203,7 +203,7 @@
 														</div>
                                                         <?php $max=$max_serial+1; ?>
 														<div class="col-md-2">
-															{{Form::number('serial_num',$max, ['min'=>'1','max'=>$max,'class' => 'form-control','required'])}}
+															{{Form::number('serial_num',$icon->serial_num, ['min'=>'1','max'=>$max,'class' => 'form-control','required'])}}
 															<span> Serial No. </span>
 														</div>
 													</div>

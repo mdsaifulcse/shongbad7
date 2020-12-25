@@ -183,7 +183,7 @@
                                  </div>
 
 
-                                 <div class="col-md-3">
+                                 <div class="col-md-6">
                                      {{Form::label('map', 'Embed map', array('class' => ' control-label'))}}
 
                                      {{Form::text('map_embed',$value=$data->map_embed,['class'=>'form-control','placeholder'=>'Google Map code here'])}}

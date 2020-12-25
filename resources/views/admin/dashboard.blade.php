@@ -1,6 +1,6 @@
 @extends('layouts.vmsapp')
 @section('title')
-    System Admin Dashboard
+    Admin Dashboard
 @endsection
 
 @section('content')
