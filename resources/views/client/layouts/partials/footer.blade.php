@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-7">
-                    <p class="small text-muted">
+                    <p class="small">
                         <span> <br>&copy; {{\MyHelper::bn_number($setting->copyright)}} সর্বস্বত্ব সংরক্ষিত | {{\App\Models\Setting::first()->value('company_name')}}</span><br>
                         <i class="fa fa-map-marker"></i> {{$setting->address1}}
                         <br>

@@ -166,6 +166,8 @@ return [
          * Package Service Providers...
          */
 
+        Barryvdh\DomPDF\ServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -229,6 +231,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'MyHelper' => \App\Providers\MyHelperProvider::class,
         'DataLoad'=>\App\CustomFacades\DataLoadFacade::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

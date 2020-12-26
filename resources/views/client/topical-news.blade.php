@@ -62,7 +62,7 @@
                                                 {
                                                     $url=$topic->newsCategory->link.'/'.$topic->newsSubCategory->link.'/'.$topic->id.'/'.$topic->title;
                                                 }else{
-                                                    $url=$topic->newsCategory->link.'/'.'news'.'/'.$topic->id.'/'.$news->title;
+                                                    $url=$topic->newsCategory->link.'/'.'news'.'/'.$topic->id.'/'.$topic->title;
                                                 }
                                                 ?>
                                             <div class="tag-block">

@@ -35,9 +35,17 @@
                                         <div class="row">
                                             <div class="col-sm-8">
                                                 <div class="media">
+
                                                     <div class="media-left hidden-print">
-                                                        <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset(\App\Models\Setting::first()->value('favicon'))}}" alt="{{$news->title}}" class="media-object" style="margin-top:5px;width:40px;height:40px;border-radius:100%;display:inline-block;">
+                                                        @if(isset($news->newsAuthor) && file_exists($news->newsAuthor->avatar))
+
+                                                        <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset($news->newsAuthor->avatar)}}" alt="{{$news->title}}" class="media-object" style="margin-top:5px;width:40px;height:40px;border-radius:100%;display:inline-block;">
+
+                                                            @else
+                                                            <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset(\App\Models\Setting::first()->value('favicon'))}}" alt="{{$news->title}}" class="media-object" style="margin-top:5px;width:40px;height:40px;border-radius:100%;display:inline-block;">
+                                                        @endif
                                                     </div>
+
                                                     <div class="media-body">
                                                 <span class="small text-muted time-with-author">
                                                 <i class="fa fa-pencil"></i>

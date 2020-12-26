@@ -94,14 +94,17 @@ Auth::routes([
     'verify' => false, // Email Verification Routes...
 ]);
 
+Route::get('clear-all','CacheClearController@clearAllAndReset');
+
 Route::group(['namespace'=>'Client'], function() {
 
     Route::get('/', 'HomeNewsController@index');
+    Route::get('/author/{userId}', 'HomeNewsController@newsAuthor');
+
     Route::get('/archive', 'ArchiveController@archiveNews');
 
     Route::get('/about-us.html', 'PageController@aboutUs');
     Route::get('/contact.htm', 'PageController@contactUs');
-
     Route::get('/page/{link}', 'PageController@pageView');
 
     Route::get('/topic/{topic}', 'CategoryNewsController@topicalNews');
@@ -110,6 +113,7 @@ Route::group(['namespace'=>'Client'], function() {
 
 
 });
+
 
 
 

@@ -248,6 +248,7 @@
         </div>
     </section>
 
+    @if(count($educations)>0)
     <section class="Sports paddingTop20">
         <div class="container">
             <div class="row">
@@ -257,104 +258,56 @@
                             <h2 class="catTitleBlock">
                                 <div class="row">
                                     <div class="col-sm-8">
-<span class="left">
-<span class="catName">
-<a href="education.htm">খেলাধুলা </a>
-</span>
-<span class="catSubName">
-<a href="education.htm">ক্রিকেট</a>
-<a href="education.htm">ফুটবল</a>
-</span>
-</span>
+                                        <span class="left">
+                                            <span class="catName">
+                                                <?php $education=$educations[0];
+                                                ?>
+                                                <a href="{{url($education->newsCategory->link)}}">{{$education->newsCategory->category_name}} </a>
+                                            </span>
+                                            <span class="catSubName">
+                                                {{--<a href="education.htm">ক্রিকেট</a>--}}
+                                                {{--<a href="education.htm">ফুটবল</a>--}}
+                                            </span>
+                                        </span>
                                     </div>
                                     <div class="col-sm-4">
-                                        <a href="education.htm" class="right">সবখবর <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                        <a href="{{url($education->newsCategory->link)}}" class="right">সবখবর <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </h2>
                         </div>
                     </div>
                     <div class="row">
+                        @foreach($educations as $education)
+
+                            <?php
+                            if (isset($education->newsSubCategory))
+                            {
+                                $url=$education->newsCategory->link.'/'.$education->newsSubCategory->link.'/'.$education->id.'/'.$education->title;
+                            }else{
+                                $url=$education->newsCategory->link.'/'.'news'.'/'.$education->id.'/'.$education->title;
+                            }
+                            ?>
                         <div class="col-xs-12 col-sm-6 col-md-3 col-md-3">
                             <div class="single-block">
-
                                 <div class="img-mobile-left">
-                                    <div class="img-box"><a href="education.htm">
-                                            <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="" class="lazyload img-responsive"></a>
+                                    <div class="img-box"><a href="{{url($url)}}">
+                                            <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset($education->feature_medium)}}" alt="" class="lazyload img-responsive"></a>
                                     </div>
                                 </div>
 
                                 <div class="content-mobile-right">
                                     <div class="details">
-                                        <h3><a href="education.htm">সবসময় খেলোয়াড়দের পক্ষেই থাকব : গাঙ্গুলি</a></h3>
+                                        <h3><a href="education.htm">{{$education->title}}</a></h3>
                                     </div>
                                     <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i>
-                                        <a href="education.htm">ভারতীয়-ক্রিকেট</a></span>
+                                        <a href="{{explode(',', $education->topic)[0]}}">{{explode(',', $education->topic)[0]}}</a></span>
                                     </div>
 
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-xs-12 col-sm-6 col-md-3 col-md-3">
-                            <div class="single-block">
-
-                                <div class="img-mobile-left">
-                                    <div class="img-box"><a href="education.htm">
-                                            <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="" class="lazyload img-responsive"></a>
-                                    </div>
-                                </div>
-
-                                <div class="content-mobile-right">
-                                    <div class="details">
-                                        <h3><a href="education.htm">সবসময় খেলোয়াড়দের পক্ষেই থাকব : গাঙ্গুলি</a></h3>
-                                    </div>
-                                    <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">ভারতীয়-ক্রিকেট</a></span>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xs-12 col-sm-6 col-md-3 col-md-3">
-                            <div class="single-block">
-
-                                <div class="img-mobile-left">
-                                    <div class="img-box"><a href="education.htm">
-                                            <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="" class="lazyload img-responsive"></a>
-                                    </div>
-                                </div>
-
-                                <div class="content-mobile-right">
-                                    <div class="details">
-                                        <h3><a href="education.htm">সবসময় খেলোয়াড়দের পক্ষেই থাকব : গাঙ্গুলি</a></h3>
-                                    </div>
-                                    <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">ভারতীয়-ক্রিকেট</a></span>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xs-12 col-sm-6 col-md-3 col-md-3">
-                            <div class="single-block">
-
-                                <div class="img-mobile-left">
-                                    <div class="img-box"><a href="education.htm">
-                                            <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="" class="lazyload img-responsive"></a>
-                                    </div>
-                                </div>
-
-                                <div class="content-mobile-right">
-                                    <div class="details">
-                                        <h3><a href="education.htm">সবসময় খেলোয়াড়দের পক্ষেই থাকব : গাঙ্গুলি</a></h3>
-                                    </div>
-                                    <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">ভারতীয়-ক্রিকেট</a></span>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
 
                     </div>
 
@@ -362,7 +315,7 @@
             </div>
         </div>
     </section>
-
+    @endif
     <section>
         <div class="container text-center paddingTopBottom20">
             <div class="row">
@@ -380,7 +333,7 @@
                 <div class="col-sm-8 main-content">
                     <div class="row">
                         <div class="col-sm-12">
-                            <h2 class="catTitle"><a href="education.htm">দেশজুড়ে</a><span class="liner"></span></h2>
+                            <h2 class="catTitle"><a href="education.htm">প্রযুক্তি</a><span class="liner"></span></h2>
                         </div>
                     </div>
                     <div class="row">
@@ -575,255 +528,12 @@
             </div>
         </div>
     </section>
-    <section class="paddingTopBottom20">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 main-content category">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="single-cat-height">
-                                <h2 class="catTitle"><a href="education.htm">আন্তর্জাতিক</a><span class="liner"></span></h2>
-                                <div class="single-block">
-
-                                    <div class="img-box"><a href="education.htm">
-                                            <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="পাকিস্তানের সাবেক প্রধানমন্ত্রী গিলানি করোনা আক্রান্ত" class="lazyload img-responsive"></a>
-                                    </div>
-                                    <h4><a href="education.htm">পাকিস্তানের সাবেক প্রধানমন্ত্রী গিলানি করোনা আক্রান্ত</a>
-                                    </h4>
-                                    <div class="details">
-                                        <div class="media">
-                                            <div class="media-body">
-                                                <h4 class="media-heading"><a href="education.htm">অক্সফোর্ড ভ্যাকসিন নিয়ে ৪ দেশের সঙ্গে অ্যাস্ট্রাজেনেকার চুক্তি</a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="media">
-                                            <div class="media-body">
-                                                <h4 class="media-heading"><a href="education.htm">কুকুর দিয়ে করোনা শনাক্তে ৯৫ শতাংশ সাফল্য</a></h4>
-                                            </div>
-                                        </div>
-                                        <div class="media">
-                                            <div class="media-body">
-                                                <h4 class="media-heading"><a href="education.htm">ভারতের আপত্তি উড়িয়ে নেপালের পার্লামেন্টে নতুন মানচিত্র বিল পাস</a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="media">
-                                            <div class="media-body">
-                                                <h4 class="media-heading"><a href="education.htm">করোনা চিকিৎসায় অস্ট্রেলিয়ার ওষুধে আশা</a></h4>
-                                            </div>
-                                        </div>
-                                        <div class="media">
-                                            <div class="media-body">
-                                                <h4 class="media-heading"><a href="education.htm">ভারতে একদিনে সর্বোচ্চ প্রায় চারশ মৃত্যু</a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="allnews"><a href="inter#"> সবখবর</a></div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="single-cat-height">
-                                <h2 class="catTitle"><a href="education.htm">রাজনীতি</a><span class="liner"></span></h2>
-                                <div class="single-block">
-
-                                    <div class="img-box"><a href="education.htm">
-                                            <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="উন্নয়নের নামে ভাঁওতাবাজি চলছে : আসিফ নজরুল" class="lazyload img-responsive"></a></div><h4><a href="politics/news/589858.htm">উন্নয়নের নামে ভাঁওতাবাজি চলছে : আসিফ নজরুল</a></h4><div class="details"><div class="media"><div class="media-body"><h4 class="media-heading"><a href="politics/news/589839.htm">যতই চেষ্টা করেন করোনা থেকে বাঁচতে পারবেন না : মান্না</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="politics/news/589818.htm">বাজেট প্রণেতারা মূর্খের স্বর্গে বাস করছেন : শামসুজ্জামান দুদু</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="politics/news/589774.htm">মন্ত্রীদের জেলা সদরে চিকিৎসা নেয়া বাধ্যতামূলক করুন : আলাল</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="politics/news/589736.htm">গতানুগতিক সমালোচনার বৃত্তে আবর্তিত বিএনপি : কাদের</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="politics/news/589721.htm">‘এমন সাহসী কণ্ঠস্বর রাজনীতিতে বিরল’</a></h4></div></div></div>
-                                </div>
-                            </div>
-                            <div class="allnews"><a href="education.htm"> সবখবর</a></div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="single-cat-height">
-                                <h2 class="catTitle"><a href="education.htm">অর্থনীতি</a><span class="liner"></span></h2>
-                                <div class="single-block">
-
-                                    <div class="img-box"><a href="education.htm">
-                                            <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="এলডিসি থেকে উত্তরণে তিন বছর দেরি করার পরামর্শ সানেমের" class="lazyload img-responsive"></a></div><h4><a href="economy/news/589834.htm">এলডিসি থেকে উত্তরণে তিন বছর দেরি করার পরামর্শ সানেমের</a></h4><div class="details"><div class="media"><div class="media-body"><h4 class="media-heading"><a href="economy/news/589827.htm">ইভ্যালিতে পাওয়া যাবে পার্টেক্স ফার্নিচারের পণ্য</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="economy/news/589810.htm">সব খাতের নড়চড় তবু অপরিবর্তিত মার্কেট ‘ঝুঁকি’</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="economy/news/589814.htm">শুধুমাত্র প্রবৃদ্ধিনির্ভর বাজেট জনকল্যাণ নিশ্চিত করে না</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="economy/news/589809.htm">সামাজিক নিরাপত্তায় বরাদ্দ বৃদ্ধির প্রস্তাবকে স্বাগত ‘নগদ’র</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="economy/news/589790.htm">অনলাইনে ভাইব্রেন্ট পণ্য কিনলেই ২০% মূল্যছাড়</a></h4></div></div></div>
-                                </div>
-                            </div>
-                            <div class="allnews"><a href="education.htm"> সবখবর</a></div>
-                        </div>
-                    </div>
-                </div>
-                <aside class="col-sm-4 aside">
-
-                    <div class="text-center">
-                        <div class="row">
-                            <div class="col-sm-12 paddingBottom20">
-
-                                <div id='div-gpt-ad-1536578934367-0'></div>
-                            </div>
-                        </div>
-                    </div>
-
-                </aside>
-            </div>
-        </div>
-    </section>
-    <section class="paddingTop20 national">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 main-content">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h2 class="catTitle"><a href="education.htm">জাতীয়</a><span class="liner"></span></h2>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="single-block">
-                                        <div class="img-mobile-left">
-                                            <div class="img-box"><a href="education.htm">
-                                                    <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="উচ্ছেদ পরবর্তী নদীর তীর পরিদর্শনে নৌ-সচিব" class="lazyload img-responsive"></a>
-                                            </div>
-                                        </div>
-
-                                        <div class="content-mobile-right">
-                                            <div class="details">
-                                                <h4><a href="education.htm">উচ্ছেদ পরবর্তী নদীর তীর পরিদর্শনে নৌ-সচিব</a></h4>
-                                            </div>
-                                            <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">সরকার</a></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="single-block">
-                                        <div class="img-mobile-left">
-                                            <div class="img-box"><a href="education.htm">
-                                                    <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="উচ্ছেদ পরবর্তী নদীর তীর পরিদর্শনে নৌ-সচিব" class="lazyload img-responsive"></a>
-                                            </div>
-                                        </div>
-
-                                        <div class="content-mobile-right">
-                                            <div class="details">
-                                                <h4><a href="education.htm">উচ্ছেদ পরবর্তী নদীর তীর পরিদর্শনে নৌ-সচিব</a></h4>
-                                            </div>
-                                            <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">সরকার</a></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6 col-md-3 col-lg-3">
-                            <div class="single-block">
-
-                                <div class="img-mobile-left">
-                                    <div class="img-box"><a href="education.htm">
-                                            <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="পূর্ব রাজাবাজারে স্বপ্ন-এর ভ্রাম্যমাণ আউটলেট" class="lazyload img-responsive"></a>
-                                    </div>
-                                </div>
-
-                                <div class="content-mobile-right">
-                                    <div class="details">
-                                        <h4><a href="education.htm">পূর্ব রাজাবাজারে স্বপ্ন-এর ভ্রাম্যমাণ আউটলেট</a></h4>
-                                    </div>
-                                    <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">করোনাভাইরাস</a></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-md-6 col-md-3 col-lg-3">
-                            <div class="single-block">
-
-                                <div class="img-mobile-left">
-                                    <div class="img-box"><a href="education.htm">
-                                            <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="পূর্ব রাজাবাজারে স্বপ্ন-এর ভ্রাম্যমাণ আউটলেট" class="lazyload img-responsive"></a>
-                                    </div>
-                                </div>
-
-                                <div class="content-mobile-right">
-                                    <div class="details">
-                                        <h4><a href="education.htm">পূর্ব রাজাবাজারে স্বপ্ন-এর ভ্রাম্যমাণ আউটলেট</a></h4>
-                                    </div>
-                                    <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">করোনাভাইরাস</a></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xs-12 col-md-6 col-md-3 col-lg-3">
-                            <div class="single-block">
-
-                                <div class="img-mobile-left">
-                                    <div class="img-box"><a href="education.htm">
-                                            <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="পূর্ব রাজাবাজারে স্বপ্ন-এর ভ্রাম্যমাণ আউটলেট" class="lazyload img-responsive"></a>
-                                    </div>
-                                </div>
-
-                                <div class="content-mobile-right">
-                                    <div class="details">
-                                        <h4><a href="education.htm">পূর্ব রাজাবাজারে স্বপ্ন-এর ভ্রাম্যমাণ আউটলেট</a></h4>
-                                    </div>
-                                    <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">করোনাভাইরাস</a></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-md-6 col-md-3 col-lg-3">
-                            <div class="single-block">
-
-                                <div class="img-mobile-left">
-                                    <div class="img-box"><a href="education.htm">
-                                            <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="পূর্ব রাজাবাজারে স্বপ্ন-এর ভ্রাম্যমাণ আউটলেট" class="lazyload img-responsive"></a>
-                                    </div>
-                                </div>
-
-                                <div class="content-mobile-right">
-                                    <div class="details">
-                                        <h4><a href="education.htm">পূর্ব রাজাবাজারে স্বপ্ন-এর ভ্রাম্যমাণ আউটলেট</a></h4>
-                                    </div>
-                                    <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">করোনাভাইরাস</a></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <aside class="col-sm-4 aside">
-
-
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="fb-live">
-                                <h2 class="no-margin"><a href="education.htm">Demo মানবতা</a>
-                                </h2>
-                                <div class="single-block">
-
-                                    <div class="img-box"><a href="education.htm">
-                                            <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="অর্থাভাবে শিশুর চিকিৎসা বন্ধ, পাশে দাঁড়ালেন এমপি স্মৃতি" class="lazyload img-responsive"></a></div><h4><a href="country/news/588915.htm">অর্থাভাবে শিশুর চিকিৎসা বন্ধ, পাশে দাঁড়ালেন এমপি স্মৃতি</a></h4><div class="details"><div class="media"><div class="media-left"><a href="national/news/588816.htm">
-                                                    <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="একটি সংবাদের শিরোনাম নিয়ে Demo নিউজের দুঃখ প্রকাশ" class="lazyload media-object"></a></div><div class="media-body"><h4 class="media-heading"><a href="national/news/588816.htm">একটি সংবাদের শিরোনাম নিয়ে Demo নিউজের দুঃখ প্রকাশ</a></h4></div></div><div class="media"><div class="media-left"><a href="national/news/588704.htm">
-                                                    <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="শতাধিক পরিবার রাঁধেন এক হাঁড়িতে, পতিত জমিতে ফলান সবজি" class="lazyload media-object"></a></div><div class="media-body"><h4 class="media-heading"><a href="national/news/588704.htm">শতাধিক পরিবার রাঁধেন এক হাঁড়িতে, পতিত জমিতে ফলান সবজি</a></h4></div></div><div class="media"><div class="media-left"><a href="country/news/588545.htm">
-                                                    <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="প্রধানমন্ত্রীর দেয়া ঘরে ঘুমাচ্ছেন শেরপুরের সেই ভিক্ষুক" class="lazyload media-object"><i class="fa fa-play"></i></a></div><div class="media-body"><h4 class="media-heading"><a href="country/news/588545.htm">প্রধানমন্ত্রীর দেয়া ঘরে ঘুমাচ্ছেন শেরপুরের সেই ভিক্ষুক</a></h4></div></div><div class="media"><div class="media-left"><a href="probash/news/588223.htm">
-                                                    <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="জার্মানিজুড়ে বর্ণবাদ বিরোধী সমাবেশ" class="lazyload media-object"></a></div><div class="media-body"><h4 class="media-heading"><a href="probash/news/588223.htm">জার্মানিজুড়ে বর্ণবাদ বিরোধী সমাবেশ</a></h4></div></div><div class="media"><div class="media-left"><a href="country/news/587652.htm">
-                                                    <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="‘ছেলে আমাকে খেতে দেয় না, কিছু বললেই শুধু মারে’" class="lazyload media-object"></a></div><div class="media-body"><h4 class="media-heading"><a href="country/news/587652.htm">‘ছেলে আমাকে খেতে দেয় না, কিছু বললেই শুধু মারে’</a></h4></div></div></div>
-                                </div>
-                                <div class="allnews">
-                                    <a href="education.htm">
-                                        আরও <i class="fa fa-angle-double-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </aside>
-            </div>
-        </div>
-    </section>
     <section>
         <div class="container">
             <div class="row text-center marginTopBottom20">
                 <div class="col-sm-12">
 
-                    <div id='div-gpt-ad-1576388404299-1'></div>
+                    <div id='012'></div>
                 </div>
             </div>
         </div>
@@ -835,7 +545,7 @@
             <div class="row text-center marginTopBottom20">
                 <div class="col-sm-12">
 
-                    <div id='div-gpt-ad-1576388404299-0'></div>
+                    <div id='014'></div>
                 </div>
             </div>
         </div>
@@ -1225,156 +935,6 @@
 
                                 <div class="img-box"><a href="education.htm">
                                         <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="ফের লকডাউন অর্থনীতিকে আরও বিপদগ্রস্ত করবে" class="lazyload img-responsive"></a></div><h4><a href="special-reports/news/588064.htm">ফের লকডাউন অর্থনীতিকে আরও বিপদগ্রস্ত করবে</a></h4><div class="details"><div class="media"><div class="media-body"><h4 class="media-heading"><a href="special-reports/news/587303.htm">প্রধানমন্ত্রীর অধীনে জাতীয় নিরাপত্তা কাউন্সিল গঠন সময়ের দাবি</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="special-reports/news/586586.htm">একটি পরিচ্ছন্ন পৃথিবীর অপেক্ষায়</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="special-reports/news/585084.htm">সহমর্মিতায় কাটুক ঈদ আনন্দ</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="special-reports/news/583330.htm">করোনায় বাজারব্যবস্থা ভেঙে গেছে, পুনর্নির্মাণ সরকারের দায়</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="special-reports/news/583037.htm">আউশ-আমন উৎপাদনের লক্ষ্যমাত্রা আরও বাড়াতে চাই</a></h4></div></div></div>
-                            </div>
-                        </div>
-                        <div class="allnews"><a href="education.htm"> সবখবর</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h2 class="catTitleBlock">
-<span class="left">
-<span class="catName">
-<a href="education.htm">বিশেষ প্রতিবেদন</a>
-</span>
-</span>
-                        <a href="education.htm" class="right">সবখবর <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                    </h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="single-block">
-
-                        <div class="img-mobile-left">
-                            <div class="img-box"><a href="education.htm">
-                                    <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="ধনীকে ধনী গরিবকে গরিব করার বাজেট" class="lazyload img-responsive"></a>
-                            </div>
-                        </div>
-
-                        <div class="content-mobile-right">
-                            <div class="details">
-                                <h3><a href="education.htm">ধনীকে ধনী গরিবকে গরিব করার বাজেট</a></h3>
-                            </div>
-                            <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">বাজেট</a></span>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="single-block">
-
-                        <div class="img-mobile-left">
-                            <div class="img-box"><a href="">
-                                    <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="ধনীকে ধনী গরিবকে গরিব করার বাজেট" class="lazyload img-responsive"></a>
-                            </div>
-                        </div>
-
-                        <div class="content-mobile-right">
-                            <div class="details">
-                                <h3><a href="education.htm">ধনীকে ধনী গরিবকে গরিব করার বাজেট</a></h3>
-                            </div>
-                            <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">বাজেট</a></span>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="single-block">
-
-                        <div class="img-mobile-left">
-                            <div class="img-box"><a href="education.htm">
-                                    <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="ধনীকে ধনী গরিবকে গরিব করার বাজেট" class="lazyload img-responsive"></a>
-                            </div>
-                        </div>
-
-                        <div class="content-mobile-right">
-                            <div class="details">
-                                <h3><a href="education.htm">ধনীকে ধনী গরিবকে গরিব করার বাজেট</a></h3>
-                            </div>
-                            <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">বাজেট</a></span>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="single-block">
-
-                        <div class="img-mobile-left">
-                            <div class="img-box"><a href="education.htm">
-                                    <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="ধনীকে ধনী গরিবকে গরিব করার বাজেট" class="lazyload img-responsive"></a>
-                            </div>
-                        </div>
-
-                        <div class="content-mobile-right">
-                            <div class="details">
-                                <h3><a href="education.htm">ধনীকে ধনী গরিবকে গরিব করার বাজেট</a></h3>
-                            </div>
-                            <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">বাজেট</a></span>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="row"></div>
-            </div>
-    </section>
-
-
-    <section class="paddingTopBottom20">
-        <div class="container">
-            <div class="row">
-                <div class="category">
-                    <div class="col-sm-3">
-                        <div class="single-cat-height">
-                            <h2 class="catTitle"><a href="education.htm">প্রবাস</a><span class="liner"></span></h2>
-                            <div class="single-block">
-
-                                <div class="img-box"><a href="education.htm">
-                                        <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="সিঙ্গাপুরে পুনর্নির্মাণের কাজ শুরু ১৫ জুন থেকে" class="lazyload img-responsive"></a></div><h4><a href="probash/news/589826.htm">সিঙ্গাপুরে পুনর্নির্মাণের কাজ শুরু ১৫ জুন থেকে</a></h4><div class="details"><div class="media"><div class="media-body"><h4 class="media-heading"><a href="probash/news/589801.htm">দেশে আটকেপড়া প্রবাসীদের কাতারে ফিরেই উঠতে হবে ফাইভ স্টারে</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="probash/article/589698.htm">মালয়েশিয়ায় ফের করোনার জাল সনদ বিক্রি, তিন বাংলাদেশি গ্রেফতার</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="probash/article/589645.htm">কমে আসছে কাজের পরিসর, নীরবেই ফিরছেন আমিরাত প্রবাসীরা</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="probash/article/589591.htm">সিঙ্গাপুরে বাংলাদেশিদের মাঝে দূতাবাসের ত্রাণ বিতরণ</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="probash/article/589579.htm">কাতারে সবচেয়ে বেশি বাংলাদেশি করোনা আক্রান্ত</a></h4></div></div></div>
-                            </div>
-                        </div>
-                        <div class="allnews"><a href="education.htm"> সবখবর</a></div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="single-cat-height">
-                            <h2 class="catTitle"><a href="education.htm">ধর্ম</a><span class="liner"></span></h2>
-                            <div class="single-block">
-
-                                <div class="img-box"><a href="education.htm">
-                                        <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="হাউজে কাওছারের পানি পানের আশায় চা বিতরণ" class="lazyload img-responsive"></a></div><h4><a href="religion/news/589787.htm">হাউজে কাওছারের পানি পানের আশায় চা বিতরণ</a></h4><div class="details"><div class="media"><div class="media-body"><h4 class="media-heading"><a href="religion/article/589722.htm">করোনার কারণে হজে যাবে না যেসব দেশ</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="religion/article/589677.htm">নারীদের জন্য বিশ্বনবির উপদেশ ও অনুপ্রেরণা</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="religion/article/589608.htm">যে আমল করলে অভাব মোচন হয়</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="religion/article/589466.htm">অসুস্থ ব্যক্তির সেবা ও সুস্থতার দোয়া</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="religion/news/589402.htm">জনপ্রিয় বক্তা তোফাজ্জল হোসেন ভৈরবীর ইন্তেকাল</a></h4></div></div></div>
-                            </div>
-                        </div>
-                        <div class="allnews"><a href="education.htm"> সবখবর</a></div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="single-cat-height">
-                            <h2 class="catTitle"><a href="education.htm">সাহিত্য</a><span class="liner"></span></h2>
-                            <div class="single-block">
-
-                                <div class="img-box"><a href="education.htm">
-                                        <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="গাজী সাইফুলের চা’দের গল্প" class="lazyload img-responsive"></a></div><h4><a href="literature/article/589785.htm">গাজী সাইফুলের চা’দের গল্প</a></h4><div class="details"><div class="media"><div class="media-body"><h4 class="media-heading"><a href="literature/news/589025.htm">ফেরার পথ নেই</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="literature/news/588772.htm">আনিকা তাসনিম অনুপের লকডাউনের প্রেমপত্র</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="literature/article/588477.htm">বাবাকে নিয়ে লেখা সেরা গল্প বাছাই করবেন সাদাত হোসাইন</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="literature/news/588081.htm">ইচ্ছে বানাই</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="literature/news/586969.htm">ক্লাস পালানো ছেলেরা আসলেই মেধাবী হয়</a></h4></div></div></div>
-                            </div>
-                        </div>
-                        <div class="allnews"><a href="education.htm"> সবখবর</a></div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="single-cat-height">
-                            <h2 class="catTitle"><a href="education.htm">ইংলিশ ভার্সন </a><span class="liner"></span></h2>
-                            <div class="single-block">
-
-                                <div class="img-box"><a href="education.htm">
-                                        <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="Seven unknowns ahead of Bara's return to action" class="lazyload img-responsive"></a></div><h4><a href="en/sports/news/50296.htm">Seven unknowns ahead of Bara's return to action</a></h4><div class="details"><div class="media"><div class="media-body"><h4 class="media-heading"><a href="en/national/news/50295.htm">General holidays only in coronavirus ‘Red Zones’</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="en/national/news/50294.htm">33 doctors die from Covid-19 in Bangladesh</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="en/international/news/50293.htm">Mahathir backs Biden, says re-electing Trump to be disaster</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="en/national/news/50292.htm">Condolences pour in for veteran politician Nasim</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="en/national/news/50291.htm">Bangladesh overtakes China in coronavirus cases</a></h4></div></div></div>
                             </div>
                         </div>
                         <div class="allnews"><a href="education.htm"> সবখবর</a></div>
