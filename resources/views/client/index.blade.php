@@ -316,139 +316,121 @@
         </div>
     </section>
     @endif
-    <section>
-        <div class="container text-center paddingTopBottom20">
-            <div class="row">
-                <div class="col-sm-12">
+    {{--<section>--}}
+        {{--<div class="container text-center paddingTopBottom20">--}}
+            {{--<div class="row">--}}
+                {{--<div class="col-sm-12">--}}
 
-                    <div id='div-gpt-ad-1576387682991-0'></div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    {{--<div id='101'></div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</section>--}}
 
+@if(count($technologies)>0)
     <section class="deshjure">
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 main-content">
                     <div class="row">
                         <div class="col-sm-12">
-                            <h2 class="catTitle"><a href="education.htm">প্রযুক্তি</a><span class="liner"></span></h2>
+                            <?php
+                            $technology=$technologies[0];
+                            ?>
+                            <h2 class="catTitle"><a href="{{url($technology->newsCategory->link)}}">{{$technology->newsCategory->category_name}}</a><span class="liner"></span></h2>
                         </div>
                     </div>
+
                     <div class="row">
+
                         <div class="col-sm-6">
+                            <?php
+                            if (isset($technology->newsSubCategory))
+                            {
+                                $url=$technology->newsCategory->link.'/'.$technology->newsSubCategory->link.'/'.$technology->id.'/'.$technology->title;
+                            }else{
+                                $url=$technology->newsCategory->link.'/'.'news'.'/'.$technology->id.'/'.$technology->title;
+                            }
+                            ?>
                             <div class="single-block">
-                                <div class="img-box"><a href="education.htm">
-                                        <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="কলপ্রতি এক পয়সা কেটে নিয়ে কোভিড তহবিল গঠনের পরামর্শ ড. আতিউরের" class="lazyload img-responsive"></a>
+                                <div class="img-box">
+                                    <a href="{{url($url)}}">
+                                        <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset($technology->feature_medium)}}" alt="{{$technology->title}}" class="lazyload img-responsive">
+                                    </a>
                                 </div>
                                 <div class="details">
-                                    <h4><a href="education.htm">কলপ্রতি এক পয়সা কেটে নিয়ে কোভিড তহবিল গঠনের পরামর্শ ড. আতিউরের</a></h4>
+                                    <h4><a href="{{url($url)}}">{{$technology->title}}</a></h4>
                                 </div>
-                                <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">করোনাভাইরাস</a></span>
+                                <div class="meta">
+
+                                    <span class="pull-left tags"><i class="fa fa-tags"></i><a href="{{explode(',', $technology->topic)[0]}}">{{explode(',', $technology->topic)[0]}}</a></span>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6">
-                            <div class="media"><div class="media-left media-top"><a href="education.htm">
-                                        <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="খুলনায় একদিনে করোনা আক্রান্তের রেকর্ড" class="lazyload"></a>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading"><a href="education.htm">খুলনায় একদিনে করোনা আক্রান্তের রেকর্ড</a></h4>
-                                    <div class="meta"><i class="fa fa-tags"></i> <a href="education.htm">করোনাভাইরাস</a>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="media"><div class="media-left media-top"><a href="education.htm">
-                                        <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="সিলেটে আইসিইউতে করোনা রোগীর মৃত্যু" class="lazyload"></a>
-                                </div>
-                                <div class="media-body"><h4 class="media-heading"><a href="education.htm">সিলেটে আইসিইউতে করোনা রোগীর মৃত্যু</a></h4><div class="meta"><i class="fa fa-tags"></i> <a href="topic/করোনাভাইরাস.htm">করোনাভাইরাস</a>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-sm-6">
+                            @forelse($technologies->skip(1)->take(4) as $technology)
+                                <?php
+                                if (isset($technology->newsSubCategory))
+                                {
+                                    $url=$technology->newsCategory->link.'/'.$technology->newsSubCategory->link.'/'.$technology->id.'/'.$technology->title;
+                                }else{
+                                    $url=$technology->newsCategory->link.'/'.'news'.'/'.$technology->id.'/'.$technology->title;
+                                }?>
 
                             <div class="media">
-                                <div class="media-left media-top"><a href="education.htm">
-                                        <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="করোনা আক্রান্ত ব্যাংক কর্মকর্তার পাশে সাবেক স্বাস্থ্যমন্ত্রী" class="lazyload"></a>
+                                <div class="media-left media-top"><a href="{{url($url)}}">
+                                        <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset($technology->feature_small)}}" alt="{{$technology->title}}" class="lazyload"></a>
                                 </div>
-                                <div class="media-body"><h4 class="media-heading"><a href="education.htm">করোনা আক্রান্ত ব্যাংক কর্মকর্তার পাশে সাবেক স্বাস্থ্যমন্ত্রী</a></h4>
-                                    <div class="meta"><i class="fa fa-tags"></i> <a href="education.htm">করোনাভাইরাস</a></div></div></div><div class="media">
-                                <div class="media-left media-top"><a href="education.htm">
-                                        <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="রংপুরে করোনা থেকে সুস্থ হয়ে বাড়ি ফিরলেন ১০০ জন" class="lazyload"></a>
-                                </div>
+
                                 <div class="media-body">
-                                    <h4 class="media-heading"><a href="education.htm">রংপুরে করোনা থেকে সুস্থ হয়ে বাড়ি ফিরলেন ১০০ জন</a></h4>
-                                    <div class="meta"><i class="fa fa-tags"></i> <a href="education.htm">করোনাভাইরাস</a>
+                                    <h4 class="media-heading">
+                                        <a href="{{url($technology->newsCategory->link)}}">{{$technology->title}}</a>
+                                    </h4>
+                                    <div class="meta"><i class="fa fa-tags"></i>
+                                        <a href="{{explode(',', $technology->topic)[0]}}">{{explode(',', $technology->topic)[0]}}</a>
                                     </div>
                                 </div>
                             </div>
+                                @empty
+
+                            @endforelse
                         </div>
                     </div>
+
                     <div class="row">
+                        @forelse($technologies->skip(5)->take(4) as $technology)
+
+                            <?php
+                            if (isset($technology->newsSubCategory))
+                            {
+                                $url=$technology->newsCategory->link.'/'.$technology->newsSubCategory->link.'/'.$technology->id.'/'.$technology->title;
+                            }else{
+                                $url=$technology->newsCategory->link.'/'.'news'.'/'.$technology->id.'/'.$technology->title;
+                            }?>
+
                         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                             <div class="single-block">
                                 <div class="img-mobile-left">
-                                    <div class="img-box"><a href="education.htm">
-                                            <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="মধ্যরাতে ব্রাহ্মণবাড়িয়ার তিন ‘রেড জোন’ লকডাউন" class="lazyload"></a>
+                                    <div class="img-box"><a href="{{url($url)}}">
+                                            <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset($technology->feature_medium)}}" alt="{{$technology->title}}" class="lazyload"></a>
                                     </div>
                                 </div>
 
                                 <div class="content-mobile-right">
-                                    <div class="details"><h4><a href="education.htm">মধ্যরাতে ব্রাহ্মণবাড়িয়ার তিন ‘রেড জোন’ লকডাউন</a></h4>
+                                    <div class="details">
+                                        <h4><a href="{{url($url)}}">{{$technology->title}}</a></h4>
                                     </div>
-                                    <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">করোনাভাইরাস</a></span>
+                                    <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i>
+                                            <a href="{{explode(',', $technology->topic)[0]}}">{{explode(',', $technology->topic)[0]}}</a>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                            <div class="single-block">
-                                <div class="img-mobile-left">
-                                    <div class="img-box"><a href="education.htm">
-                                            <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="মধ্যরাতে ব্রাহ্মণবাড়িয়ার তিন ‘রেড জোন’ লকডাউন" class="lazyload"></a>
-                                    </div>
-                                </div>
+                            @empty
 
-                                <div class="content-mobile-right">
-                                    <div class="details"><h4><a href="education.htm">মধ্যরাতে ব্রাহ্মণবাড়িয়ার তিন ‘রেড জোন’ লকডাউন</a></h4>
-                                    </div>
-                                    <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">করোনাভাইরাস</a></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                            <div class="single-block">
-                                <div class="img-mobile-left">
-                                    <div class="img-box"><a href="education.htm">
-                                            <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="মধ্যরাতে ব্রাহ্মণবাড়িয়ার তিন ‘রেড জোন’ লকডাউন" class="lazyload"></a>
-                                    </div>
-                                </div>
-
-                                <div class="content-mobile-right">
-                                    <div class="details"><h4><a href="education.htm">মধ্যরাতে ব্রাহ্মণবাড়িয়ার তিন ‘রেড জোন’ লকডাউন</a></h4>
-                                    </div>
-                                    <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">করোনাভাইরাস</a></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                            <div class="single-block">
-                                <div class="img-mobile-left">
-                                    <div class="img-box"><a href="education.htm">
-                                            <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="মধ্যরাতে ব্রাহ্মণবাড়িয়ার তিন ‘রেড জোন’ লকডাউন" class="lazyload"></a>
-                                    </div>
-                                </div>
-
-                                <div class="content-mobile-right">
-                                    <div class="details"><h4><a href="education.htm">মধ্যরাতে ব্রাহ্মণবাড়িয়ার তিন ‘রেড জোন’ লকডাউন</a></h4>
-                                    </div>
-                                    <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">করোনাভাইরাস</a></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforelse
                     </div>
                 </div>
                 <aside class="col-sm-4 aside">
@@ -528,19 +510,21 @@
             </div>
         </div>
     </section>
-    <section>
-        <div class="container">
-            <div class="row text-center marginTopBottom20">
-                <div class="col-sm-12">
+@endif
 
-                    <div id='012'></div>
-                </div>
-            </div>
-        </div>
-    </section>
+    {{--<section>--}}
+        {{--<div class="container">--}}
+            {{--<div class="row text-center marginTopBottom20">--}}
+                {{--<div class="col-sm-12">--}}
+
+                    {{--<div id='012'></div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</section>--}}
 
 
-    <section>
+    <section style="display:none;">
         <div class="container">
             <div class="row text-center marginTopBottom20">
                 <div class="col-sm-12">
@@ -551,395 +535,278 @@
         </div>
     </section>
 
-    <section class="paddingTopBottom20">
-        <div class="container">
-            <div class="row">
-                <div class="main-content category">
-                    <div class="col-sm-6 col-xs-12 col-md-3 col-lg-3">
-                        <div class="single-cat-height">
-                            <h2 class="catTitle"><a href="education.htm">লাইফস্টাইল</a><span class="liner"></span></h2>
-                            <div class="single-block">
-
-                                <div class="img-box"><a href="education.htm">
-                                        <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="সুস্বাদু আম দই তৈরির রেসিপি জেনে নিন" class="lazyload img-responsive"></a>
-                                </div>
-                                <h4><a href="education.htm">সুস্বাদু আম দই তৈরির রেসিপি জেনে নিন</a></h4>
-                                <div class="details">
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="education.htm">রোগ প্রতিরোধ ক্ষমতা বাড়াতে এই ৩ খাবার যেভাবে খাবেন</a></h4>
+    @if(count($entertainments)>0)
+        <section class="Sports paddingTop20">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 main-content">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h2 class="catTitleBlock">
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                        <span class="left">
+                                            <span class="catName">
+                                                <?php $entertainment=$entertainments[0];
+                                                ?>
+                                                <a href="{{url($entertainment->newsCategory->link)}}">{{$entertainment->newsCategory->category_name}} </a>
+                                            </span>
+                                            <span class="catSubName">
+                                                {{--<a href="education.htm">ক্রিকেট</a>--}}
+                                                {{--<a href="education.htm">ফুটবল</a>--}}
+                                            </span>
+                                        </span>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <a href="{{url($entertainment->newsCategory->link)}}" class="right">সবখবর <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                         </div>
                                     </div>
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="education.htm">এই সময়ে ভাইরাস জ্বর হলে কী করবেন?</a></h4>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="education.htm">করোনাভাইরাস এড়াতে যেসব জিনিস স্পর্শ করবেন না</a></h4>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="education.htm">আপনি কি আগেই করোনায় আক্রান্ত হয়েছেন? যেসব লক্ষণে বুঝবেন</a></h4>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="education.htm">প্রতিদিন আপেল খেলে কী হয়?</a></h4>
-                                        </div>
-                                    </div>
-                                </div>
+                                </h2>
                             </div>
                         </div>
-                        <div class="allnews"><a href="education.htm"> সবখবর</a></div>
-                    </div>
-                    <div class="col-sm-6 col-xs-12 col-md-3 col-lg-3">
-                        <div class="single-cat-height">
-                            <h2 class="catTitle"><a href="education.htm">লাইফস্টাইল</a><span class="liner"></span></h2>
-                            <div class="single-block">
+                        <div class="row">
+                            @foreach($entertainments as $entertainment)
 
-                                <div class="img-box"><a href="education.htm">
-                                        <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="সুস্বাদু আম দই তৈরির রেসিপি জেনে নিন" class="lazyload img-responsive"></a>
-                                </div>
-                                <h4><a href="education.htm">সুস্বাদু আম দই তৈরির রেসিপি জেনে নিন</a></h4>
-                                <div class="details">
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="education.htm">রোগ প্রতিরোধ ক্ষমতা বাড়াতে এই ৩ খাবার যেভাবে খাবেন</a></h4>
+                                <?php
+                                if (isset($entertainment->newsSubCategory))
+                                {
+                                    $url=$entertainment->newsCategory->link.'/'.$entertainment->newsSubCategory->link.'/'.$entertainment->id.'/'.$entertainment->title;
+                                }else{
+                                    $url=$entertainment->newsCategory->link.'/'.'news'.'/'.$entertainment->id.'/'.$entertainment->title;
+                                }
+                                ?>
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-md-3">
+                                    <div class="single-block">
+                                        <div class="img-mobile-left">
+                                            <div class="img-box"><a href="{{url($url)}}">
+                                                    <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset($entertainment->feature_medium)}}" alt="" class="lazyload img-responsive"></a>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="education.htm">এই সময়ে ভাইরাস জ্বর হলে কী করবেন?</a></h4>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="education.htm">করোনাভাইরাস এড়াতে যেসব জিনিস স্পর্শ করবেন না</a></h4>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="education.htm">আপনি কি আগেই করোনায় আক্রান্ত হয়েছেন? যেসব লক্ষণে বুঝবেন</a></h4>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="education.htm">প্রতিদিন আপেল খেলে কী হয়?</a></h4>
+
+                                        <div class="content-mobile-right">
+                                            <div class="details">
+                                                <h3><a href="education.htm">{{$entertainment->title}}</a></h3>
+                                            </div>
+                                            <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i>
+                                        <a href="{{explode(',', $entertainment->topic)[0]}}">{{explode(',', $entertainment->topic)[0]}}</a></span>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="allnews"><a href="education.htm"> সবখবর</a></div>
-                    </div>
-                    <div class="col-sm-6 col-xs-12 col-md-3 col-lg-3">
-                        <div class="single-cat-height">
-                            <h2 class="catTitle"><a href="education.htm">লাইফস্টাইল</a><span class="liner"></span></h2>
-                            <div class="single-block">
+                            @endforeach
 
-                                <div class="img-box"><a href="education.htm">
-                                        <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="সুস্বাদু আম দই তৈরির রেসিপি জেনে নিন" class="lazyload img-responsive"></a>
-                                </div>
-                                <h4><a href="education.htm">সুস্বাদু আম দই তৈরির রেসিপি জেনে নিন</a></h4>
-                                <div class="details">
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="education.htm">রোগ প্রতিরোধ ক্ষমতা বাড়াতে এই ৩ খাবার যেভাবে খাবেন</a></h4>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="education.htm">এই সময়ে ভাইরাস জ্বর হলে কী করবেন?</a></h4>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="education.htm">করোনাভাইরাস এড়াতে যেসব জিনিস স্পর্শ করবেন না</a></h4>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="education.htm">আপনি কি আগেই করোনায় আক্রান্ত হয়েছেন? যেসব লক্ষণে বুঝবেন</a></h4>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="education.htm">প্রতিদিন আপেল খেলে কী হয়?</a></h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
-                        <div class="allnews"><a href="education.htm"> সবখবর</a></div>
-                    </div>
-                    <div class="col-sm-6 col-xs-12 col-md-3 col-lg-3">
-                        <div class="single-cat-height">
-                            <h2 class="catTitle"><a href="education.htm">লাইফস্টাইল</a><span class="liner"></span></h2>
-                            <div class="single-block">
 
-                                <div class="img-box"><a href="education.htm">
-                                        <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="সুস্বাদু আম দই তৈরির রেসিপি জেনে নিন" class="lazyload img-responsive"></a>
-                                </div>
-                                <h4><a href="education.htm">সুস্বাদু আম দই তৈরির রেসিপি জেনে নিন</a></h4>
-                                <div class="details">
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="education.htm">রোগ প্রতিরোধ ক্ষমতা বাড়াতে এই ৩ খাবার যেভাবে খাবেন</a></h4>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="education.htm">এই সময়ে ভাইরাস জ্বর হলে কী করবেন?</a></h4>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="education.htm">করোনাভাইরাস এড়াতে যেসব জিনিস স্পর্শ করবেন না</a></h4>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="education.htm">আপনি কি আগেই করোনায় আক্রান্ত হয়েছেন? যেসব লক্ষণে বুঝবেন</a></h4>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="education.htm">প্রতিদিন আপেল খেলে কী হয়?</a></h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="allnews"><a href="education.htm"> সবখবর</a></div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="Entertainment paddingTopBottom20 marginTop20">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h2 class="catTitleBlock">
-<span class="left">
-<span class="catName">
-<a href="education.htm">বিনোদন </a>
-</span>
-<span class="catSubName">
-<a href="education.htm">হলিউড</a>
-<a href="education.htm">বলিউড</a>
-</span>
-</span>
-                        <a href="education.htm" class="right">সবখবর <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                    </h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="single-block">
-
-                        <div class="img-mobile-left">
-                            <div class="img-box">
-                                <a href="education.htm">
-                                    <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="করোনায় আক্রান্ত যন্ত্রসংগীত শিল্পী রিচার্ড কিশোর" class="lazyload img-responsive"></a>
-                            </div>
-                        </div>
-                        <div class="content-mobile-right">
-                            <div class="details">
-                                <h3><a href="education.htm">করোনায় আক্রান্ত যন্ত্রসংগীত শিল্পী রিচার্ড কিশোর</a></h3>
-                            </div>
-                            <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">মিউজিক-ভিডিও</a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="single-block">
-
-                        <div class="img-mobile-left">
-                            <div class="img-box">
-                                <a href="education.htm">
-                                    <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="করোনায় আক্রান্ত যন্ত্রসংগীত শিল্পী রিচার্ড কিশোর" class="lazyload img-responsive"></a>
-                            </div>
-                        </div>
-                        <div class="content-mobile-right">
-                            <div class="details">
-                                <h3><a href="education.htm">করোনায় আক্রান্ত যন্ত্রসংগীত শিল্পী রিচার্ড কিশোর</a></h3>
-                            </div>
-                            <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">মিউজিক-ভিডিও</a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="single-block">
-
-                        <div class="img-mobile-left">
-                            <div class="img-box">
-                                <a href="education.htm">
-                                    <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="করোনায় আক্রান্ত যন্ত্রসংগীত শিল্পী রিচার্ড কিশোর" class="lazyload img-responsive"></a>
-                            </div>
-                        </div>
-                        <div class="content-mobile-right">
-                            <div class="details">
-                                <h3><a href="education.htm">করোনায় আক্রান্ত যন্ত্রসংগীত শিল্পী রিচার্ড কিশোর</a></h3>
-                            </div>
-                            <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">মিউজিক-ভিডিও</a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="single-block">
-
-                        <div class="img-mobile-left">
-                            <div class="img-box">
-                                <a href="education.htm">
-                                    <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="করোনায় আক্রান্ত যন্ত্রসংগীত শিল্পী রিচার্ড কিশোর" class="lazyload img-responsive"></a>
-                            </div>
-                        </div>
-                        <div class="content-mobile-right">
-                            <div class="details">
-                                <h3><a href="education.htm">করোনায় আক্রান্ত যন্ত্রসংগীত শিল্পী রিচার্ড কিশোর</a></h3>
-                            </div>
-                            <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">মিউজিক-ভিডিও</a></span>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="single-block">
-
-                        <div class="img-mobile-left">
-                            <div class="img-box">
-                                <a href="education.htm">
-                                    <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="করোনায় আক্রান্ত যন্ত্রসংগীত শিল্পী রিচার্ড কিশোর" class="lazyload img-responsive"></a>
-                            </div>
-                        </div>
-                        <div class="content-mobile-right">
-                            <div class="details">
-                                <h3><a href="education.htm">করোনায় আক্রান্ত যন্ত্রসংগীত শিল্পী রিচার্ড কিশোর</a></h3>
-                            </div>
-                            <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">মিউজিক-ভিডিও</a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="single-block">
-
-                        <div class="img-mobile-left">
-                            <div class="img-box">
-                                <a href="education.htm">
-                                    <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="করোনায় আক্রান্ত যন্ত্রসংগীত শিল্পী রিচার্ড কিশোর" class="lazyload img-responsive"></a>
-                            </div>
-                        </div>
-                        <div class="content-mobile-right">
-                            <div class="details">
-                                <h3><a href="education.htm">করোনায় আক্রান্ত যন্ত্রসংগীত শিল্পী রিচার্ড কিশোর</a></h3>
-                            </div>
-                            <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">মিউজিক-ভিডিও</a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="single-block">
-
-                        <div class="img-mobile-left">
-                            <div class="img-box">
-                                <a href="education.htm">
-                                    <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="করোনায় আক্রান্ত যন্ত্রসংগীত শিল্পী রিচার্ড কিশোর" class="lazyload img-responsive"></a>
-                            </div>
-                        </div>
-                        <div class="content-mobile-right">
-                            <div class="details">
-                                <h3><a href="education.htm">করোনায় আক্রান্ত যন্ত্রসংগীত শিল্পী রিচার্ড কিশোর</a></h3>
-                            </div>
-                            <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">মিউজিক-ভিডিও</a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="single-block">
-
-                        <div class="img-mobile-left">
-                            <div class="img-box">
-                                <a href="education.htm">
-                                    <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="করোনায় আক্রান্ত যন্ত্রসংগীত শিল্পী রিচার্ড কিশোর" class="lazyload img-responsive"></a>
-                            </div>
-                        </div>
-                        <div class="content-mobile-right">
-                            <div class="details">
-                                <h3><a href="education.htm">করোনায় আক্রান্ত যন্ত্রসংগীত শিল্পী রিচার্ড কিশোর</a></h3>
-                            </div>
-                            <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i> <a href="education.htm">মিউজিক-ভিডিও</a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
 
     <section class="paddingTopBottom20">
         <div class="container">
             <div class="main-content category">
                 <div class="row">
+
+                    @if(count($healths)>0)
                     <div class="col-sm-3">
                         <div class="single-cat-height">
-                            <h2 class="catTitle"><a href="education.htm">স্বাস্থ্য</a><span class="liner"></span></h2>
+
+                            <?php $healthData=$healths[0];?>
+                            <?php
+                            if (isset($healthData->newsSubCategory))
+                            {
+                                $url=$healthData->newsCategory->link.'/'.$healthData->newsSubCategory->link.'/'.$healthData->id.'/'.$healthData->title;
+                            }else{
+                                $url=$healthData->newsCategory->link.'/'.'news'.'/'.$healthData->id.'/'.$healthData->title;
+                            }
+                            ?>
+
+                            <h2 class="catTitle"><a href="{{url($healthData->newsCategory->link)}}">{{$healthData->newsCategory->category_name}}</a><span class="liner"></span></h2>
                             <div class="single-block">
 
-                                <div class="img-box"><a href="education.htm">
-                                        <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="করোনার সংক্রমণ-উপসর্গ নিয়ে মারা গেলেন যে ৩৩ চিকিৎসক" class="lazyload img-responsive"></a></div><h4><a href="health/news/589860.htm">করোনার সংক্রমণ-উপসর্গ নিয়ে মারা গেলেন যে ৩৩ চিকিৎসক</a></h4><div class="details"><div class="media"><div class="media-body"><h4 class="media-heading"><a href="health/news/589734.htm">করোনা চিকিৎসার জন্য প্রস্তুত হচ্ছে বিএসএমএমইউর কেবিন ব্লক</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="health/news/589618.htm">৩৯৯ আইসিইউ শয্যার কতটিতে আসলে সেবা মিলছে?</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="health/news/589057.htm">মেডিকেল টেকনোলজিস্ট নিয়োগে অনিয়মে জড়িতদের শাস্তি দাবি</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="health/news/589013.htm">রেসিডেন্ট এমডি-এমএস-এমফিল পরীক্ষা স্থগিত</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="health/news/587727.htm">অধ্যাপক গোলাম কিবরিয়ার মৃত্যুতে বিএসএমএমইউর উপাচার্যের শোক</a></h4></div></div></div>
+                                <div class="img-box"><a href="{{url($url)}}">
+                                        <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset($healthData->feature_medium)}}" alt="{{$healthData->title}}" class="lazyload img-responsive"></a>
+                                </div>
+                                <h4><a href="{{url($url)}}">{{$healthData->title}}</a></h4>
+
+
+                                <div class="details">
+                                    @forelse($healths->skip(1)->take(5) as $health)
+                                        <?php
+                                        if (isset($health->newsSubCategory))
+                                        {
+                                            $url=$health->newsCategory->link.'/'.$health->newsSubCategory->link.'/'.$health->id.'/'.$health->title;
+                                        }else{
+                                            $url=$health->newsCategory->link.'/'.'news'.'/'.$health->id.'/'.$health->title;
+                                        }
+                                        ?>
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <h4 class="media-heading"><a href="{{url($url)}}">{{$health->title}}</a></h4>
+                                        </div>
+                                    </div>
+                                        @empty
+
+                                    @endforelse
+                                </div>
                             </div>
                         </div>
-                        <div class="allnews"><a href="education.htm"> সবখবর</a></div>
-                    </div>
+                        <div class="allnews"><a href="{{url($healthData->newsCategory->link)}}"> সবখবর</a></div>
+                    </div><!-- end col-sm-3 -->
+
+                    @endif
+
+                    @if(count($probashs)>0)
                     <div class="col-sm-3">
                         <div class="single-cat-height">
-                            <h2 class="catTitle"><a href="education.htm">শিক্ষা</a><span class="liner"></span></h2>
+
+                            <?php $probashData=$probashs[0];?>
+                            <?php
+                            if (isset($probashData->newsSubCategory))
+                            {
+                                $url=$probashData->newsCategory->link.'/'.$probashData->newsSubCategory->link.'/'.$probashData->id.'/'.$probashData->title;
+                            }else{
+                                $url=$probashData->newsCategory->link.'/'.'news'.'/'.$probashData->id.'/'.$probashData->title;
+                            }
+                            ?>
+
+                            <h2 class="catTitle"><a href="{{url($probashData->newsCategory->link)}}">{{$probashData->newsCategory->category_name}}</a><span class="liner"></span></h2>
                             <div class="single-block">
 
-                                <div class="img-box"><a href="education.htm">
-                                        <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="শিক্ষায় বরাদ্দ বেড়েছে ৫২৮৭ কোটি টাকা" class="lazyload img-responsive"></a></div><h4><a href="education/news/589354.htm">শিক্ষায় বরাদ্দ বেড়েছে ৫২৮৭ কোটি টাকা</a></h4><div class="details"><div class="media"><div class="media-body"><h4 class="media-heading"><a href="education/news/589179.htm">প্রাথমিক শিক্ষার ১৪৫ জন করোনায় আক্রান্ত</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="education/news/589171.htm">আজ টিভিতে মাধ্যমিক-কারিগরির ১৩ ক্লাস</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="education/news/589149.htm">আজ টিভিতে প্রাথমিকের যেসব ক্লাস</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="education/news/589101.htm">শিক্ষা বাজেটে ‘শুভঙ্করের ফাঁকি’ দেখতে চান না শিক্ষাবিদরা</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="education/news/589070.htm">বেসরকারি শিক্ষক নিয়োগে ৬ জটিলতা কাটছে</a></h4></div></div></div>
+                                <div class="img-box"><a href="{{url($url)}}">
+                                        <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset($probashData->feature_medium)}}" alt="{{$probashData->title}}" class="lazyload img-responsive"></a>
+                                </div>
+                                <h4><a href="{{url($url)}}">{{$probashData->title}}</a></h4>
+
+
+                                <div class="details">
+                                    @forelse($probashs->skip(1)->take(5) as $probash)
+                                        <?php
+                                        if (isset($probash->newsSubCategory))
+                                        {
+                                            $url=$probash->newsCategory->link.'/'.$probash->newsSubCategory->link.'/'.$probash->id.'/'.$probash->title;
+                                        }else{
+                                            $url=$probash->newsCategory->link.'/'.'news'.'/'.$probash->id.'/'.$probash->title;
+                                        }
+                                        ?>
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <h4 class="media-heading"><a href="{{url($url)}}">{{$probash->title}}</a></h4>
+                                        </div>
+                                    </div>
+                                        @empty
+
+                                    @endforelse
+                                </div>
                             </div>
                         </div>
-                        <div class="allnews"><a href="education.htm"> সবখবর</a></div>
-                    </div>
+                        <div class="allnews"><a href="{{url($probashData->newsCategory->link)}}"> সবখবর</a></div>
+                    </div><!-- end col-sm-3 -->
+
+                    @endif
+
+                    @if(count($literatures)>0)
                     <div class="col-sm-3">
                         <div class="single-cat-height">
-                            <h2 class="catTitle"><a href="education.htm">আইন-আদালত</a><span class="liner"></span></h2>
+
+                            <?php $literatureData=$literatures[0];?>
+                            <?php
+                            if (isset($literatureData->newsSubCategory))
+                            {
+                                $url=$literatureData->newsCategory->link.'/'.$literatureData->newsSubCategory->link.'/'.$literatureData->id.'/'.$literatureData->title;
+                            }else{
+                                $url=$literatureData->newsCategory->link.'/'.'news'.'/'.$literatureData->id.'/'.$literatureData->title;
+                            }
+                            ?>
+
+                            <h2 class="catTitle"><a href="{{url($literatureData->newsCategory->link)}}">{{$literatureData->newsCategory->category_name}}</a><span class="liner"></span></h2>
                             <div class="single-block">
 
-                                <div class="img-box"><a href="education.htm">
-                                        <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="তিন মাদককারবারি একদিনের রিমান্ডে" class="lazyload img-responsive"></a></div><h4><a href="law-courts/news/589796.htm">তিন মাদককারবারি একদিনের রিমান্ডে</a></h4><div class="details"><div class="media"><div class="media-body"><h4 class="media-heading"><a href="law-courts/news/589788.htm">মানবপাচারকারী কামাল হোসেন তিনদিনের রিমান্ডে</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="law-courts/news/589773.htm">দুই হাজার ইয়াবাসহ গ্রেফতার মোশারফ কারাগারে</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="law-courts/news/589771.htm">মোবাইল ব্যাংকিং প্রতারক চক্রের ৭ সদস্য কারাগারে</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="law-courts/news/589759.htm">রিমান্ড শেষে কারাগারে জেএমবির দুই সদস্য</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="law-courts/news/589751.htm">করোনায় প্রাণ হারালেন অ্যাডভোকেট মোস্তাফিজুর</a></h4></div></div></div>
+                                <div class="img-box"><a href="{{url($url)}}">
+                                        <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset($literatureData->feature_medium)}}" alt="{{$literatureData->title}}" class="lazyload img-responsive"></a>
+                                </div>
+                                <h4><a href="{{url($url)}}">{{$literatureData->title}}</a></h4>
+
+
+                                <div class="details">
+                                    @forelse($literatures->skip(1)->take(5) as $literature)
+                                        <?php
+                                        if (isset($literature->newsSubCategory))
+                                        {
+                                            $url=$literature->newsCategory->link.'/'.$literature->newsSubCategory->link.'/'.$literature->id.'/'.$literature->title;
+                                        }else{
+                                            $url=$literature->newsCategory->link.'/'.'news'.'/'.$literature->id.'/'.$literature->title;
+                                        }
+                                        ?>
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <h4 class="media-heading"><a href="{{url($url)}}">{{$literature->title}}</a></h4>
+                                        </div>
+                                    </div>
+                                        @empty
+
+                                    @endforelse
+                                </div>
                             </div>
                         </div>
-                        <div class="allnews"><a href="education.htm"> সবখবর</a></div>
-                    </div>
+                        <div class="allnews"><a href="{{url($literatureData->newsCategory->link)}}"> সবখবর</a></div>
+                    </div><!-- end col-sm-3 -->
+
+                    @endif
+
+                    @if(count($interviews)>0)
                     <div class="col-sm-3">
                         <div class="single-cat-height">
-                            <h2 class="catTitle"><a href="education.htm">সাক্ষাৎকার</a><span class="liner"></span></h2>
+
+                            <?php $interviewData=$interviews[0];?>
+                            <?php
+                            if (isset($interviewData->newsSubCategory))
+                            {
+                                $url=$interviewData->newsCategory->link.'/'.$interviewData->newsSubCategory->link.'/'.$interviewData->id.'/'.$interviewData->title;
+                            }else{
+                                $url=$interviewData->newsCategory->link.'/'.'news'.'/'.$interviewData->id.'/'.$interviewData->title;
+                            }
+                            ?>
+
+                            <h2 class="catTitle"><a href="{{url($interviewData->newsCategory->link)}}">{{$interviewData->newsCategory->category_name}}</a><span class="liner"></span></h2>
                             <div class="single-block">
 
-                                <div class="img-box"><a href="education.htm">
-                                        <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="ফের লকডাউন অর্থনীতিকে আরও বিপদগ্রস্ত করবে" class="lazyload img-responsive"></a></div><h4><a href="special-reports/news/588064.htm">ফের লকডাউন অর্থনীতিকে আরও বিপদগ্রস্ত করবে</a></h4><div class="details"><div class="media"><div class="media-body"><h4 class="media-heading"><a href="special-reports/news/587303.htm">প্রধানমন্ত্রীর অধীনে জাতীয় নিরাপত্তা কাউন্সিল গঠন সময়ের দাবি</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="special-reports/news/586586.htm">একটি পরিচ্ছন্ন পৃথিবীর অপেক্ষায়</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="special-reports/news/585084.htm">সহমর্মিতায় কাটুক ঈদ আনন্দ</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="special-reports/news/583330.htm">করোনায় বাজারব্যবস্থা ভেঙে গেছে, পুনর্নির্মাণ সরকারের দায়</a></h4></div></div><div class="media"><div class="media-body"><h4 class="media-heading"><a href="special-reports/news/583037.htm">আউশ-আমন উৎপাদনের লক্ষ্যমাত্রা আরও বাড়াতে চাই</a></h4></div></div></div>
+                                <div class="img-box"><a href="{{url($url)}}">
+                                        <img src="{{asset('/client')}}/media/common/placeholder-sm.png" data-src="{{asset($interviewData->feature_medium)}}" alt="{{$interviewData->title}}" class="lazyload img-responsive"></a>
+                                </div>
+                                <h4><a href="{{url($url)}}">{{$interviewData->title}}</a></h4>
+
+
+                                <div class="details">
+                                    @forelse($interviews->skip(1)->take(5) as $interview)
+                                        <?php
+                                        if (isset($interview->newsSubCategory))
+                                        {
+                                            $url=$interview->newsCategory->link.'/'.$interview->newsSubCategory->link.'/'.$interview->id.'/'.$interview->title;
+                                        }else{
+                                            $url=$interview->newsCategory->link.'/'.'news'.'/'.$interview->id.'/'.$interview->title;
+                                        }
+                                        ?>
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <h4 class="media-heading"><a href="{{url($url)}}">{{$interview->title}}</a></h4>
+                                        </div>
+                                    </div>
+                                        @empty
+
+                                    @endforelse
+                                </div>
                             </div>
                         </div>
-                        <div class="allnews"><a href="education.htm"> সবখবর</a></div>
-                    </div>
-                </div>
+                        <div class="allnews"><a href="{{url($interviewData->newsCategory->link)}}"> সবখবর</a></div>
+                    </div><!-- end col-sm-3 -->
+
+                    @endif
+
+                </div><!--end row-->
             </div>
         </div>
     </section>
