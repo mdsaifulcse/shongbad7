@@ -200,7 +200,10 @@ User Edit
 														</div>
 														<div class="col-10">
 															<button type="submit" class="btn btn-warning ">Submit</button>
-															<button type="reset" class="btn btn-secondary pull-right">Cancel</button>
+                                                            @can('user-list')
+                                                                <a href="{{route('users.index')}}" class="btn btn-secondary pull-right "> Cancel </a>
+                                                            @endcan
+
 														</div>
 													</div>
 												</div>

@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class HomeNewsController extends Controller
 {
-    public function index()
+    public function index(News $news)
     {
         $newses=News::with('newsCategory','newsSubCategory')->where('published_status',News::PUBLISHED)
             ->orderBy('id','DESC');

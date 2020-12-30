@@ -74,9 +74,8 @@
                         <div class="col-sm-12">
                         </div>
                     </div>
-
+                    @if(count($categoryNews)>0)
                     <div class="row" id="loadMoreContent">
-                        @if(count($categoryNews)>0)
 
                         @foreach($categoryNews->skip(1) as $news)
 
@@ -112,16 +111,16 @@
 
                         @endforeach
 
-                            <div class="text-center paddingBottom20">
-                                <button id="load_more_button"><img alt="Loader" src="{{asset('/client')}}/media/common/ajax-loader.gif" class="animation_image" style="width: 30px;"> আরও পড়ুন</button>
-                            </div>
 
-                            @else
-                            <h4 class="text-danger text-center">কোন ফলাফল পাওয়া যায়নি</h4>
-                            @endif
-
-
+                    </div><!-- end loadMoreContent -->
+                    <div class="text-center paddingBottom20" >
+                        <button id="load_more_button" data-page="1" data-link="{{$categoryNews->nextPageUrl()}}">
+                            আরও পড়ুন </button>
                     </div>
+                    @else
+                        <h4 class="text-danger text-center">কোন ফলাফল পাওয়া যায়নি</h4>
+                    @endif
+
 
                 </div>
                 <aside class="col-xs-12 col-sm-12 col-md-4 col-lg-4 aside">
@@ -287,10 +286,37 @@
         </div>
     </section>
 
-
     @endsection
 
 
 @section('script')
 
-    @endsection
+    {{Request::path()}}
+
+    <script>
+        $('#load_more_button').on('click',function () {
+
+            //$('#load_more_button').css({'display':'none'})
+            var targetPage=$(this).data('page');
+
+            targetPage++
+            $(this).data('page',targetPage);
+
+
+                $.ajax({
+                url:'{{Request::path()}}'+'?page='+targetPage,
+                method:"GET",
+
+                success:function(data){
+                    $('#loadMoreContent').append(data);
+                }
+                })
+
+        //$('#loadMoreContent').append().load('{{Request::path()}}'+'?page='+targetPage);
+
+
+        })
+
+        </script>
+
+@endsection
