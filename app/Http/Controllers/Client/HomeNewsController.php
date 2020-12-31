@@ -72,4 +72,29 @@ class HomeNewsController extends Controller
     }
 
 
+    public function searchResult(Request $request)
+    {
+        $results='';
+        $userPlay='';
+
+        if (isset($request->user_play) &&  $request->user_play!=''){
+            $userPlay=$request->user_play;
+
+            $results=News::with('newsCategory','newsSubCategory')
+                ->orderBy('id','DESC')->where(['published_status'=>News::PUBLISHED])
+                ->where('title','LIKE',"%{$request->user_play}%")
+                ->orWhere('meta_description','LIKE',"%{$request->user_play}%")
+                ->orWhere('topic','LIKE',"%{$request->user_play}%")
+                ->orWhere('description','LIKE',"%{$request->user_play}%")
+                ->paginate(20);
+
+            return view('client.search-result',compact('results','userPlay'));
+
+        }else{
+            return redirect()->back();
+        }
+
+    }
+
+
 }

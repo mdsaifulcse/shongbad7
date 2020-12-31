@@ -53,7 +53,7 @@
             </li>
             @empty
 
-                <li><a href="javascript:;"> No Menu Data !</a></li>
+                <li><a href="javascript:;"> কোন মেনু ডেটা পাওয়া যায়নি! !</a></li>
 
             @endforelse
 
@@ -62,16 +62,16 @@
 
     <div class="visible-header">
         <span class="burger" onclick="openNav()">&#9776;</span>
-        <a href="education.htm" class="logo">
+        <a href="{{URL::to('/')}}" class="logo">
             <img src="{{asset(\App\Models\Setting::first()->value('logo'))}}" alt="Logo">
         </a>
         <!--<button onclick="openApp()" class="open-app">-->
         <!--OPEN APP-->
         <!--</button>-->
         <span class="search" onclick="openSearch()"></span>
-        <form id="searchBox" action="search.htm" method="get">
+        <form id="searchBox" action="{{url('/search')}}" method="get">
             <label for="q"></label>
-            <input type="text" name="q" inputmode="search" placeholder="অনুসন্ধান..." autofocus>
+            <input type="text" name="user_play"  inputmode="search" placeholder="অনুসন্ধান... " autofocus>
             <span onclick="closeSearch()">&times;</span>
         </form>
     </div>
@@ -103,7 +103,7 @@
                         <li><a href="{{$social->link}}" target="_blank" title="Facebook" rel="nofollow"><i class="{{$social->icon_class}}"></i></a></li>
 
                             @empty
-                            <li><a href="javascript:;" title="Nothing" rel="nofollow">No data</a></li>
+                            <li><a href="javascript:;" title="Nothing" rel="nofollow">কোন ডেটা পাওয়া যায়নি!</a></li>
                         @endforelse
                     </ul>
                 </div>
@@ -126,13 +126,13 @@
             <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                 <div class="container" style="position:relative;">
                     <div id="sb-search" class="sb-search">
-                        <form class="srch_submit" action="search.htm" method="get" id="cse-search-box" target="_blank">
-                            <input type="hidden" name="cx" value="009737550856177646857:g5gonwr4hw8">
-                            <input type="hidden" name="cof" value="FORID:10" />
-                            <input type="hidden" name="ie" value="utf-8">
+                        <form class="srch_submit" action="{{url('/search')}}" method="get" id="cse-search-box" target="_blank">
+                            {{--<input type="hidden" name="cx" value="009737550856177646857:g5gonwr4hw8">--}}
+                            {{--<input type="hidden" name="cof" value="FORID:10" />--}}
+                            {{--<input type="hidden" name="ie" value="utf-8">--}}
                             <div>
-                                <input class="sb-search-input srch_submit" onkeyup="buttonUp();" onblur="monkey();" type="text" placeholder="অনুসন্ধান" name="q" id="q" required>
-                                <button type="submit" id="sa" name="sa" value=""><i class="fa fa-search"></i></button>
+                                <input class="sb-search-input srch_submit" onkeyup="buttonUp();" onblur="monkey();" type="text" placeholder="অনুসন্ধান" name="user_play" id="q" required>
+                                <button type="submit" id="sa" ><i class="fa fa-search"></i></button>
                                 <span class="sb-icon-search"><i class="fa fa-search"></i></span>
                             </div>
                         </form>
@@ -189,7 +189,7 @@
 
                     @empty
 
-                        <li><a href="javascript:;"> No Menu Data !</a></li>
+                        <li><a href="javascript:;"> কোন মেনু ডেটা পাওয়া যায়নি! !</a></li>
 
                     @endforelse
 
@@ -219,7 +219,7 @@
 
                                     <div class="col-sm-3">
                                         <ul class="media">
-                                            <li><a href="javascript:;">No Menu Data Found !</a></li>
+                                            <li><a href="javascript:;">কোন মেনু ডেটা পাওয়া যায়নি!</a></li>
 
                                         </ul>
                                     </div>

@@ -99,6 +99,8 @@ Route::get('clear-all','CacheClearController@clearAllAndReset');
 Route::group(['namespace'=>'Client'], function() {
 
     Route::get('/', 'HomeNewsController@index');
+    Route::get('/search', 'HomeNewsController@searchResult');
+
     Route::get('/author/{userId}', 'HomeNewsController@newsAuthor');
 
     Route::get('/archive', 'ArchiveController@archiveNews');

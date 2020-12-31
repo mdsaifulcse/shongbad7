@@ -88,9 +88,8 @@ class CategoryNewsController extends Controller
                 return redirect()->back();
             }
 
-            $categoryNews=$categoryNews->whereHas('newsSubCategory',function ($q)use($subCate){
-                $q->where("sub_categories.link", "$subCate");
-            });
+            $categoryNews=$categoryNews->categoryNews('newsSubCategory','sub_categories','link',$subCate);
+
         }
 
         $allLatestNews=$allLatestNews->take(5)->get();
@@ -99,66 +98,128 @@ class CategoryNewsController extends Controller
 
 
         if ($request->ajax()){
-            $categoryNews= $categoryNews->simplePaginate(2);
+            $categoryNews= $categoryNews->simplePaginate(20);
 
             $output = '';
 
             if (count($categoryNews)>0){
 
                 $url='';
+                $image='';
 
                 foreach ($categoryNews as $news){
+
+                    if (isset($news->newsSubCategory))
+                    {
+                        $url=url($news->newsCategory->link.'/'.$news->newsSubCategory->link.'/'.$news->id.'/'.$news->title);
+                    }else{
+                        $url=url($news->newsCategory->link.'/'.'news'.'/'.$news->id.'/'.$news->title);
+                    }
+                    $image=asset($news->feature_medium);
                     $output.="
-        if (isset($news->newsSubCategory))
-        {
-            $url=$news->newsCategory->link.'/'.$news->newsSubCategory->link.'/'.$news->id.'/'.$news->title;
-        }else{
-            $url=$news->newsCategory->link.'/'.'news'.'/'.$news->id.'/'.$news->title;
-        }
-
-        
-
-        <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6\">
-            <div class=\"single-block cat-block\">
-                <div class=\"row\">
-                    <div class=\"col-xs-5 col-sm-5\">
-                        <div class=\"img-box\">
-                            <a href=\"{{url($url)}}\" title=\"{{$news->title}}\">
-                                <img alt=\"{{$news->title}}\" src=\"{{asset($news->feature_medium)}}\" data-src=\"{{asset($news->feature_medium)}}\" class=\"lazyload img-responsive\">
-                            </a>
+                    <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6\">
+                        <div class=\"single-block cat-block\">
+                            <div class=\"row\">
+                                <div class=\"col-xs-5 col-sm-5\">
+                                    <div class=\"img-box\">
+                                        <a href=\"$url\" title=\"$news->title\">
+                                            <img alt=\"$news->title\" src=\"$image\" data-src=\"$news->feature_medium\" class=\"lazyload img-responsive\">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class=\"col-xs-7 col-sm-7\">
+                                    <div class=\"paddingTop10 paddingRight10\">
+                                        <h3 style=\"font-size:1.1em;\"><a href=\"$url\" title=\"$news->title\">$news->title</a></h3>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class=\"col-xs-7 col-sm-7\">
-                        <div class=\"paddingTop10 paddingRight10\">
-                            <h3 style=\"font-size:1.1em;\"><a href=\"{{url($url)}}\" title=\"{{$news->title}}\"> {{$news->title}}</a></h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>";
+                    </div>";
                 } // end foreach
-
+            }else{
+                $output.='<h4 class="text-danger text-center">কোন ফলাফল পাওয়া যায়নি</h4>';
             }
-
+            return $output;
         }
 
 
-        $categoryNews= $categoryNews->simplePaginate(2);
+        $categoryNews= $categoryNews->simplePaginate(21);
 
 
         return view('client.category-news',compact('categoryData','subCatData','categoryNews','allLatestNews','categoryMostReadNews','mostReadNews'));
     }
 
 
-    public function topicalNews($topic)
+    public function topicalNews($topic,Request $request)
     {
 
         if ($topic!=null){
 
             $topicalNews=News::with('newsCategory','newsSubCategory')
                 ->orderBy('id','DESC')->where(['published_status'=>News::PUBLISHED])
-                ->where('topic','LIKE',"%{$topic}%")
-                ->take(20)->get();
+                ->where('topic','LIKE',"%{$topic}%")->simplePaginate(20);
+
+            if ($request->ajax()){
+
+
+                $result='';
+                if (count($topicalNews)>0){
+
+                    $url='';
+                    foreach ($topicalNews as $topic)
+                    {
+
+                        if (isset($topic->newsSubCategory))
+                        {
+                            $url=url($topic->newsCategory->link.'/'.$topic->newsSubCategory->link.'/'.$topic->id.'/'.$topic->title);
+                        }else{
+                            $url=url($topic->newsCategory->link.'/'.'news'.'/'.$topic->id.'/'.$topic->title);
+                        }
+                        $image=asset($topic->feature_medium);
+                        $categoryData=$topic->newsCategory->category_name;
+                        $categoryLink=url($topic->newsCategory->link);
+                        $dateTime=\MyHelper::bn_date_time(date('h:i A, d M Y l'),strtotime($topic->published_date));
+
+                        if (strlen($topic->meta_description) != strlen(utf8_decode($topic->meta_description)))
+                        {
+                            $metaDes=substr($topic->meta_description,0,300);
+                        }else{
+                            $metaDes=substr($topic->meta_description,0,19);
+                        }
+
+
+                        $result.="<div class=\"tag-block\">
+                                    <div class=\"row\">
+                                        <div class=\"col-sm-4\">
+                                            <div class=\"tag-img\">
+                                                <a href=\"$url\">
+                                                    <img alt=\"$topic->title\" src=\"$image\"  class=\"lazyload img-responsive\">
+                                                </a>
+                                                <div class=\"overlay-category\">
+                                                    <a href=\"$categoryLink\" rel=\"nofollow\">$categoryData</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class=\"col-sm-8\">
+                                            <h3>
+                                                <a href=\"$url\">$topic->title</a>
+                                            </h3>
+                                            <small>$dateTime</small>
+                                            <p>
+                                                $metaDes
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>";
+
+                    } // end foreach
+
+                }else{
+                    $result.='<h4 class="text-danger text-center">কোন ফলাফল পাওয়া যায়নি</h4>';
+                }
+                return $result;
+
+            }
 
             return view('client.topical-news',compact('topicalNews','topic'));
 

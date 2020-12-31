@@ -113,10 +113,13 @@
 
 
                     </div><!-- end loadMoreContent -->
-                    <div class="text-center paddingBottom20" >
-                        <button id="load_more_button" data-page="1" data-link="{{$categoryNews->nextPageUrl()}}">
-                            আরও পড়ুন </button>
-                    </div>
+                    @if($categoryNews->nextPageUrl()!='')
+                            <div class="text-center paddingBottom20" >
+                                <button id="load_more_button" data-page="1" data-link="{{$categoryNews->nextPageUrl()}}">
+                                    আরও পড়ুন </button>
+                            </div>
+                        @endif
+
                     @else
                         <h4 class="text-danger text-center">কোন ফলাফল পাওয়া যায়নি</h4>
                     @endif
@@ -304,7 +307,7 @@
 
 
                 $.ajax({
-                url:'{{Request::path()}}'+'?page='+targetPage,
+                url:"{{url(Request::path())}}"+'?page='+targetPage,
                 method:"GET",
 
                 success:function(data){
