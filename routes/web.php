@@ -45,6 +45,7 @@ Route::group(['middleware' => ['auth'],'namespace'=>'Admin','prefix' => 'admin']
     Route::get('/get-news','NewsController@getNewData')->middleware('permission:news-list|news-create|news-edit|news-delete');
 
 
+    Route::resource('biggapons','BiggaponController')->middleware('permission:ads-list|ads-create|ads-edit|ads-delete');
     Route::resource('client','OurClientController')->middleware('permission:client');
     Route::resource('faq','FaqController')->middleware('permission:faq');
     Route::resource('testimonial','TestimonialController')->middleware('permission:testimonial');
@@ -106,7 +107,11 @@ Route::group(['namespace'=>'Client'], function() {
     Route::get('/archive', 'ArchiveController@archiveNews');
 
     Route::get('/about-us.html', 'PageController@aboutUs');
+
     Route::get('/contact.htm', 'PageController@contactUs');
+
+    Route::post('/user-feedback', 'PageController@saveUserFeedBack');
+
     Route::get('/page/{link}', 'PageController@pageView');
 
     Route::get('/topic/{topic}', 'CategoryNewsController@topicalNews');

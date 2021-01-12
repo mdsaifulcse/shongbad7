@@ -127,13 +127,21 @@
 
                 </div>
                 <aside class="col-xs-12 col-sm-12 col-md-4 col-lg-4 aside">
-                    <div class="text-center">
-                        <div class="row">
-                            <div class="col-sm-12 paddingBottom20">
-                                <div id='' style='margin:auto;'></div>
+                    @forelse($sideA->take(1) as $first)
+                        <div class="text-center advertisement">
+                            <div class="row">
+                                <div class="col-sm-12 paddingBottom20">
+
+                                    <a target="_blank" href="{{$first->target_url}}">
+                                        <img src="{{asset($first->image)}}" alt="" class="img_ad img-responsive" style="margin:0 auto;">
+                                    </a>
+
+                                </div>
                             </div>
                         </div>
-                    </div>
+                @empty
+
+                @endforelse
 
                     <!-- latest -->
                     <div class="row">
@@ -198,14 +206,6 @@
                         </div>
                     </div>
 
-                    <div class="text-center">
-                        <div class="row">
-                            <div class="col-sm-12 paddingBottom20">
-
-                                <div id='-1' style='margin:auto;'></div>
-                            </div>
-                        </div>
-                    </div>
 
                     <!-- popular -->
                     <div class="row">

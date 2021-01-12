@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="News7">
+  <component name="PublishConfigData" serverName="Sanbad7">
     <serverData>
-      <paths name="News7">
+      <paths name="Sanbad7">
         <serverdata>
           <mappings>
-            <mapping deploy="/news7File" local="$PROJECT_DIR$" web="/news7File" />
+            <mapping deploy="/sangbad7File" local="$PROJECT_DIR$" web="/sangbad7File" />
+            <mapping deploy="/public_html/sangbad7" local="$PROJECT_DIR$/public" web="" />
           </mappings>
         </serverdata>
       </paths>

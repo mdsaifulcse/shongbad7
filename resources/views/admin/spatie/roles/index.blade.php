@@ -139,8 +139,10 @@
                             <a class="btn btn-info btn-sm" href="roleViewModal{{$role->id}}" data-toggle="modal" data-target="#roleViewModal{{$role->id}}">Show</a>
 
                             <a class="btn btn-primary btn-sm" href="{{ route('roles.edit',$role->id) }}">Edit</a>
-
+                            @if($role->name!='developer')
                             <button style="display:inline-block" type="button" class="btn btn-xs btn-danger btn-sm" onclick='return deleteConfirm("deleteForm{{$role->id}}")'><i class="fa fa-trash"></i></button>
+                            @endif
+
                             {!! Form::close() !!}
 
 

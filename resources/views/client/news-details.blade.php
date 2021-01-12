@@ -39,7 +39,7 @@
                                                     <div class="media-left hidden-print">
                                                         @if(isset($news->newsAuthor) && file_exists($news->newsAuthor->avatar))
 
-                                                        <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset($news->newsAuthor->avatar)}}" alt="{{$news->title}}" class="media-object" style="margin-top:5px;width:40px;height:40px;border-radius:100%;display:inline-block;">
+                                                        <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset($news->newsAuthor->avatar)}}" alt="{{$news->title}}" class="media-object" style="margin-top:5px;width:30px;height:30px;border-radius:100%;display:inline-block;">
 
                                                             @else
                                                             <img src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset(\App\Models\Setting::first()->value('favicon'))}}" alt="{{$news->title}}" class="media-object" style="margin-top:5px;width:40px;height:40px;border-radius:100%;display:inline-block;">
@@ -58,9 +58,9 @@
                                                 প্রকাশিত:
                                                     <?php $bongabda = new EasyBanglaDate\Types\BnDateTime($news->published_date);
 
-                                                    echo  $bongabda->format('h:i a, l jS F Y ')?>
+                                                    echo  $bongabda->getDateTime()->format('h:i a, l jS F Y ');
+                                                    ?>
 
-                                                    {{MyHelper::bn_date_time(date('h:i A d M Y'),strtotime($news->published_date))}}
                                                 </span>
                                                     </div>
                                                 </div>
@@ -274,14 +274,23 @@
                             </div>
                         </div>
                     </div>
+
+                    @forelse($sideA->take(1) as $firstOne)
                     <div class="text-center advertisement">
                         <div class="row">
                             <div class="col-sm-12 paddingBottom20">
 
-                                <div id='div-gpt-ad-1509258458742-12'></div>
+                                <a target="_blank" href="{{$firstOne->target_url}}">
+                                    <img src="{{asset($firstOne->image)}}" alt="" class="img_ad img-responsive" style="margin:0 auto;">
+                                </a>
+
                             </div>
                         </div>
                     </div>
+                    @empty
+
+                    @endforelse
+
                     <div>
                         <h2 class="McatTitle"><span class="eee"> সর্বোচ্চ পঠিত - {{$news->newsCategory->category_name}} </span>
                         </h2>
@@ -338,14 +347,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="text-center advertisement">
-                        <div class="row">
-                            <div class="col-sm-12 paddingBottom20">
+                    @forelse($sideA->skip(1)->take(1) as $second)
+                        <div class="text-center advertisement">
+                            <div class="row">
+                                <div class="col-sm-12 paddingBottom20">
 
-                                <div id='div0'></div>
+                                    <a target="_blank" href="{{$second->target_url}}">
+                                        <img src="{{asset($second->image)}}" alt="" class="img_ad img-responsive" style="margin:0 auto;">
+                                    </a>
+
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @empty
+
+                    @endforelse
 
 
                     <div class="text-center advertisement hidden-print">

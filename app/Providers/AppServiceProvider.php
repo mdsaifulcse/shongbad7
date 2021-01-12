@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Biggapon;
 use App\Models\Category;
 use App\Models\Menu;
 use App\Models\Setting;
@@ -48,7 +49,6 @@ class AppServiceProvider extends ServiceProvider
             ],
             function ($view)
             {
-
                 $menus=Category::with('subCatAsSubMenu')->orderBy('serial_num','ASC')
                     ->select('category_name','link','id','icon_class')->where('status','=',Category::ACTIVE)->get();
 
@@ -69,6 +69,18 @@ class AppServiceProvider extends ServiceProvider
                 $setting=Setting::first();
 
                 $view->with(['setting'=>$setting]);
+            });
+
+        View::composer( // for frontend Footer --------------
+            [
+                'client.layouts.master',
+            ],
+            function ($view)
+            {
+                $topA=Biggapon::where(['status'=>Biggapon::ACTIVE,'place'=>Biggapon::TOP])->orderBy('serial_num','DESC')->first();
+                $bottomA=Biggapon::where(['status'=>Biggapon::ACTIVE,'place'=>Biggapon::BOTTOM])->orderBy('serial_num','DESC')->first();
+
+                $view->with(['topA'=>$topA,'bottomA'=>$bottomA]);
             });
 
     }

@@ -4,6 +4,7 @@ namespace App\Providers;
 
 
 use App\Models\PrimaryInfo;
+use App\Models\VisitorTrack;
 use Illuminate\Support\ServiceProvider;
 use Image,Auth;
 use App\User;
@@ -31,7 +32,8 @@ class MyHelperProvider extends ServiceProvider
     // Times
     public static $en_times = array('am', 'pm');
     public static $en_times_uppercase = array('AM', 'PM');
-    public static $bn_times = array('পূর্বাহ্ন', 'অপরাহ্ন');
+    public static $bn_times = array('এএম', 'পিএম');
+    public static $bn_times1 = array('পূর্বাহ্ন', 'অপরাহ্ন');
 
     // Method - English to Bengali Number
     public static function bn_number($number)
@@ -215,19 +217,19 @@ class MyHelperProvider extends ServiceProvider
 
     }
 
-        static public function fileUpload($filedata,$folderName){
+     public static function fileUpload($filedata,$folderName){
 
         $fileType = $filedata->getClientOriginalExtension();
         $fileName = rand(1, 1000) . date('dmyhis') . "." . $fileType;
-        $path2 = $folderName. date('Y/m/d');
+        $path2 = $folderName. date('Y/m/d/');
         //return $path2;
         if (!is_dir($path2)) {
             mkdir("$path2", 0777, true);
         }
-        $img =move(public_path($filedata) . $folderName);
+        $img =$filedata->move(base_path($path2),$fileName);
         //$img->resize(400, 330);
-        $img->save($folderName. date('Y/m/d/') . $fileName);
-        return $photoUploadedPath=$folderName . date('Y/m/d/') . $fileName;
+        //$img->save($path2. $fileName);
+        return $photoUploadedPath=$path2 . $fileName;
 
     }
 
@@ -257,6 +259,28 @@ class MyHelperProvider extends ServiceProvider
     }
 
 
+    public static function countVisitor($request)
+    {
+        $visitUrl=$small = substr($request->url(), 0, 50);;
+        $clientIp=$request->ip();
+        $today=date('y-m-d');
+        $visit=VisitorTrack::where(['visit_url'=>$visitUrl,'ip_address'=>$clientIp,'visit_date'=>$today])->first();
+
+        $authUser='NULL';
+
+        if(!\Auth::guest())
+        {
+            $authUser=\Auth::user()->id;
+        }
+
+        if (!empty($visit))
+        {
+            $totalVisit=$visit->total_visit;
+            $visit->update(['total_visit'=>$totalVisit+1]);
+        }else{
+            VisitorTrack::create(['visit_url'=>$visitUrl,'ip_address'=>$clientIp,'visit_date'=>$today,'total_visit'=>1,'user_id'=>$authUser]);
+        }
+    }
 
 
 

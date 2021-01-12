@@ -157,6 +157,20 @@
 
                 </div>
                 <aside class="col-sm-4 aside">
+                    <div class="text-center row">
+                        @forelse($sideA->where('place',\App\Models\Biggapon::SIDE)->take(1) as $key=>$side)
+                            <div class="col-sm-12 paddingBottom20">
+                                <div id="{{$key}}">
+                                    <a id="{{$key}}" target="_blank" href="{{$side->target_url}}">
+                                        <img src="{{asset($side->image)}}" alt="" class="img_ad img-responsive"/>
+                                    </a>
+                                </div>
+                            </div>
+                        @empty
+
+                        @endforelse
+                    </div>
+
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="box-white">
@@ -237,10 +251,17 @@
                     </div>
 
                     <div class="text-center row">
+                        @forelse($sideA->where('place',\App\Models\Biggapon::SIDE)->skip(1)->take(2) as $key=>$side)
                         <div class="col-sm-12 paddingBottom20">
-
-                            <div id='12'></div>
+                            <div id="s{{$key}}">
+                                <a id="{{$key}}" target="_blank" href="{{$side->target_url}}">
+                                    <img src="{{asset($side->image)}}" alt="" class="img_ad img-responsive"/>
+                                </a>
+                            </div>
                         </div>
+                    @empty
+
+                        @endforelse
                     </div>
 
                 </aside>
@@ -301,7 +322,7 @@
                                         <h3><a href="education.htm">{{$education->title}}</a></h3>
                                     </div>
                                     <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i>
-                                        <a href="{{explode(',', $education->topic)[0]}}">{{explode(',', $education->topic)[0]}}</a></span>
+                                        <a href="{{url('/topic/'.explode(',', $education->topic)[0])}}">{{explode(',', $education->topic)[0]}}</a></span>
                                     </div>
 
                                 </div>
@@ -316,22 +337,30 @@
         </div>
     </section>
     @endif
-    {{--<section>--}}
-        {{--<div class="container text-center paddingTopBottom20">--}}
-            {{--<div class="row">--}}
-                {{--<div class="col-sm-12">--}}
+    <section>
+        <div class="container text-center paddingTopBottom20">
+            <div class="row">
+                @forelse($sideA->where('place',\App\Models\Biggapon::MIDDLE)->take(1) as $i=>$sideData)
+                <div class="col-sm-12">
 
-                    {{--<div id='101'></div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</section>--}}
+                    <div id='s{{$i}}'>
+                        <a id="{{$i}}" target="_blank" href="{{$sideData->target_url}}">
+                            <img src="{{asset($sideData->image)}}" alt="" class="img_ad img-responsive"/>
+                        </a>
+                    </div>
+                </div>
+                @empty
+
+                @endforelse
+            </div>
+        </div>
+    </section>
 
 @if(count($technologies)>0)
     <section class="deshjure">
         <div class="container">
             <div class="row">
-                <div class="col-sm-8 main-content">
+                <div class="col-sm-12 main-content">
                     <div class="row">
                         <div class="col-sm-12">
                             <?php
@@ -363,7 +392,8 @@
                                 </div>
                                 <div class="meta">
 
-                                    <span class="pull-left tags"><i class="fa fa-tags"></i><a href="{{explode(',', $technology->topic)[0]}}">{{explode(',', $technology->topic)[0]}}</a></span>
+                                    <span class="pull-left tags"><i class="fa fa-tags"></i>
+                                        <a href="{{url('/topic/'.explode(',', $technology->topic)[0])}}">{{explode(',', $technology->topic)[0]}}</a></span>
                                 </div>
                             </div>
                         </div>
@@ -388,7 +418,7 @@
                                         <a href="{{url($technology->newsCategory->link)}}">{{$technology->title}}</a>
                                     </h4>
                                     <div class="meta"><i class="fa fa-tags"></i>
-                                        <a href="{{explode(',', $technology->topic)[0]}}">{{explode(',', $technology->topic)[0]}}</a>
+                                        <a href="{{url('/topic/'.explode(',', $technology->topic)[0])}}">{{explode(',', $technology->topic)[0]}}</a>
                                     </div>
                                 </div>
                             </div>
@@ -422,7 +452,7 @@
                                         <h4><a href="{{url($url)}}">{{$technology->title}}</a></h4>
                                     </div>
                                     <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i>
-                                            <a href="{{explode(',', $technology->topic)[0]}}">{{explode(',', $technology->topic)[0]}}</a>
+                                            <a href="{{url('/topic/'.explode(',', $technology->topic)[0])}}">{{explode(',', $technology->topic)[0]}}</a>
                                         </span>
                                     </div>
                                 </div>
@@ -433,80 +463,7 @@
                         @endforelse
                     </div>
                 </div>
-                <aside class="col-sm-4 aside">
-                    <div class="row">
-                        <div class="col-sm-12 paddingBottom20">
-                            <div class="text-center">
 
-                                <div id='div-gpt-ad-1536578421108-0'></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="topSakkhatkar" style="overflow:hidden;">
-                                <h2><a href="education.htm">মতামত</a></h2>
-                                <div class="sakkhatkar-block" style="background:#f5f5f5;">
-                                    <div class="media">
-                                        <a class="pull-left" href="education.htm">
-                                            <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="পাল্টে যাওয়া পৃথিবী কেমন হবে?" style="width:80px;">
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="education.htm">পাল্টে যাওয়া পৃথিবী কেমন হবে?</a></h4>
-                                        </div>
-                                    </div><div class="media">
-                                        <a class="pull-left" href="education.htm">
-                                            <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset('/client')}}/media/default/desktop.png" alt="ভালো থাকবেন নাসিম ভাই" style="width:80px;">
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="education.htm">ভালো থাকবেন নাসিম ভাই</a></h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <h2 class="catTitle">এক ক্লিকে বিভাগের খবর &nbsp;<span class="liner"></span></h2>
-                            <div class="single-block auto padding15">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <form action="div-dis-upz.htm" method="get">
-                                            <div class="row form-group">
-                                                <div class="col-sm-6">
-                                                    <label for="division" class="sr-only">বিভাগ</label>
-                                                    <select class="form-control" name="division" id="division">
-                                                        <option>--বিভাগ--</option>
-                                                        <option data-id="2" value="barisal">বরিশাল</option>
-                                                        <option data-id="3" value="chittagong">চট্টগ্রাম</option>
-                                                        <option data-id="4" value="dhaka">ঢাকা</option>
-                                                        <option data-id="5" value="khulna">খুলনা</option>
-                                                        <option data-id="6" value="rajshahi">রাজশাহী</option>
-                                                        <option data-id="7" value="sylhet">সিলেট</option>
-                                                        <option data-id="8" value="rangpur">রংপুর</option>
-                                                        <option data-id="9" value="mymensingh">ময়মনসিংহ</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <label for="district" class="sr-only">জেলা</label>
-                                                    <select class="form-control" name="district" id="district"></select>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <label for="upozilla" class="sr-only">উপজেলা</label>
-                                                    <select class="form-control" name="upozilla" id="upozilla"></select>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <button type="submit" class="btn btn-danger btn-block">অনুসন্ধান
-                                                        করুন
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </aside>
             </div>
         </div>
     </section>
@@ -588,7 +545,7 @@
                                                 <h3><a href="education.htm">{{$entertainment->title}}</a></h3>
                                             </div>
                                             <div class="meta"><span class="pull-left tags"><i class="fa fa-tags"></i>
-                                        <a href="{{explode(',', $entertainment->topic)[0]}}">{{explode(',', $entertainment->topic)[0]}}</a></span>
+                                        <a href="{{url('/topic/'.explode(',', $entertainment->topic)[0])}}">{{explode(',', $entertainment->topic)[0]}}</a></span>
                                             </div>
 
                                         </div>

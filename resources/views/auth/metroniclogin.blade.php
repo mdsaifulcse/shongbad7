@@ -9,7 +9,8 @@
                     <div class="kt-login__container">
                         <div class="kt-login__logo">
                             <a href="#">
-                                <img src="{{asset(\App\Models\Setting::first()->value('favicon'))}}">
+                                <img src="{{asset(\App\Models\Setting::first()->value('favicon'))}}" style="width: 100px;
+    border-radius: 50%;">
                             </a>
                         </div>
                         <div class="kt-login__signin">

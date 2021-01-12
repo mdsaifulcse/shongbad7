@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Models\News;
+use App\Models\VisitorTrack;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use DB,Auth,MyHelper,DataLoad;
@@ -12,11 +13,6 @@ class ArchiveController extends Controller
 {
     public function  archiveNews(Request $request)
     {
-        //return $request;
-
-        //date_default_timezone_set('Ami')
-
-
         $newses=News::with('newsCategory','newsSubCategory')
             ->orderBy('id','DESC');
 
@@ -54,9 +50,10 @@ class ArchiveController extends Controller
 
         $newses=$newses->paginate(20);
 
-
         $categories=DataLoad::categoryList();
         $states=DataLoad::divisionList();
+
+        \MyHelper::countVisitor($request);
 
         return view('client.archive-news',compact('newses','categories','states','request'));
 

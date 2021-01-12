@@ -30,11 +30,22 @@ class NewsController extends Controller
 
         $allData=News::leftJoin('categories','news.category_id','categories.id')
             ->leftJoin('users','news.news_author_id','users.id')
-            ->select('categories.category_name','users.name','news.*');
+            ->select('categories.category_name','users.name','news.*')->orderBy('id','desc');
 
         return DataTables::of($allData)
             ->addIndexColumn()
             ->addColumn('DT_RowIndex','')
+            ->addColumn('news on','
+                @if($show_at_homepage=="Yes")
+                    <span class="btn btn-primary btn-xs">Home News </span>
+                    @endif
+
+               @if($is_cover_news=="Yes")
+                <span class="btn btn-success btn-xs">Cover News </span>
+                @endif
+                ')
+
+
             ->addColumn('action','
             {!! Form::open(array(\'route\'=> [\'news.destroy\',$id],\'method\'=>\'DELETE\',\'class\'=>\'deleteForm\',\'id\'=>"deleteForm$id")) !!}
                 {{ Form::hidden(\'id\',$id)}}
@@ -49,7 +60,7 @@ class NewsController extends Controller
                 @endcan
             {!! Form::close() !!}
             ')
-            ->rawColumns(['action'])
+            ->rawColumns(['news on','action'])
             ->toJson();
 
     }

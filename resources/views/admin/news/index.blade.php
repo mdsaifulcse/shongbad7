@@ -42,6 +42,7 @@
                     <th>Topic</th>
                     <th>Category</th>
                     <th>Author</th>
+                    <th>News On</th>
                     <th>Status</th>
                     <th >Action</th>
 
@@ -75,6 +76,7 @@
                 { data: 'topic',name:'news.topic'},
                 { data: 'category_name',name:'categories.category_name'},
                 { data: 'name',name:'users.name'},
+                { data: 'news on',name:'news.published_status'},
                 { data: 'published_status',name:'news.published_status'},
                 { data: 'action'},
             ]

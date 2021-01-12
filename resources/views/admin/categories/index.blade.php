@@ -152,7 +152,15 @@
                                     <a class="btn btn-sm btn-sm btn-info" href='{{route('sub-categories.show',$data->id)}}'>Sub Category ({{$data->subCategoryData->count()}})</a>
                                 </td>
 
-                                <td><i class="{{($data->status==\App\Models\Category::ACTIVE)? 'fa fa-check-circle text-success' : 'fa fa-times-circle'}}"></i></td>
+                                <td>
+                                    @if($data->status==\App\Models\Category::ACTIVE)
+                                        <i class="fa fa-check-circle text-success"></i> {{$data->status}}
+                                        @elseif($data->status==\App\Models\Category::INACTIVE)
+                                        <i class="fa fa-times-circle text-danger"></i> {{$data->status}}
+                                        @elseif($data->status==\App\Models\Category::OTHER)
+                                        <i class="fa fa-bolt text-info"></i> {{$data->status}}
+                                        @endif
+                                </td>
 
                                 <td>{{$data->created_at}}</td>
                                 <td>
@@ -298,7 +306,6 @@
 
 @section('script')
     <script type="text/javascript">
-
 
         function photoLoad(input,image_load) {
             var target_image='#'+$('#'+image_load).prev().children().attr('id');

@@ -64,7 +64,7 @@
                                          </span>
                                     @endif
                                 </div>
-                                <div class="col-sm-2"><button type="submit" class="btn btn-primary btn-block">খুজুন</button></div>
+                                <div class="col-sm-2"><button type="submit" class="btn btn-primary btn-block">খুজুন </button></div>
 
                                 <div class="col-sm-2">
                                     <a href="{{url('/archive')}}" class="btn btn-danger btn-block">সব সংবাদ খুজুন</a>
@@ -98,7 +98,12 @@
                                     </div>
                                     <div class="col-xs-8 col-sm-8 paddingTop10">
                                         <h3 class="no-margin"><a href="{{url($url)}}">{{$news->title}}</a></h3>
-                                        <small class="text-muted">{{MyHelper::bn_date_time(date('h:i A, d M Y l'),strtotime($news->published_date))}}</small>
+                                        <small class="text-muted">
+                                            <?php $bongabda = new EasyBanglaDate\Types\BnDateTime($news->published_date);
+
+                                            echo  $bongabda->getDateTime()->format('h:i a, l jS F Y ');
+                                            ?>
+                                        </small>
                                     </div>
                                 </div>
                             </div>

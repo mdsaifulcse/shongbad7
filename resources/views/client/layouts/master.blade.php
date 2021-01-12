@@ -36,7 +36,6 @@
     else { // desktop browser
     ?>
 
-
     <?php
     }
     ?>
@@ -58,16 +57,23 @@
 
 @include('client.layouts.partials.header')
 
+@if(!empty($topA))
+
 <section class="box-white hidden-print">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 text-center paddingTopBottom10 advertisement">
 
-                <div id=''></div>
+                <div id='topA'>
+                    <a id="topA" target="_blank" href="{{$topA->target_url}}" onfocus="ss('topA')" onmousedown="st('topA')"
+                       onmouseover="ss('topA')" onclick="ha('topA')"><img src="{{asset($topA->image)}}"/> </a>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+@endif
 
 
 <main id="main-content">
@@ -75,6 +81,29 @@
 @yield('content')
 
 </main>
+
+@if(!empty($bottomA))
+
+
+<section class="box-white hidden-print">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center paddingTopBottom10 advertisement topA">
+                <div id='bottomA'>
+                    <a id="bottomA" target="_blank" href="{{$bottomA->target_url}}" onfocus="ss('bottomA')" onmousedown="st('bottomA')"
+                       onmouseover="ss('bottomA')" onclick="ha('bottomA')">
+                        <img src="{{asset($bottomA->image)}}" border="0" alt="" class="img_ad img-responsive" style="margin:0px auto 15px;">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+@endif
 
 @include('client.layouts.partials.footer')
 

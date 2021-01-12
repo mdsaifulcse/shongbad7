@@ -34,17 +34,6 @@ Reset your password
         <!-- begin:: Content -->
         <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
 
-
-            @if ($message = Session::get('success'))
-
-                <div class="alert alert-success">
-
-                    <p>{{ $message }}</p>
-
-                </div>
-
-        @endif
-
             <!--Begin::Row-->
 
             <div class="row justify-content-md-center justify-content-lg-center">

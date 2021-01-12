@@ -61,7 +61,12 @@
                                                         <h3>
                                                             <a href="{{url($url)}}">{{$result->title}}</a>
                                                         </h3>
-                                                        <small>{{MyHelper::bn_date_time(date('h:i A, d M Y l'),strtotime($result->published_date))}}</small>
+                                                        <small>
+                                                            <?php $bongabda = new EasyBanglaDate\Types\BnDateTime($result->published_date);
+
+                                                            echo  $bongabda->getDateTime()->format('h:i a, l jS F Y ');
+                                                            ?>
+                                                        </small>
                                                         <p>
                                                             <?php
                                                             if (strlen($result->meta_description) != strlen(utf8_decode($result->meta_description)))

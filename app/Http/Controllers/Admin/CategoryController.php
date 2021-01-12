@@ -59,7 +59,7 @@ class CategoryController extends Controller
 
         $validator = Validator::make($input, [
             'category_name' => 'required',
-            'link' => 'required|unique:categories',
+            'link' => 'required|unique:categories,link,NULL,id,deleted_at,NULL',
 
         ]);
         if ($validator->fails()) {
@@ -140,7 +140,7 @@ class CategoryController extends Controller
         $validator = Validator::make($input, [
             'category_name' => 'required',
             'serial_num' => 'required',
-            'link' => "required|unique:categories,link,$id",
+            'link' => "required|unique:categories,link,$id,id,deleted_at,NULL",
         ]);
         if ($validator->fails()) {
             return redirect()->back()->with('error','Duplicate or empty record found.');

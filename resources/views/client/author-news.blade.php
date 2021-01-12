@@ -73,8 +73,13 @@
                                 </div>
                                 <div class="col-sm-9 paddingTop15">
                                     <h3 class="no-margin"><a href="{{url($url)}}">{{$news->title}}</a></h3>
+
                                     <small class="text-muted"><i class="fa fa fa-clock-o"></i>
-                                        {{MyHelper::bn_date_time(date('h:i A, d M Y l'),strtotime($news->published_date))}}</small>
+                                        <?php $bongabda = new EasyBanglaDate\Types\BnDateTime($news->published_date);
+
+                                        echo  $bongabda->getDateTime()->format('h:i a, l jS F Y ');
+                                        ?>
+                                    </small>
 
                                     <p>
                                         <?php

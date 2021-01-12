@@ -28,8 +28,8 @@ class SliderController extends Controller
      */
 public function create()
     {
-        $max=Slider::max('serial')+1;
-        return view('backend.slider.create',compact('max'));
+        $max_serial=Slider::max('serial')+1;
+        return view('backend.slider.create',compact('max_serial'));
     }
 
     /**

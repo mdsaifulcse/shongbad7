@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="543aa017-5625-4bc1-b4ca-f6765bc76ce1" name="News7" url="http://ftp.ustutorial.com">
-        <fileTransfer host="ftp.ustutorial.com" port="21">
+      <webServer id="543aa017-5625-4bc1-b4ca-f6765bc76ce1" name="Sanbad7" url="http://sangbad7.com">
+        <fileTransfer host="sangbad7.com" port="21">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" />
           </advancedOptions>

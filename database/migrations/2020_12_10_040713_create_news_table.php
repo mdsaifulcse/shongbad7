@@ -31,6 +31,8 @@ class CreateNewsTable extends Migration
             $table->string('is_cover_news')->default(\App\Models\News::NO);
             $table->string('show_at_homepage')->default(\App\Models\News::NO);
 
+            $table->tinyInteger('serial_num',false,4)->default(1);
+
             $table->unsignedBigInteger('category_id',false,20);
             $table->unsignedBigInteger('sub_cat_id',false,20)->nullable();
 

@@ -91,9 +91,13 @@
                 </div>
                 <div class="col-sm-5 text-center marginTop20 hidden-print">
                     <small class="date">
-                        <i class="fa fa-calendar"></i>  {{MyHelper::bn_date_time(date('l d M Y'),strtotime(now()))}} | <?php $bongabda = new EasyBanglaDate\Types\BnDateTime(now());
+                        {{--<i class="fa fa-calendar"></i>--}}
+                        <i class="fa fa-map-marker"></i> <span>নিউ ইয়র্ক,</span>
+                        {{MyHelper::bn_date_time(date('l, d M Y'),strtotime(now()))}} |
 
-                        echo  $bongabda->format('l jS F Y ').'বঙ্গাব্দ'?>
+                        {{--<span>Sangbad7</span> |--}}
+
+                         {{date('l, jS F Y ') }}
                     </small>
                 </div>
                 <div class="col-sm-4 text-right marginTop20 hidden-print">
@@ -162,7 +166,7 @@
 
                     if (count($menu->subCatAsSubMenu)>0){
                         $dropDown='dropdown';
-                        $dropDownToggle='dropdown-toggle';
+                        $dropDownToggle='dropdown-toggle disabled';
                         $dropDownIcon='fa fa-angle-down';
                          $dropDownMenu='dropdown-menu';
                         }
@@ -170,7 +174,7 @@
 
 
                         <li class="{{$dropDown}}">
-                            <a href="{{URL::to($menu->link)}}" class="{{$dropDownToggle}}" data-toggle="{{$dropDown}}">{{$menu->category_name}} <i class="{{$dropDownIcon}}"></i>
+                            <a href="{{URL::to($menu->link)}}" class="{{$dropDownToggle}} " data-toggle="{{$dropDown}}">{{$menu->category_name}} <i class="{{$dropDownIcon}}"></i>
 
                             </a>
 

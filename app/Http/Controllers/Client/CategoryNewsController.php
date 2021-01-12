@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Models\Biggapon;
 use App\Models\MostReadNews;
 use App\Models\News;
 use App\Models\SubCategory;
 use App\Models\Category;
+use App\Models\VisitorTrack;
 use Carbon\CarbonTimeZone;
 use Illuminate\Http\Request;
 
@@ -73,7 +75,10 @@ class CategoryNewsController extends Controller
                 $readNews->update(['read_number'=>$readNews->read_number+1]);
             }
 
-            return view('client.news-details',compact('news','latestCatNews','latestNews','categoryMostReadNews','mostReadNews'));
+            $sideA=Biggapon::where(['status'=>Biggapon::ACTIVE,'show_on_page'=>Biggapon::DETAIL_PAGE])->orderBy('serial_num','DESC')->take(2)->get();
+
+            \MyHelper::countVisitor($request);
+            return view('client.news-details',compact('news','latestCatNews','latestNews','categoryMostReadNews','mostReadNews','sideA'));
         }
 
 
@@ -145,8 +150,12 @@ class CategoryNewsController extends Controller
 
         $categoryNews= $categoryNews->simplePaginate(21);
 
+        $sideA=Biggapon::where(['status'=>Biggapon::ACTIVE,'show_on_page'=>Biggapon::OTHER_PAGE])->orderBy('serial_num','DESC')->take(2)->get();
 
-        return view('client.category-news',compact('categoryData','subCatData','categoryNews','allLatestNews','categoryMostReadNews','mostReadNews'));
+        \MyHelper::countVisitor($request);
+
+        return view('client.category-news',compact('categoryData','subCatData','categoryNews','allLatestNews','categoryMostReadNews',
+            'mostReadNews','sideA'));
     }
 
 
@@ -157,7 +166,7 @@ class CategoryNewsController extends Controller
 
             $topicalNews=News::with('newsCategory','newsSubCategory')
                 ->orderBy('id','DESC')->where(['published_status'=>News::PUBLISHED])
-                ->where('topic','LIKE',"%{$topic}%")->simplePaginate(20);
+                ->where('topic','LIKE',"%{$topic}%")->simplePaginate(1);
 
             if ($request->ajax()){
 
@@ -178,7 +187,12 @@ class CategoryNewsController extends Controller
                         $image=asset($topic->feature_medium);
                         $categoryData=$topic->newsCategory->category_name;
                         $categoryLink=url($topic->newsCategory->link);
-                        $dateTime=\MyHelper::bn_date_time(date('h:i A, d M Y l'),strtotime($topic->published_date));
+
+                         $bongabda = new \EasyBanglaDate\Types\BnDateTime($topic->published_date);
+                        $dateTime=$bongabda->getDateTime()->format('h:i a, l jS F Y ');
+
+
+                        //$dateTime=\MyHelper::bn_date_time(date('h:i A, d M Y l'),strtotime($topic->published_date));
 
                         if (strlen($topic->meta_description) != strlen(utf8_decode($topic->meta_description)))
                         {
@@ -220,6 +234,8 @@ class CategoryNewsController extends Controller
                 return $result;
 
             }
+
+            \MyHelper::countVisitor($request);
 
             return view('client.topical-news',compact('topicalNews','topic'));
 
