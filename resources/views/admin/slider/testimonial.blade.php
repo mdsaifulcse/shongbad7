@@ -274,7 +274,7 @@
                         @empty
 
                             <tr>
-                                <td colspan="8" class="text-center"> No Menu Data ! </td>
+                                <td colspan="8" class="text-center"> No Data Found! </td>
                             </tr>
                         @endforelse
 

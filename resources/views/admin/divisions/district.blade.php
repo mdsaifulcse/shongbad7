@@ -64,6 +64,20 @@
                                 </div>
                             </div>
 
+                            <div class="form-group row {{ $errors->has('link') ? 'has-error' : '' }}">
+                                {{Form::label('link', 'District Link', array('class' => 'col-md-2 control-label'))}}
+                                <div class="col-md-8">
+                                    {{Form::text('link',$value=old('link'),array('class'=>'form-control','placeholder'=>'Link Optional'))}}
+
+                                    <input type="hidden" name="division_id" value="{{$division->id}}">
+
+                                    @if ($errors->has('link'))
+                                        <span class="help-block">
+                        				    <strong class="text-danger">{{ $errors->first('link') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
 
 
                             <div class="form-group row {{ $errors->has('icon_photo') ? 'has-error' : '' }}">
@@ -157,8 +171,8 @@
                                                 </button>
                                             </div>
 
+                                            {!! Form::open(array('route' => ['districts.update', $data->id],'method'=>'PUT','class'=>'kt-form kt-form--label-right','files'=>true)) !!}
                                             <div class="modal-body">
-                                                {!! Form::open(array('route' => ['districts.update', $data->id],'method'=>'PUT','class'=>'kt-form kt-form--label-right','files'=>true)) !!}
 
 
                                                 <div class="form-group row {{ $errors->has('name') ? 'has-error' : '' }}">
@@ -179,6 +193,18 @@
                                                     </div>
                                                 </div>
 
+                                                <div class="form-group row {{ $errors->has('link') ? 'has-error' : '' }}">
+                                                    {{Form::label('link', 'District Link', array('class' => 'col-md-2 control-label'))}}
+                                                    <div class="col-md-8">
+                                                        {{Form::text('link',$value=$data->link,array('class'=>'form-control','placeholder'=>'District Link','required'))}}
+
+                                                        @if ($errors->has('link'))
+                                                            <span class="help-block">
+                                                                    <strong class="text-danger">{{ $errors->first('link') }}</strong>
+                                                            </span>
+                                                        @endif
+                                                    </div>
+                                                </div>
 
                                                 <div class="form-group row {{ $errors->has('icon_photo') ? 'has-error' : '' }}">
                                                     {{Form::label('icon_photo', 'Icon', array('class' => 'col-md-2 control-label'))}}
@@ -213,24 +239,15 @@
                                                         <span>Category Serial</span>
                                                     </div>
                                                 </div>
-
-
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                    </div>
-                                                    <div class="col-10">
-                                                        <button type="submit" class="btn btn-success">Submit</button>
-                                                    </div>
-                                                </div>
-
-
-
-                                                {!! Form::close() !!}
                                             </div>
+
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-brand pull-left" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-success">Submit</button>
+
+                                                <button type="button" class="btn btn-brand pull-right" data-dismiss="modal">Close</button>
                                                 <!-- <button type="button" class="btn btn-secondary">Submit</button> -->
                                             </div>
+                                            {!! Form::close() !!}
                                         </div>
                                     </div>
                                 </div>

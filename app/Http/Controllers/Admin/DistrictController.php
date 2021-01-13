@@ -39,17 +39,20 @@ class DistrictController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        $link=str_replace(' , ', '-', $input['district']);
-        $link=str_replace(', ', '-', $link);
-        $link=str_replace(' ,', '-', $link);
-        $link=str_replace(',', '-', $link);
-        $link=str_replace('/', '-', $link);
-        $link=rtrim($link,' ');
-        $link=str_replace(' ', '-', $link);
-        $link=str_replace('.', '', $link);
-        $link=substr($link,0,50);
-        $link=strtolower($link);
-        $input['link']=$link;
+        if (is_null($request->link))
+        {
+        $link = str_replace(' , ', '-', $input['district']);
+        $link = str_replace(', ', '-', $link);
+        $link = str_replace(' ,', '-', $link);
+        $link = str_replace(',', '-', $link);
+        $link = str_replace('/', '-', $link);
+        $link = rtrim($link, ' ');
+        $link = str_replace(' ', '-', $link);
+        $link = str_replace('.', '', $link);
+        $link = substr($link, 0, 50);
+        $link = strtolower($link);
+        $input['link'] = $link;
+        }
 
 
         $validator = Validator::make($input, [
@@ -64,7 +67,8 @@ class DistrictController extends Controller
 
         try{
 
-            if ($request->hasFile('icon_photo')) {
+            if ($request->hasFile('icon_photo'))
+            {
                 $input['icon_photo']=\MyHelper::photoUpload($request->file('icon_photo'),'images/sub-categories/',120,100);
             }
 
@@ -122,23 +126,13 @@ class DistrictController extends Controller
     public function update(Request $request, $id)
     {
         $input = $request->all();
-        $link=str_replace(' , ', '-', $input['district']);
-        $link=str_replace(', ', '-', $link);
-        $link=str_replace(' ,', '-', $link);
-        $link=str_replace(',', '-', $link);
-        $link=str_replace('/', '-', $link);
-        $link=rtrim($link,' ');
-        $link=str_replace(' ', '-', $link);
-        $link=str_replace('.', '', $link);
-        $link=substr($link,0,50);
-        $link=strtolower($link);
-        $input['link']=$link;
 
         $validator = Validator::make($input, [
             'district' => 'required',
             'link' => "required|unique:districts,link,$id",
         ]);
-        if ($validator->fails()) {
+        if ($validator->fails())
+        {
             return redirect()->back()->with('error','Something Error found.');
         }
         $data=District::findOrFail($id);

@@ -41,17 +41,20 @@ class DivisionController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        $link=str_replace(' , ', '-', $input['division']);
-        $link=str_replace(', ', '-', $link);
-        $link=str_replace(' ,', '-', $link);
-        $link=str_replace(',', '-', $link);
-        $link=str_replace('/', '-', $link);
-        $link=rtrim($link,' ');
-        $link=str_replace(' ', '-', $link);
-        $link=str_replace('.', '', $link);
-        $link=substr($link,0,50);
-        $link=strtolower($link);
-        $input['link']=$link;
+        if (is_null($request->link))
+        {
+            $link = str_replace(' , ', '-', $input['division']);
+            $link = str_replace(', ', '-', $link);
+            $link = str_replace(' ,', '-', $link);
+            $link = str_replace(',', '-', $link);
+            $link = str_replace('/', '-', $link);
+            $link = rtrim($link, ' ');
+            $link = str_replace(' ', '-', $link);
+            $link = str_replace('.', '', $link);
+            $link = substr($link, 0, 50);
+            $link = strtolower($link);
+            $input['link'] = $link;
+        }
 
         $validator = Validator::make($input, [
             'division' => 'required',
@@ -115,17 +118,6 @@ class DivisionController extends Controller
     public function update(Request $request, $id)
     {
         $input = $request->all();
-        $link=str_replace(' , ', '-', $input['division']);
-        $link=str_replace(', ', '-', $link);
-        $link=str_replace(' ,', '-', $link);
-        $link=str_replace(',', '-', $link);
-        $link=str_replace('/', '-', $link);
-        $link=rtrim($link,' ');
-        $link=str_replace(' ', '-', $link);
-        $link=str_replace('.', '', $link);
-        $link=substr($link,0,40);
-        $link=strtolower($link);
-        $input['link']=$link;
 
         $data=Division::findOrFail($id);
 

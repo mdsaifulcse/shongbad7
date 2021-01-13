@@ -69,6 +69,21 @@
                                  </div>
                              </div>
 
+
+                             <div class="form-group row {{ $errors->has('link') ? 'has-error' : '' }}">
+                                 {{Form::label('URL', 'URL', array('class' => 'col-md-2 control-label'))}}
+                                 <div class="col-md-8">
+                                     {{Form::text('link',$value=old('link'),array('class'=>'form-control','placeholder'=>'Optional'))}}
+
+                                     @if ($errors->has('link'))
+                                         <span class="help-block">
+                                            <strong class="text-danger">{{ $errors->first('link') }}</strong>
+                                        </span>
+                                     @endif
+                                 </div>
+
+                             </div>
+
                              <div class="form-group row">
                                  {{Form::label('short_description', 'Short Description', array('class' => 'col-md-2 control-label'))}}
                                  <div class="col-md-10">
@@ -87,8 +102,8 @@
                                      <input type="file" id="file" style="display: none;" name="icon_photo" onchange="photoLoad(this, this.id)" />
                                      @if ($errors->has('icon_photo'))
                                          <span class="help-block" style="display:block">
-                            <strong>{{ $errors->first('icon_photo') }}</strong>
-                        </span>
+                                            <strong>{{ $errors->first('icon_photo') }}</strong>
+                                        </span>
                                      @endif
                                  </div>
                                  <div class="col-md-1">

@@ -372,7 +372,7 @@
 
                     <div class="row">
 
-                        <div class="col-sm-6">
+                        <div class="col-sm-5">
                             <?php
                             if (isset($technology->newsSubCategory))
                             {
@@ -398,7 +398,7 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-6">
+                        <div class="col-sm-7">
                             @forelse($technologies->skip(1)->take(4) as $technology)
                                 <?php
                                 if (isset($technology->newsSubCategory))

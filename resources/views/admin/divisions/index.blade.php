@@ -24,12 +24,6 @@
 @section('content')
 
     <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
-
-        <!-- begin:: Content Head -->
-
-
-        <!-- end:: Content Head -->
-
         <!-- begin:: Content -->
         <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
 
@@ -59,6 +53,20 @@
                                 </div>
                                 <div class="col-md-2">
                                     {{Form::select('status', [\App\Models\Division::ACTIVE  => \App\Models\Division::ACTIVE , \App\Models\Division::INACTIVE  => \App\Models\Division::INACTIVE],[], ['class' => 'form-control'])}}
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row {{ $errors->has('link') ? 'has-error' : '' }}">
+                                {{Form::label('link', 'States Link', array('class' => 'col-md-2 control-label'))}}
+                                <div class="col-md-8">
+                                    {{Form::text('link',$value=old('link'),array('class'=>'form-control','placeholder'=>'Optional'))}}
+
+                                    @if ($errors->has('link'))
+                                        <span class="help-block">
+                        				    <strong class="text-danger">{{ $errors->first('link') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
 
@@ -174,6 +182,19 @@
 
                                                     <div class="col-md-2">
                                                         {{Form::select('status', [\App\Models\Division::ACTIVE  => \App\Models\Division::ACTIVE , \App\Models\Division::INACTIVE  => \App\Models\Division::INACTIVE],$data->status, ['class' => 'form-control'])}}
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group row {{ $errors->has('name') ? 'has-error' : '' }}">
+                                                    {{Form::label('division', 'States Link', array('class' => 'col-md-2 control-label'))}}
+                                                    <div class="col-md-8">
+                                                        {{Form::text('link',$value=$data->link,array('class'=>'form-control','placeholder'=>'States Link','required'))}}
+                                                        @if ($errors->has('division'))
+                                                            <span class="help-block">
+                                                                <strong class="text-danger">{{ $errors->first('division') }}</strong>
+                                                            </span>
+                                                        @endif
                                                     </div>
                                                 </div>
 

@@ -41,18 +41,20 @@ class SubCategoryController extends Controller
     {
 
         $input = $request->all();
-        $link=str_replace(' , ', '-', $input['sub_category_name']);
-        $link=str_replace(', ', '-', $link);
-        $link=str_replace(' ,', '-', $link);
-        $link=str_replace(',', '-', $link);
-        $link=str_replace('/', '-', $link);
-        $link=rtrim($link,' ');
-        $link=str_replace(' ', '-', $link);
-        $link=str_replace('.', '', $link);
-        $link=substr($link,0,50);
-        $link=strtolower($link);
-        $input['link']=$link;
-
+        if (is_null($request->link))
+        {
+            $link = str_replace(' , ', '-', $input['sub_category_name']);
+            $link = str_replace(', ', '-', $link);
+            $link = str_replace(' ,', '-', $link);
+            $link = str_replace(',', '-', $link);
+            $link = str_replace('/', '-', $link);
+            $link = rtrim($link, ' ');
+            $link = str_replace(' ', '-', $link);
+            $link = str_replace('.', '', $link);
+            $link = substr($link, 0, 50);
+            $link = strtolower($link);
+            $input['link'] = $link;
+        }
 
         $validator = Validator::make($input, [
             'sub_category_name' => 'required',
@@ -125,17 +127,6 @@ class SubCategoryController extends Controller
     {
 
         $input = $request->all();
-//        $link=str_replace(' , ', '-', $input['sub_category_name']);
-//        $link=str_replace(', ', '-', $link);
-//        $link=str_replace(' ,', '-', $link);
-//        $link=str_replace(',', '-', $link);
-//        $link=str_replace('/', '-', $link);
-//        $link=rtrim($link,' ');
-//        $link=str_replace(' ', '-', $link);
-//        $link=str_replace('.', '', $link);
-//        $link=substr($link,0,50);
-//        $link=strtolower($link);
-//        $input['link']=$link;
 
         $validator = Validator::make($input, [
             'sub_category_name' => 'required',

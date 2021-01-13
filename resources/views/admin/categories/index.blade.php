@@ -66,6 +66,20 @@
                                  </div>
                              </div>
 
+                             <div class="form-group row {{ $errors->has('url') ? 'has-error' : '' }}">
+                                 {{Form::label('URL', 'Category Url', array('class' => 'col-md-2 control-label'))}}
+
+                                 <div class="col-md-8">
+                                     {{Form::text('link',$value=old('link'),array('class'=>'form-control','placeholder'=>'Optional'))}}
+
+                                     @if ($errors->has('link'))
+                                         <span class="help-block">
+                        				    <strong class="text-danger">{{ $errors->first('link') }}</strong>
+                                        </span>
+                                     @endif
+                                 </div>
+                             </div>
+
                              <div class="form-group row">
                                  {{Form::label('short_description', 'Short Description', array('class' => 'col-md-2 control-label'))}}
                                  <div class="col-md-10">
