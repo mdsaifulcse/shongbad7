@@ -140,12 +140,6 @@
     </div>
 </div>
 
-<!-- end:: Page -->
-
-<!-- begin::Quick Panel -->
-
-<!-- end::Quick Panel -->
-
 <!-- begin::Scrolltop -->
 <div id="kt_scrolltop" class="kt-scrolltop">
     <i class="fa fa-arrow-up"></i>
@@ -162,36 +156,6 @@
 
 </ul>
 
-<!-- end::Sticky Toolbar -->
-
-<!-- begin::Demo Panel -->
-
-<!-- end::Demo Panel -->
-
-
-<!-- begin::Global Config(global config for global JS sciprts) -->
-<script>
-    var KTAppOptions = {
-        "colors": {
-            "state": {
-                "brand": "#5d78ff",
-                "dark": "#282a3c",
-                "light": "#ffffff",
-                "primary": "#5867dd",
-                "success": "#34bfa3",
-                "info": "#36a3f7",
-                "warning": "#ffb822",
-                "danger": "#fd3995"
-            },
-            "base": {
-                "label": ["#c5cbe3", "#a1a8c3", "#3d4465", "#3e4466"],
-                "shape": ["#f0f3ff", "#d9dffa", "#afb4d4", "#646c9a"]
-            }
-        }
-    };
-</script>
-
-<!-- end::Global Config -->
 
 <!--begin:: Global Mandatory Vendors -->
 <script src="{{asset('/')}}/assets/vendors/general/jquery/dist/jquery.js" type="text/javascript"></script>
@@ -201,37 +165,21 @@
 <script src="{{asset('/')}}/assets/vendors/general/perfect-scrollbar/dist/perfect-scrollbar.js" type="text/javascript"></script>
 <script src="{{asset('/')}}/assets/vendors/general/sticky-js/dist/sticky.min.js" type="text/javascript"></script>
 
+<script src="{{asset('/')}}/assets/js/demo1/scripts.bundle.js" type="text/javascript"></script>
 <!--end:: Global Mandatory Vendors -->
 
+
 <script src="{{asset('/')}}/assets/vendors/custom/vendors/bootstrap-multiselectsplitter/bootstrap-multiselectsplitter.min.js" type="text/javascript"></script>
+
 <script src="{{asset('/')}}/assets/vendors/general/select2/dist/js/select2.full.js" type="text/javascript"></script>
 
+<script src="{{asset('/')}}/assets/js/demo1/pages/crud/forms/widgets/select2.js" type="text/javascript"></script>
 
-
-
-
-
-<script src="{{asset('/')}}/assets/vendors/general/chart.js/dist/Chart.bundle.js" type="text/javascript"></script>
 <script src="{{asset('/')}}/assets/vendors/general/sweetalert2/dist/sweetalert2.min.js" type="text/javascript"></script>
 
 <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
 <!--end:: Global Optional Vendors -->
-
-<!--begin::Global Theme Bundle(used by all pages) -->
-<script src="{{asset('/')}}/assets/js/demo1/scripts.bundle.js" type="text/javascript"></script>
-
-<!--end::Global Theme Bundle -->
-
-<script src="//maps.google.com/maps/api/js?key=AIzaSyBTGnKT7dt597vo9QgeQ7BFhvSRP4eiMSM" type="text/javascript"></script>
-<script src="{{asset('/')}}/assets/vendors/custom/gmaps/gmaps.js" type="text/javascript"></script>
-
-<!--end::Page Vendors -->
-
-<!--begin::Page Scripts(used by this page) -->
-<script src="{{asset('/')}}/assets/js/demo1/pages/dashboard.js" type="text/javascript"></script>
-<script src="{{asset('/')}}/assets/js/demo1/pages/crud/forms/widgets/select2.js" type="text/javascript"></script>
-
 
 @if(Session::has('success'))
     <script type="text/javascript">
@@ -272,10 +220,8 @@
         })
         }
 
-      
-
       //  Student Activation Warning -------------
-      function activationConfirm(id){
+    function activationConfirm(id){
           swal.fire({
               title: 'Are you sure?',
               text: "You won't be able to revert this!",
