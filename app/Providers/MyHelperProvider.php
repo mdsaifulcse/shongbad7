@@ -266,19 +266,14 @@ class MyHelperProvider extends ServiceProvider
         $today=date('y-m-d');
         $visit=VisitorTrack::where(['visit_url'=>$visitUrl,'ip_address'=>$clientIp,'visit_date'=>$today])->first();
 
-        $authUser='NULL';
-
-        if(!\Auth::guest())
-        {
-            $authUser=\Auth::user()->id;
-        }
+    
 
         if (!empty($visit))
         {
             $totalVisit=$visit->total_visit;
             $visit->update(['total_visit'=>$totalVisit+1]);
         }else{
-            VisitorTrack::create(['visit_url'=>$visitUrl,'ip_address'=>$clientIp,'visit_date'=>$today,'total_visit'=>1,'user_id'=>$authUser]);
+            VisitorTrack::create(['visit_url'=>$visitUrl,'ip_address'=>$clientIp,'visit_date'=>$today,'total_visit'=>1]);
         }
     }
 

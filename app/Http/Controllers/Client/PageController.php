@@ -59,7 +59,7 @@ class PageController extends Controller
         }
 
 
-        Mail::to('isayed.usa@gmail.com')->send(new \App\Mail\UserFeedBack($feedBackData));
+        Mail::to('sangbad7@gmail.com')->send(new \App\Mail\UserFeedBack($feedBackData));
 
         if($bug==0){
             return redirect()->back()->with('success','Your Message Successfully Send');

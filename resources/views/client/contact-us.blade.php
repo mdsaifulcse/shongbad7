@@ -34,11 +34,11 @@
                                     <span>Address: </span>
                                     {{$setting->address1}}
                                 </li>
-                                <li>Phone: <a href="tel:+8802-0000000"><strong>{{$setting->mobile_no1}}</strong></a></li>
-                                <li>Mobile: <a href="fax:+8802-0000000"><strong>{{$setting->mobile_no2}}</strong></a></li>
-                                <li>Email: <a href="cdn-cgi/l/email-protection.htm#8801700000000"><strong><span class="__cf_email__" data-cfemail="8801700000000">[{{$setting->email1}}]</span></strong>
-                                    </a>,
-                                    <a href="cdn-cgi/l/email-protection.htm#8801700000000"><strong><span class="__cf_email__" data-cfemail="8801700000000">[{{$setting->email2}}]</span></strong></a></li>
+                                <li>Phone: <a href="tel:+1{{$setting->mobile_no1}}"><strong>{{$setting->mobile_no1}}</strong></a></li>
+                                <li>Mobile: <a href="fax:+1{{$setting->mobile_no2}}"><strong>{{$setting->mobile_no2}}</strong></a></li>
+                                <li>Email: <a href="cdn-cgi/l/email-protection.htm#8801700000000"><strong><span class="__cf_email__" data-cfemail="8801700000000">{{$setting->email1}}</span></strong>
+                                    </a>
+                                    <a href="cdn-cgi/l/email-protection.htm#8801700000000"><strong><span class="__cf_email__" data-cfemail="8801700000000">{{','.$setting->email2}}</span></strong></a></li>
 
                                 <li>Please read our <a href="{{url('/page/privacy-policy')}}" class="text-black"><strong>privacy policy</strong></a></li>
                             </ul>
