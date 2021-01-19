@@ -6,6 +6,12 @@
 
 @section('style')
 
+    <style>
+        .custom-font{
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+        }
+    </style>
+
     @endsection
 
 @section('content')
@@ -53,7 +59,7 @@
 
                                     <div class="row">
                                         <div class="col-md-12 ">
-                                            <input type="text" name="name" value="{{old('name')}}" size="100" class="form-control" placeholder="Name">
+                                            <input type="text" name="name" value="{{old('name')}}" size="100" class="form-control custom-font" placeholder="Name">
                                             @if ($errors->has('name'))
                                                 <span class="help-block">
                                                     <strong class="text-danger">{{ $errors->first('name') }}</strong>
@@ -66,7 +72,7 @@
                                     <div class="row">
 
                                         <div class="col-md-6 ">
-                                            <input type="text" name="mobile" value="{{old('mobile')}}" size="20" class="form-control" placeholder="Mobile no." required="">
+                                            <input type="text" name="mobile" value="{{old('mobile')}}" size="20" class="form-control custom-font" placeholder="Mobile no." required="">
                                             @if ($errors->has('mobile'))
                                                 <span class="help-block">
                                                     <strong class="text-danger">{{ $errors->first('mobile') }}</strong>
@@ -75,7 +81,7 @@
                                         </div>
 
                                         <div class="col-md-6 ">
-                                                <input type="email" name="email" value="{{old('email')}}" size="100" required="" class="form-control" aria-required="true" aria-invalid="false" placeholder="Email">
+                                                <input type="email" name="email" value="{{old('email')}}" size="100" required="" class="form-control custom-font" aria-required="true" aria-invalid="false" placeholder="Email">
 
                                             @if ($errors->has('email'))
                                                 <span class="help-block">
@@ -88,7 +94,7 @@
                                         <br>
                                     <div class="row">
                                         <div class="col-md-12 ">
-                                            <textarea name="message" cols="40" rows="5" class="form-control" placeholder="Message" required>{{old('message')}}</textarea>
+                                            <textarea name="message" cols="40" rows="5" class="form-control custom-font" placeholder="Message" required >{{old('message')}}</textarea>
                                             @if ($errors->has('message'))
                                                 <span class="help-block">
                                                     <strong class="text-danger">{{ $errors->first('message') }}</strong>
