@@ -155,8 +155,8 @@ Create New News
 
 															@if ($errors->has('feature_photo'))
 																<span class="help-block">
-                                                            <strong class="text-danger">{{ $errors->first('feature_photo') }}</strong>
-                                                    </span>
+																	<strong class="text-danger">{{ $errors->first('feature_photo') }}</strong>
+																</span>
 															@endif
 														</div>
 														<span class="text-danger text-center" style="display:none" id="fimageError">Feature Image is Required  </span>
@@ -356,7 +356,6 @@ Create New News
                 }
 
 
-
                 if($('#topicFieldUl li').length<2){
                     $('#errorPhoto').html('');
 
@@ -366,14 +365,9 @@ Create New News
                 }else {
                     $('#topicError').html('');
 				}
-
-
-
                 return;
             }
         }
-
-
 
 	</script>
 

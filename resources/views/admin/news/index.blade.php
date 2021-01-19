@@ -44,6 +44,7 @@
                     <th>Author</th>
                     <th>News On</th>
                     <th>Status</th>
+                    <th>More News</th>
                     <th >Action</th>
 
                 </tr>
@@ -60,6 +61,7 @@
 
         <!-- end:: Content -->
 @endsection
+
 
 @section('script')
 
@@ -78,6 +80,7 @@
                 { data: 'name',name:'users.name'},
                 { data: 'news on',name:'news.published_status'},
                 { data: 'published_status',name:'news.published_status'},
+                { data: 'More News'},
                 { data: 'action'},
             ]
         });

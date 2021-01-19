@@ -95,7 +95,7 @@
                                             <div class="meta hidden-xs">
                                             <span class="pull-left tags"><i class="fa fa-tags"></i>
                                                 <a href="{{url('/topic/'.explode(',', $data->topic)[0])}}">{{explode(',', $data->topic)[0]}}</a></span>
-                                                <a href="{{url($coverData->newsCategory->link)}}" class="pull-right">{{$data->newsCategory->category_name}}</a>
+                                                <a href="{{url($data->newsCategory->link)}}" class="pull-right">{{$data->newsCategory->category_name}}</a>
                                             </div>
                                         </div>
 

@@ -44,6 +44,8 @@ Route::group(['middleware' => ['auth'],'namespace'=>'Admin','prefix' => 'admin']
     Route::resource('news','NewsController')->middleware('permission:news-list|news-create|news-edit|news-delete');
     Route::get('/get-news','NewsController@getNewData')->middleware('permission:news-list|news-create|news-edit|news-delete');
 
+    Route::resource('more-news-photo','NewsDetailPhotoController')->middleware('permission:news-list|news-create|news-edit|news-delete');
+
 
     Route::resource('biggapons','BiggaponController')->middleware('permission:ads-list|ads-create|ads-edit|ads-delete');
     Route::resource('client','OurClientController')->middleware('permission:client');

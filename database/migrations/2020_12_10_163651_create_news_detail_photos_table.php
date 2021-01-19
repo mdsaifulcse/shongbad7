@@ -17,7 +17,7 @@ class CreateNewsDetailPhotosTable extends Migration
             $table->id();
             $table->unsignedBigInteger('news_id',false,20);
             $table->string('photo');
-            $table->string('caption');
+            $table->string('caption')->nullable();
             $table->text('description');
             $table->string('status')->default(\App\Models\NewsDetailPhoto::ACTIVE);
 

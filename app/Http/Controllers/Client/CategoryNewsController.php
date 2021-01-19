@@ -50,17 +50,14 @@ class CategoryNewsController extends Controller
         {
             News::findOrFail($newsId);
 
-            $news=$categoryNews->where('id',$newsId)->first();
-
+            $news=$categoryNews->with('moreNewsPhotos')->where('id',$newsId)->first();
 
             $latestCatNews=$allLatestNews->categoryNews('newsCategory','categories','link',$category)
                 ->where('id','!=',$newsId)->take(5)->get();
 
-
             $latestNews=News::with('newsCategory','newsSubCategory')
                 ->orderBy('id','DESC')->where('published_status',News::PUBLISHED)
                 ->where('id','!=',$newsId)->take(4)->get();
-
 
             $categoryMostReadNews=$categoryMostReadNews->take(5)->get();
 

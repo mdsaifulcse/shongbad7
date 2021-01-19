@@ -21,7 +21,9 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{asset(\App\Models\Setting::first()->value('favicon'))}}" />
 
     <?php
-    if(stristr($_SERVER['HTTP_USER_AGENT'], "Mobile")){ // if mobile browser
+     $requestDevice=$_SERVER['HTTP_USER_AGENT'];
+
+    if(stristr("$requestDevice", "Mobile") || stristr("$requestDevice", "Tablet")){ // if mobile browser
     ?>
 
     <!-- for mobile menu start-->
@@ -68,6 +70,9 @@
                     <a id="topA" target="_blank" href="{{$topA->target_url}}" onfocus="ss('topA')" onmousedown="st('topA')"
                        onmouseover="ss('topA')" onclick="ha('topA')"><img src="{{asset($topA->image)}}"/> </a>
                 </div>
+
+                {{--<span>{{$_SERVER['HTTP_USER_AGENT']}}</span>--}}
+
             </div>
         </div>
     </div>
@@ -120,7 +125,9 @@
 <!-- for mobile menu -->
 
 <?php
-if(stristr($_SERVER['HTTP_USER_AGENT'], "Mobile")){ // if mobile browser
+$requestDevice=$_SERVER['HTTP_USER_AGENT'];
+
+if(stristr("$requestDevice", "Mobile") || stristr("$requestDevice", "Tablet")){ // if mobile browser
 ?>
 
 <script src="{{asset('/client/assets')}}/mobile/assets/js/custom_2.js"></script>

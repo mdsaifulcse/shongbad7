@@ -30,9 +30,6 @@
             <li class="{{$dropDown}}">
 
                 <a href="{{URL::to($menuData->link)}}">{{$menuData->category_name}} </a>
-
-
-
                 <i class="arrowbottom" onclick="openSubMenu({{$key}});"></i>
 
                 <div class="submenu" id="{{$key}}">
@@ -45,17 +42,22 @@
                         <li><a href="{{URL::to('/'.$menuData->link.'/'.$subMenuData->link)}}">{{$subMenuData->sub_category_name}}</a></li>
 
                         @empty
-
                         @endforelse
                     </ul>
                 </div>
-
             </li>
             @empty
 
                 <li><a href="javascript:;"> কোন মেনু ডেটা পাওয়া যায়নি! !</a></li>
 
             @endforelse
+
+            @forelse($allMenus as $mobileMenuData)
+                <li><a href="{{URL::to('/'.$mobileMenuData->link)}}">{{$mobileMenuData->category_name}}</a></li>
+
+            @empty
+            @endforelse
+
 
         </ul>
     </div>

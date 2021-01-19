@@ -39,6 +39,11 @@ class News extends Model
         return $this->belongsTo(User::class,'news_author_id','id');
     }
 
+    public function moreNewsPhotos()
+    {
+        return $this->hasMany(NewsDetailPhoto::class,'news_id','id');
+    }
+
     public function scopeCategoryNews($query, $relation,$table,$column,$columnValue, $orderBy=null)
     {
         $query->whereHas($relation,function ($q) use ($table,$column,$columnValue){

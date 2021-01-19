@@ -44,6 +44,11 @@ class NewsController extends Controller
                 <span class="btn btn-success btn-xs">Cover News </span>
                 @endif
                 ')
+            ->addColumn('More News','
+                @can(\'news-edit\')
+                <a href="{{route(\'more-news-photo.show\',$id)}}" target="_blank" title="Add More Photo & News" class="btn btn-warning btn-sm"><i class="la la-plus"></i> </a>
+                @endcan
+                ')
 
 
             ->addColumn('action','
@@ -60,7 +65,7 @@ class NewsController extends Controller
                 @endcan
             {!! Form::close() !!}
             ')
-            ->rawColumns(['news on','action'])
+            ->rawColumns(['news on','More News','action'])
             ->toJson();
 
     }

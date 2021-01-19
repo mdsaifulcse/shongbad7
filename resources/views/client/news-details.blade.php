@@ -107,7 +107,7 @@
                                 <div class="paddingTop10">
                                     <div class="featured-image">
 
-                                        <img src="{{asset('/client')}}/media/common/placeholder-bg.png" data-src="{{asset($news->feature_photo)}}" style="width:100%;" class="lazyload" alt="{{$news->title}}">
+                                        <img src="{{asset('/client')}}/media/common/placeholder-bg.png" data-src="{{asset($news->feature_photo)}}"  class="lazyload" alt="{{$news->title}}">
 
                                     </div>
                                 </div>
@@ -123,6 +123,21 @@
                                   <?php
                                     echo $news->description;
                                     ?>
+
+                                    @forelse($news->moreNewsPhotos as $moreNewsPhoto)
+                                        <div class="paddingTop10">
+                                            <div class="featured-image">
+                                                <img src="{{asset('/client')}}/media/common/placeholder-bg.png" data-src="{{asset($moreNewsPhoto->photo)}}" class="lazyload" alt="{{$news->title}}">
+                                            </div>
+                                        </div>
+
+                                        <?php
+                                        echo $moreNewsPhoto->description;
+                                        ?>
+                                        @empty
+
+                                        @endforelse
+
 
                                     <p><span style="color: #999999;"><em></em></span></p>
                                 </div>
