@@ -23,7 +23,7 @@
     <?php
      $requestDevice=$_SERVER['HTTP_USER_AGENT'];
 
-    if(stristr("$requestDevice", "Mobile") || stristr("$requestDevice", "Tablet")){ // if mobile browser
+    if(stristr("$requestDevice", "Mobile") || stristr("$requestDevice", "Tablet") || stristr("$requestDevice", "Tab")){ // if mobile browser
     ?>
 
     <!-- for mobile menu start-->
@@ -72,6 +72,10 @@
                 </div>
 
                 {{--<span>{{$_SERVER['HTTP_USER_AGENT']}}</span>--}}
+
+                {{--ftp: sangbad7.com--}}
+                {{--username: news7@sangbad7.com--}}
+                {{--Pass: [*xD*A5EK+&#--}}
 
             </div>
         </div>
@@ -127,7 +131,7 @@
 <?php
 $requestDevice=$_SERVER['HTTP_USER_AGENT'];
 
-if(stristr("$requestDevice", "Mobile") || stristr("$requestDevice", "Tablet")){ // if mobile browser
+if(stristr("$requestDevice", "Mobile") || stristr("$requestDevice", "Tablet") || stristr("$requestDevice", "Tab")){ // if mobile browser
 ?>
 
 <script src="{{asset('/client/assets')}}/mobile/assets/js/custom_2.js"></script>
