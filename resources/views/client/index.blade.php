@@ -102,10 +102,7 @@
                                     </div>
                                     @empty
 
-
-
                                     @endforelse
-
 
                                 </div><!-- end col-sm-4 -->
                             </div>
@@ -185,7 +182,7 @@
                                     <div class="tab-content">
                                         <div role="tabpanel" class="tab-pane fade in active" id="tab21">
                                             <ul class="media-list">
-                                                @forelse($allLatestNews->skip(1)->take(4) as $key=>$latestNews)
+                                                @forelse($allLatestNews as $key=>$latestNews)
                                                     <?php
                                                     if (isset($latestNews->newsSubCategory))
                                                     {
@@ -197,7 +194,7 @@
                                                     <li class="media">
                                                         <div class="media-left">
                                                     <span>
-                                                        {{MyHelper::bn_number($key)}}
+                                                        {{MyHelper::bn_number($key+1)}}
                                                     </span>
                                                             <a href="{{url($url)}}">
                                                                 <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset($latestNews->feature_small)}}" alt="{{$latestNews->title}}">
@@ -215,7 +212,7 @@
                                         </div>
                                         <div role="tabpanel" class="tab-pane" id="tab22">
                                             <ul class="media-list">
-                                                @forelse($mostReadNews->skip(1)->take(4) as $key=>$data)
+                                                @forelse($mostReadNews as $key=>$data)
                                                     <?php
                                                     if (isset($data->newsSubCategory))
                                                     {
@@ -227,7 +224,7 @@
                                                     <li class="media">
                                                         <div class="media-left">
                                                     <span>
-                                                        {{MyHelper::bn_number($key)}}
+                                                        {{MyHelper::bn_number($key+1)}}
                                                     </span>
                                                             <a href="{{url($url)}}">
                                                                 <img class="lazyload media-object" src="{{asset('/client')}}/media/common/placeholder-xs.png" data-src="{{asset($data->feature_small)}}" alt="{{$data->title}}">
