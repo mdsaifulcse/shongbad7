@@ -97,7 +97,7 @@ class DistrictController extends Controller
     {
         $allData=District::leftJoin('divisions','districts.division_id','=','divisions.id')
             ->select('districts.*','divisions.division','divisions.id as division_id')
-            ->where('districts.division_id',$id)->orderBy('districts.serial_num','DESC')->paginate(20);
+            ->where('districts.division_id',$id)->orderBy('districts.serial_num','DESC')->paginate(50);
 
         $division=Division::findOrFail($id);
         $max_serial=District::where('division_id',$id)->max('serial_num');
