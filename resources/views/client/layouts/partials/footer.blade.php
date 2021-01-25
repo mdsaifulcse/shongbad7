@@ -19,6 +19,7 @@
                         <abbr title="Email:"><i class="fa fa-envelope"></i> </abbr>
                         {{$setting->email1}},
                         {{$setting->email2}}<br>
+                            <span> <a href="http://sangbad7.com/">sangbad7.com</a> is a sister concern of Eastwest Technologies Inc. </span>
 </span>
                     </p>
                 </div>
